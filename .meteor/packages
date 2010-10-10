@@ -47,3 +47,4 @@ standard-minifier-js@1.1.8
 cfs:standard-packages
 cfs:filesystem
 utilities:avatar
+meteorhacks:aggregate
