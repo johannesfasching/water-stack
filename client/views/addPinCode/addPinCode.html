@@ -1,0 +1,43 @@
+<template name="addPinCode">
+    <div class="ui fluid center aligned basic fitted very padded container segment">
+        <h1>Lieber Ralley-Teilnehmer!</h1>
+
+        <p>
+
+        <div class="ui green form segment error">
+            <p>
+                Du hast bereits einen PIN-Code erhalten? Diesen findest du auf deinem Ticket.
+                Bitte gib die PIN deines Tickets hier ein:
+            </p>
+
+            <div class="ui huge action input focus">
+                <input id="pinCodeInput" type="text" placeholder="PIN">
+
+
+            </div>
+            <div id="pinError" class="ui hidden error message">
+                <i class="close icon"></i>
+
+                <div id="pinErrorMessage" class="header">
+                    Your user registration was successful.
+                </div>
+            </div>
+            <div>
+                <button id="addPinCodeSubmitButton" class="ui basic green submit button">Absenden</button>
+            </div>
+        </div>
+        </p>
+
+
+        <h1>Du hast bereits folgende PINs eingegeben</h1>
+
+        <div class="ui cards">
+            {{#each assignedPins}}
+                {{> pinCard}}
+            {{/each}}
+        </div>
+
+
+    </div>
+
+</template>

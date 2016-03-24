@@ -1,0 +1,35 @@
+<template name="pinCard">
+    <div class="card">
+        <div class="content">
+            <img class="right floated mini ui image"
+                 src="http://nevensuboticstiftung.de/cms/wp-content/themes/nss-theme/assets/images/design/logo-100-hygiene-s.png">
+
+            <div class="header">
+                Pin: {{pin.pin}}
+            </div>
+
+        </div>
+        <div class="extra content">
+            {{#if team.teamCode}}
+                <div class="header">
+                    <b>Team: </b>
+                </div>
+                {{team.title}}
+            {{else}}
+                <div>
+                    <p>
+                        Bist du Mitglied eines <b>Teams</b>?<br/> dann gib die PIN hier ein:
+                    </p>
+                </div>
+                <div class="ui action input focus">
+                    <input id="teamIDInput" type="text" placeholder="TeamID">
+                </div>
+                <div class="ui one buttons">
+                    <div id="addTeamCodeSubmitButton" class="addTeamCodeSubmitButton ui basic green button">Team
+                        eintragen
+                    </div>
+                </div>
+            {{/if}}
+        </div>
+    </div>
+</template>
