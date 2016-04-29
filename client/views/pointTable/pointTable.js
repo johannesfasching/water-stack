@@ -10,6 +10,7 @@ Template.pointTable.helpers({
     },
 
     reactPoints: function () {
+
         return {
             collection: db.Competition,
             rowsPerPage: 10,

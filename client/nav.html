@@ -3,12 +3,16 @@
         <div class="header item"><img alt="UserAccounts" width="25" height="25" src="/imgs/ua-logo.png"></div>
         <a class="{{isActiveRoute regex='addPinCode'}} item" href="{{pathFor 'addPinCode'}}">PIN</a>
         <a class="{{isActiveRoute regex='pointTable'}} item" href="{{pathFor 'pointTable'}}">pointTable</a>
+        <a class="{{isActiveRoute regex='profile'}} item" href="{{pathFor 'profile'}}">Profil</a>
+
 
         <!--<a class="{{isActiveRoute regex='addTeamCode'}} item" href="{{pathFor 'addTeamCode'}}">TEAM</a>-->
-        <a class="{{isActiveRoute regex='teamManager'}} item" href="{{pathFor 'teamManager'}}">TeamManager</a>
-        <a class="{{isActiveRoute regex='stationManager'}} item" href="{{pathFor 'stationManager'}}">StationsManager</a>
+        <!--<a class="{{isActiveRoute regex='teamManager'}} item" href="{{pathFor 'teamManager'}}">TeamManager</a>-->
+        <!--<a class="{{isActiveRoute regex='stationManager'}} item" href="{{pathFor 'stationManager'}}">StationsManager</a>-->
+
 
         <div class="right menu">
+            <a class="{{isActiveRoute regex='admin'}} item" href="{{pathFor 'admin'}}">Administration</a>
             {{> atNavButton}}
         </div>
     </div>

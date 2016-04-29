@@ -15,6 +15,11 @@
     }
   ],
 
+  "setupNode": true,
+
+
+  "nodeVersion": "4.2.1",
+
   // Install MongoDB on the server. Does not destroy the local MongoDB on future setups
   "setupMongo": true,
 
