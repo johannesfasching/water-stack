@@ -46,5 +46,4 @@ standard-minifier-css
 standard-minifier-js
 cfs:standard-packages
 cfs:filesystem
-cfs:graphicsmagick
 utilities:avatar
