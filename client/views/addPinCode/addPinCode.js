@@ -52,15 +52,39 @@ Template.addPinCode.helpers({
         pin.forEach(function(item) {
             console.log(item)
             var team = {}
+            var teamMembersAtPIN = {}
+            var teamMembers = []
+
+
             if(item.teamCode!=undefined && item.teamCode!="") {
                 team = db.Team.findOne({teamCode:item.teamCode});
+
+                var teamMembersAtPIN = db.Pin.find({teamCode:item.teamCode}).fetch();
+                teamMembersAtPIN.forEach(function teamMember(teamMemb) {
+                    var user = Meteor.users.findOne({_id:teamMemb.userId});
+                    teamMembers.push(user);
+                });
             }
-            result.push({pin:item, team:team })
+            result.push({pin:item, team:team, teamMembers:teamMembers })
         })
 
         console.log("assignedPins",result)
 
         return result
+    },
+
+    assignedTeamMembers: function(teamCode) {
+
+        pin.forEach(function(item) {
+            console.log(item)
+            var team = {}
+            if(item.teamCode!=undefined && item.teamCode!="") {
+                team = db.Team.findOne({teamCode:item.teamCode});
+            }
+            result.push({pin:item, team:team })
+        })
+        console.log()
+
     }
 
 

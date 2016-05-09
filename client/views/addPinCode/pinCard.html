@@ -15,6 +15,12 @@
                     <b>Team: </b>
                 </div>
                 {{team.title}}
+                <div>
+                    <b>TeamMembers: </b>
+                    {{#each teamMembers}}
+                        <li>{{_id}}</li>
+                    {{/each}}
+                </div>
             {{else}}
                 <div>
                     <p>

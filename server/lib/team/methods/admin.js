@@ -25,7 +25,7 @@ Meteor.methods({
                 console.log(result)
                 if(result == undefined) {
                     console.log(result)
-                    db.Team.insert({teamCode:t}, { selector: { type: 'admin' } })
+                    db.Team.insert({title:"Team "+t, teamCode:t}, { selector: { type: 'admin' } })
                 }
                 else {
                     console.log(t,"already existing")

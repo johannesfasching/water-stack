@@ -7,8 +7,7 @@
         </p>
     </form>
 
-    {{#autoForm id="UserProfileEdit" collection="Meteor.users"  doc=currentUser type="update"}}
-
+    {{#autoForm id="UserProfileEdit" collection="Meteor.users"  doc=currentUser type="update" resetOnSuccess=false}}
         {{> afQuickField name="profile.userName"}}
         {{> afQuickField name="profile.realName"}}
         {{> afQuickField name="profile.age"}}
@@ -18,11 +17,6 @@
                 <button type="submit" class="btn btn-primary" disabled="{{disableButtons}}">Ok</button>
             </div>
         {{/unless}}
-
-
-
-
-
     {{/autoForm}}
 
 

@@ -21,8 +21,18 @@ Template.profile.events({
     }
 });
 
+Template.profile.doc = function () {
+    return Meteor.user();
+};
+
 Template.imageView.helpers({
     profileImage: function () {
         return getImageUrl();
     }
 });
+
+Template.profile.rendered = function () {
+    $("[name='profile.age']").val(Meteor.user().profile.age);
+    $("[name='profile.sex']").val(Meteor.user().profile.sex);
+}
+
