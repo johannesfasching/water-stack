@@ -1,0 +1,19 @@
+<template name="adminCompetition">
+    {{#autoForm id="adminCompetition" collection="db.Competition" type="update" doc=getData  resetOnSuccess=false}}
+        {{> afQuickField name="pin"}}
+        {{> afQuickField name="stationId"}}
+        {{> afQuickField name="timeStarted"}}
+        {{> afQuickField name="timeEnded"}}
+        {{> afQuickField name="questionPoints"}}
+        {{> afQuickField name="gamePoints"}}
+        {{> afQuickField name="timePoints"}}
+
+        {{#unless autoSaveMode}}
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary" disabled="{{disableButtons}}">Ok</button>
+            </div>
+        {{/unless}}
+    {{/autoForm}}
+
+
+</template>

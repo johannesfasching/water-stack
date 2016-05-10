@@ -31,18 +31,33 @@ a) Wir inkludieren das direkt in die Meteor-App (über Meteor's Websockets)
 b) Es wird eine standalone-Seite und wir benutzen RESTful API (get,post..) 
 
 ## Station API
-Für Competition ist testweise eine API implementiert.
+Für den Upload von Competitions ist eine reaktive API implementiert.
+Folgende Daten sind dabei mindestens notwendig:
+    postData.pin && postData.stationId && postData.timeStarted && postData.timeEnded && postData.gamePoints
+
 Url: http://46.101.137.33/api/addCompetition
 Methode: post
-Body (raw, text): 
-
-  ```{
-      "pin":"p1",
-      "stationId":"station1",
-      "timeStarted":"Wed Mar 23 2016 20:22:15 GMT+0100 (CET)",
-      "timeEnded":"Wed Mar 23 2016 21:22:15 GMT+0100 (CET)",
-      "gamePoints":100,
-      "timePoints":5
-  }```
+Body (raw, text):
 
 
+{
+    "stationId":"station1",
+    "groupId":"t1",
+    "pin":"p1",
+    "gamePoints":1000,
+    "questionPoints": [
+        10,
+        20,
+        30,
+        50,
+        80,
+        130,
+        210,
+        340,
+        550,
+        890
+    ],
+    "timePoints":5,
+    "timeStarted":"Wed Mar 23 2016 20:22:15 GMT+0100 (CET)",
+    "timeEnded":"Wed Mar 23 2016 21:22:15 GMT+0100 (CET)"
+}
