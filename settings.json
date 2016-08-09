@@ -1,5 +1,7 @@
 {
-  "public": {
-
-  }
+	"galaxy.meteor.com": {
+		"env": {
+		  "MONGO_URL": "mongodb://waterstack:96321go@ds035693.mlab.com:35693/waterstack"
+		}
+	}
 }

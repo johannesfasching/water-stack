@@ -7,7 +7,6 @@ HTTP.methods({
     '/api/startTeam': {
         post: function (data) {
             console.log("data",JSON.stringify(data))
-
             return ("data "+JSON.stringify(data))
         }
     },
@@ -61,6 +60,58 @@ HTTP.methods({
             }
 
         }
+    },
+    '/api/station': {
+        post: function (data) {
+            var postData = JSON.parse(data);
+            console.log("data", postData)
+            if(!postData.stationId)
+                return "Error: no stationId provided"
+            var result = db.Competition23.find({
+                    stationId:postData.stationId
+                },
+                {
+                    fields: {
+                        pin: 1,
+                        gamePoints: 1,
+                        usedTime:1,
+                        _id:0
+                    },
+                    sort: {
+                        gamePoints: -1
+                    },
+                    limit: 50
+                }
+            ).fetch();
+            return ("{\"data:\"" + JSON.stringify(result) + "}" )
+        }
+    },
+    '/api/user': {
+        post: function (data) {
+            var postData = JSON.parse(data);
+            console.log("data", postData)
+            if(!postData.pin || !postData.stationId)
+                return "Error: no pin provided"
+            var result = db.Competition23.find({
+                    pin:postData.pin,
+                    stationId: postData.stationId
+                },
+                {
+                    fields: {
+                        gamePoints: 1,
+                        usedTime:1,
+                        stationId:1,
+                        _id:0
+                    },
+                    sort: {
+                        gamePoints: -1
+                    },
+                    limit: 50
+                }
+            ).fetch();
+            return ("{\"data:\"" + JSON.stringify(result) + "}" )
+        }
     }
+
 
 });
