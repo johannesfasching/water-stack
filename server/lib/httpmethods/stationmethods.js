@@ -36,5 +36,31 @@ HTTP.methods({
             }
 
         }
+    },
+    '/api/addCompetition23': {
+        post: function (data) {
+            var postData = JSON.parse(data);
+            console.log("data", postData)
+
+            if(postData.pin && postData.stationId && postData.level && postData.meter && postData.gamePoints && postData.usedTime) {
+
+                db.Competition23.insert({
+                    pin: postData.pin,
+                    stationId: postData.stationId,
+                    level: postData.level,
+                    meter: postData.meter,
+                    gamePoints: postData.gamePoints,
+                    usedTime: postData.usedTime
+                })
+
+                return ("data " + JSON.stringify(postData))
+            }
+            else {
+                this.setStatusCode(402);
+                return 'Missing Data'
+            }
+
+        }
     }
+
 });
