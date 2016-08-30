@@ -7,7 +7,7 @@ HTTP.methods({
     '/api/startTeam': {
         post: function (data) {
             console.log("data",JSON.stringify(data))
-            return ("data "+JSON.stringify(data))
+            return (JSON.stringify(data))
         }
     },
     '/api/addCompetition': {
@@ -27,7 +27,7 @@ HTTP.methods({
                     questionPoints: postData.questionPoints
                 })
 
-                return ("data " + JSON.stringify(postData))
+                return (JSON.stringify(postData))
             }
             else {
                 this.setStatusCode(402);
@@ -41,18 +41,21 @@ HTTP.methods({
             var postData = JSON.parse(data);
             console.log("data", postData)
 
-            if(postData.pin && postData.stationId && postData.level && postData.meter && postData.gamePoints && postData.usedTime) {
+            if(postData.pin) {
 
                 db.Competition23.insert({
+                    groupId: postData.groupId,
                     pin: postData.pin,
                     stationId: postData.stationId,
                     level: postData.level,
                     meter: postData.meter,
-                    gamePoints: postData.gamePoints,
-                    usedTime: postData.usedTime
+                    totalPoints: postData.totalPoints,
+                    time: postData.time,
+                    timeStarted: postData.timeStarted,
+                    timeEnded: postData.timeEnded
                 })
 
-                return ("data " + JSON.stringify(postData))
+                return (JSON.stringify(postData))
             }
             else {
                 this.setStatusCode(402);
@@ -83,7 +86,7 @@ HTTP.methods({
                     limit: 50
                 }
             ).fetch();
-            return ("{\"data:\"" + JSON.stringify(result) + "}" )
+            return ("{\"data\":" + JSON.stringify(result) + "}" )
         }
     },
     '/api/user': {
@@ -109,7 +112,7 @@ HTTP.methods({
                     limit: 50
                 }
             ).fetch();
-            return ("{\"data:\"" + JSON.stringify(result) + "}" )
+            return ("{\"data\":" + JSON.stringify(result) + "}" )
         }
     }
 
