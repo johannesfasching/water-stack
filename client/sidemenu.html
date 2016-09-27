@@ -1,0 +1,72 @@
+<template name="sidemenu">
+    <aside class="ui sidebar"><a class="ui toggle-sidebar" href="#">
+        <svg class="icon back">
+            <use xlink:href="./assets/images/icons.svg#back"></use>
+        </svg>
+    </a>
+        <header class="sidebar-header"><img src="assets/images/logo-white.png" width="270"
+                                            alt="Neven Subotic Stiftung Logo">
+
+            <h1 class="sidebar-title">Welcome to Water Rally!</h1>
+        </header>
+        <ul class="ui sidebar-menu">
+            <li><a href="highscores">Highscores</a></li>
+            <li><a class="stations-show" href="#">Station List
+                <svg class="icon chevron-right">
+                    <use xlink:href="./assets/images/icons.svg#chevron-right"></use>
+                </svg>
+            </a></li>
+            <li><a href="profile.html">Your profile</a></li>
+            <li><a href="#">Invite friends</a></li>
+            <li><a href="howto">How to play</a></li>
+        </ul>
+        <div class="sidebar-cta"><a class="fluid ui secondary button" href="#">Donate</a></div>
+        <div class="ui stations-container"><a class="stations-header" href="station">
+            <svg class="icon back">
+                <use xlink:href="./assets/images/icons.svg#back"></use>
+            </svg>
+            <h2 class="stations-title">Station List</h2></a>
+
+            <div class="stations-body">
+                <article class="station"><a href="station">
+                    <figure class="wasser-quiz station-figure"></figure>
+                    <div class="station-body">
+                        <h3 class="station-title">Wasser quiz</h3>
+
+                        <p class="middle bottom offset quiet text">played 2 times</p><span class="ui fluid mini button">Visit station</span>
+                    </div>
+                </a></article>
+                <hr>
+                <article class="station"><a href="station">
+                    <figure class="brunnen-bohren station-figure"></figure>
+                    <div class="station-body">
+                        <h3 class="station-title">Wasser quiz</h3>
+
+                        <p class="middle bottom offset quiet text">played 2 times</p><span class="ui fluid mini button"
+                                                                                           href="#">Visit station</span>
+                    </div>
+                </a></article>
+                <hr>
+                <article class="station"><a href="station">
+                    <figure class="wasser-ziehen station-figure"></figure>
+                    <div class="station-body">
+                        <h3 class="station-title">Wasser quiz</h3>
+
+                        <p class="middle bottom offset quiet text">played 2 times</p><span class="ui fluid mini button"
+                                                                                           href="#">Visit station</span>
+                    </div>
+                </a></article>
+                <hr>
+                <article class="station"><a href="station">
+                    <figure class="der-lauf-fur-wasser station-figure"></figure>
+                    <div class="station-body">
+                        <h3 class="station-title">Wasser quiz</h3>
+
+                        <p class="middle bottom offset quiet text">played 2 times</p><span class="ui fluid mini button"
+                                                                                           href="#">Visit station</span>
+                    </div>
+                </a></article>
+            </div>
+        </div>
+    </aside>
+</template>

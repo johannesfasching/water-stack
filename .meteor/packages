@@ -9,7 +9,6 @@ service-configuration@1.0.10
 
 useraccounts:semantic-ui
 zimme:active-route
-semantic:ui-css
 meteor-base@1.0.4
 mobile-experience@1.0.4
 mongo@1.1.10
