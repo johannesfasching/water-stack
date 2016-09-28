@@ -43,6 +43,8 @@ Template.addPinCode.events({
 
 });
 
+
+
 Template.addPinCode.helpers({
     assignedPins: function() {
         result = []

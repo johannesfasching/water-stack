@@ -13,6 +13,6 @@ Template.body.onRendered (function () {
 
         document.body.appendChild(js);
     }
-    $.getScript( "app.js" )
+    //$.getScript( "app.js" )
     //includeJs("app.js");
 })
