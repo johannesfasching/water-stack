@@ -1,3 +1,93 @@
+<template name="ownStationScores">
+    <div class="content">
+        <h1 class="title">{{stationTitle}}</h1>
+        <ul class="stats">
+            <li>
+                <div class="stat">
+                    <div class="stat-point">
+                        <div class="stat-point-circle">2</div>
+                    </div>
+                    <div class="stat-text">Games <br> played</div>
+                </div>
+            </li>
+            <li>
+                <div class="stat">
+                    <div class="stat-point">
+                        <div class="stat-point-circle">8360</div>
+                    </div>
+                    <div class="stat-text">Points on this station</div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</template>
+
+<template name="aboutTheStation">
+    <section class="ui section">
+        <h2 class="title">Erklärung</h2>
+        <div class="body">{{stationAbout}}</div>
+    </section>
+</template>
+
+<template name="timeLinePoint">
+    <li><span class="timeline-point">
+                    <svg class="icon check">
+                        <use xlink:href="./assets/images/icons.svg#check"></use>
+                    </svg></span>
+        <div class="timeline-meta">{{createdAt}}</div>
+        <div class="timeline-text">{{totalPoints}} points earned. Very nice!</div>
+        <div class="timeline-share"><a class="timeline-share-twitter" href="#">
+            <svg class="icon twitter">
+                <use xlink:href="./assets/images/icons.svg#twitter"></use>
+            </svg>Tweet</a><a class="timeline-share-facebook" href="#">
+            <svg class="icon facebook">
+                <use xlink:href="./assets/images/icons.svg#facebook"></use>
+            </svg>Share</a></div>
+    </li>
+</template>
+
+<template name="ownActivityOverView">
+    <section class="ui section">
+        <h2 class="title">Activity overview</h2>
+        <div class="body">
+            <ul class="ui timeline">
+
+                {{#each highscore_1_history}}
+                    {{>timeLinePoint}}
+                {{/each}}
+                <li><span class="timeline-point">
+                    <svg class="icon check">
+                        <use xlink:href="./assets/images/icons.svg#check"></use>
+                    </svg></span>
+                    <div class="timeline-meta">21.04.2016</div>
+                    <div class="timeline-text">30 points earned. Very nice!</div>
+                    <div class="timeline-share"><a class="timeline-share-twitter" href="#">
+                        <svg class="icon twitter">
+                            <use xlink:href="./assets/images/icons.svg#twitter"></use>
+                        </svg>Tweet</a><a class="timeline-share-facebook" href="#">
+                        <svg class="icon facebook">
+                            <use xlink:href="./assets/images/icons.svg#facebook"></use>
+                        </svg>Share</a></div>
+                </li>
+                <li><span class="timeline-point">
+                    <svg class="icon check">
+                        <use xlink:href="./assets/images/icons.svg#check"></use>
+                    </svg></span>
+                    <div class="timeline-meta">15.04.2016</div>
+                    <div class="timeline-text">50 points earned. Very nice!</div>
+                    <div class="timeline-share"><a class="timeline-share-twitter" href="#">
+                        <svg class="icon twitter">
+                            <use xlink:href="./assets/images/icons.svg#twitter"></use>
+                        </svg>Tweet</a><a class="timeline-share-facebook" href="#">
+                        <svg class="icon facebook">
+                            <use xlink:href="./assets/images/icons.svg#facebook"></use>
+                        </svg>Share</a></div>
+                </li>
+            </ul>
+        </div>
+    </section>
+</template>
+
 <template name="station">
     <main class="ui main">
         <header class="ui center aligned wasser-quiz stations header">
@@ -5,69 +95,14 @@
                 <svg class="icon menu">
                     <use xlink:href="./assets/images/icons.svg#menu"></use>
                 </svg></a><a class="ui add-pin secondary mini button" href="#">+ Add new pin</a>
-                <div class="content">
-                    <h1 class="title">Tug of rope</h1>
-                    <ul class="stats">
-                        <li>
-                            <div class="stat">
-                                <div class="stat-point">
-                                    <div class="stat-point-circle">2</div>
-                                </div>
-                                <div class="stat-text">Games <br> played</div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="stat">
-                                <div class="stat-point">
-                                    <div class="stat-point-circle">8360</div>
-                                </div>
-                                <div class="stat-text">Points on this station</div>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
+                {{>ownStationScores}}
             </div>
         </header>
         <div class="ui container">
-            <section class="ui section">
-                <h2 class="title">About this station</h2>
-                <div class="body">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque atque debitis dolorem, excepturi unde neque doloribus labore quas, doloremque aperiam, facilis odio quam praesentium illum provident perspiciatis libero modi deleniti eius expedita.</div>
-            </section>
-            <section class="ui section">
-                <h2 class="title">Activity overview</h2>
-                <div class="body">
-                    <ul class="ui timeline">
-                        <li><span class="timeline-point">
-                    <svg class="icon check">
-                        <use xlink:href="./assets/images/icons.svg#check"></use>
-                    </svg></span>
-                            <div class="timeline-meta">21.04.2016</div>
-                            <div class="timeline-text">30 points earned. Very nice!</div>
-                            <div class="timeline-share"><a class="timeline-share-twitter" href="#">
-                                <svg class="icon twitter">
-                                    <use xlink:href="./assets/images/icons.svg#twitter"></use>
-                                </svg>Tweet</a><a class="timeline-share-facebook" href="#">
-                                <svg class="icon facebook">
-                                    <use xlink:href="./assets/images/icons.svg#facebook"></use>
-                                </svg>Share</a></div>
-                        </li>
-                        <li><span class="timeline-point">
-                    <svg class="icon check">
-                        <use xlink:href="./assets/images/icons.svg#check"></use>
-                    </svg></span>
-                            <div class="timeline-meta">15.04.2016</div>
-                            <div class="timeline-text">50 points earned. Very nice!</div>
-                            <div class="timeline-share"><a class="timeline-share-twitter" href="#">
-                                <svg class="icon twitter">
-                                    <use xlink:href="./assets/images/icons.svg#twitter"></use>
-                                </svg>Tweet</a><a class="timeline-share-facebook" href="#">
-                                <svg class="icon facebook">
-                                    <use xlink:href="./assets/images/icons.svg#facebook"></use>
-                                </svg>Share</a></div>
-                        </li>
-                    </ul>
-                </div>
-            </section>
+            {{>aboutTheStation}}
+            {{>ownActivityOverView}}
+
+
             <section class="ui section">
                 <h2 class="title">Station leaderboard</h2>
                 <div class="body">
@@ -76,76 +111,9 @@
                         <div class="leaderboard-wrapper">
                             <table class="ui basic small unstackable table">
                                 <tbody>
-                                <tr>
-                                    <td class="rank">10th</td>
-                                    <td>
-                                        <div class="user">
-                                            <div class="user-avatar"><img class="avatar" src="./assets/images/avatar.png" width="30" height="30"></div>
-                                            <div class="user-name"><span class="overflowed text">Donna Galiciouscas</span></div>
-                                        </div>
-                                    </td>
-                                    <td class="points"><span class="ui yellow label">1550 PTS</span></td>
-                                </tr>
-                                <tr>
-                                    <td class="rank">11th</td>
-                                    <td>
-                                        <div class="user">
-                                            <div class="user-avatar"><img class="avatar" src="./assets/images/avatar.png" width="30" height="30"></div>
-                                            <div class="user-name"><span class="overflowed text">Susan</span></div>
-                                        </div>
-                                    </td>
-                                    <td class="points"><span class="ui yellow label">1300 PTS</span></td>
-                                </tr>
-                                <tr class="highlighted">
-                                    <td class="rank">12th</td>
-                                    <td>
-                                        <div class="user">
-                                            <div class="user-avatar"><img class="avatar" src="./assets/images/avatar.png" width="30" height="30"></div>
-                                            <div class="user-name"><span class="overflowed text">Danijel</span></div>
-                                        </div>
-                                    </td>
-                                    <td class="points"><span class="ui yellow label">1250 PTS</span></td>
-                                </tr>
-                                <tr>
-                                    <td class="rank">13th</td>
-                                    <td>
-                                        <div class="user">
-                                            <div class="user-avatar"><img class="avatar" src="./assets/images/avatar.png" width="30" height="30"></div>
-                                            <div class="user-name"><span class="overflowed text">Lisa</span></div>
-                                        </div>
-                                    </td>
-                                    <td class="points"><span class="ui yellow label">1100 PTS</span></td>
-                                </tr>
-                                <tr>
-                                    <td class="rank">14th</td>
-                                    <td>
-                                        <div class="user">
-                                            <div class="user-avatar"><img class="avatar" src="./assets/images/avatar.png" width="30" height="30"></div>
-                                            <div class="user-name"><span class="overflowed text">Lawrence</span></div>
-                                        </div>
-                                    </td>
-                                    <td class="points"><span class="ui yellow label">1100 PTS</span></td>
-                                </tr>
-                                <tr>
-                                    <td class="rank">15th</td>
-                                    <td>
-                                        <div class="user">
-                                            <div class="user-avatar"><img class="avatar" src="./assets/images/avatar.png" width="30" height="30"></div>
-                                            <div class="user-name"><span class="overflowed text">Thomas</span></div>
-                                        </div>
-                                    </td>
-                                    <td class="points"><span class="ui yellow label">1050 PTS</span></td>
-                                </tr>
-                                <tr>
-                                    <td class="rank">16th</td>
-                                    <td>
-                                        <div class="user">
-                                            <div class="user-avatar"><img class="avatar" src="./assets/images/avatar.png" width="30" height="30"></div>
-                                            <div class="user-name"><span class="overflowed text">Larry</span></div>
-                                        </div>
-                                    </td>
-                                    <td class="points"><span class="ui yellow label">1000 PTS</span></td>
-                                </tr>
+                                {{#each highscore_1_week}}
+                                    {{> highscores_tablerow}}
+                                {{/each}}
                                 </tbody>
                             </table>
                         </div>
@@ -155,76 +123,9 @@
                         <div class="leaderboard-wrapper">
                             <table class="ui basic small unstackable table">
                                 <tbody>
-                                <tr>
-                                    <td class="rank">10th</td>
-                                    <td>
-                                        <div class="user">
-                                            <div class="user-avatar"><img class="avatar" src="./assets/images/avatar.png" width="30" height="30"></div>
-                                            <div class="user-name"><span class="overflowed text">Lawrence</span></div>
-                                        </div>
-                                    </td>
-                                    <td class="points"><span class="ui yellow label">2550 PTS</span></td>
-                                </tr>
-                                <tr>
-                                    <td class="rank">11th</td>
-                                    <td>
-                                        <div class="user">
-                                            <div class="user-avatar"><img class="avatar" src="./assets/images/avatar.png" width="30" height="30"></div>
-                                            <div class="user-name"><span class="overflowed text">Thomas</span></div>
-                                        </div>
-                                    </td>
-                                    <td class="points"><span class="ui yellow label">2300 PTS</span></td>
-                                </tr>
-                                <tr>
-                                    <td class="rank">12th</td>
-                                    <td>
-                                        <div class="user">
-                                            <div class="user-avatar"><img class="avatar" src="./assets/images/avatar.png" width="30" height="30"></div>
-                                            <div class="user-name"><span class="overflowed text">Larry</span></div>
-                                        </div>
-                                    </td>
-                                    <td class="points"><span class="ui yellow label">2250 PTS</span></td>
-                                </tr>
-                                <tr>
-                                    <td class="rank">13th</td>
-                                    <td>
-                                        <div class="user">
-                                            <div class="user-avatar"><img class="avatar" src="./assets/images/avatar.png" width="30" height="30"></div>
-                                            <div class="user-name"><span class="overflowed text">Dona</span></div>
-                                        </div>
-                                    </td>
-                                    <td class="points"><span class="ui yellow label">2100 PTS</span></td>
-                                </tr>
-                                <tr class="highlighted">
-                                    <td class="rank">14th</td>
-                                    <td>
-                                        <div class="user">
-                                            <div class="user-avatar"><img class="avatar" src="./assets/images/avatar.png" width="30" height="30"></div>
-                                            <div class="user-name"><span class="overflowed text">Lisa</span></div>
-                                        </div>
-                                    </td>
-                                    <td class="points"><span class="ui yellow label">2100 PTS</span></td>
-                                </tr>
-                                <tr>
-                                    <td class="rank">15th</td>
-                                    <td>
-                                        <div class="user">
-                                            <div class="user-avatar"><img class="avatar" src="./assets/images/avatar.png" width="30" height="30"></div>
-                                            <div class="user-name"><span class="overflowed text">Susan</span></div>
-                                        </div>
-                                    </td>
-                                    <td class="points"><span class="ui yellow label">2050 PTS</span></td>
-                                </tr>
-                                <tr>
-                                    <td class="rank">16th</td>
-                                    <td>
-                                        <div class="user">
-                                            <div class="user-avatar"><img class="avatar" src="./assets/images/avatar.png" width="30" height="30"></div>
-                                            <div class="user-name"><span class="overflowed text">Danijel</span></div>
-                                        </div>
-                                    </td>
-                                    <td class="points"><span class="ui yellow label">2000 PTS</span></td>
-                                </tr>
+                                {{#each highscore_1_all}}
+                                    {{> highscores_tablerow}}
+                                {{/each}}
                                 </tbody>
                             </table>
                         </div>

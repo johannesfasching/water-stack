@@ -7,7 +7,7 @@ Meteor.methods({
 
         if (result == undefined) {
             retObj.error = true
-            retObj.message = "Die PIN ist leider nicht im System enthalten"
+            retObj.message = "Die PIN gibt es nicht"
         }
         else {
             if (result.userId == undefined) {
@@ -27,7 +27,7 @@ Meteor.methods({
             }
             else {
                 retObj.error = true
-                retObj.message = "Die PIN ist bereits von einem anderen Benutzer verwendet"
+                retObj.message = "Die PIN wurde bereits verwendet"
             }
         }
         return retObj;

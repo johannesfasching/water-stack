@@ -64,6 +64,8 @@ HTTP.methods({
 
         }
     },
+
+    //Api for stationRanking (station 2 and 3)
     '/api/station': {
         post: function (data) {
             var postData = JSON.parse(data);
@@ -103,23 +105,6 @@ HTTP.methods({
 
             console.log("XXXXX", JSON.stringify(result) )
 
-            //var result = db.Competition23.find({
-            //        stationId:postData.stationId
-            //    },
-            //    {
-            //        field
-            // 0s: {
-            //            pin: 1,
-            //            totalPoints: 1,
-            //            time:1,
-            //            _id:0
-            //        },
-            //        sort: {
-            //            gamePoints: -1
-            //        },
-            //        limit: 50
-            //    }
-            //).fetch();
 
             var res = []
 
@@ -240,6 +225,8 @@ HTTP.methods({
             return ("{\"data\":" + JSON.stringify(data) + "}" )
         }
     },
+
+    //Api for unregistered Users
     '/api/ranking': {
         post: function (data) {
             var postData = JSON.parse(data);

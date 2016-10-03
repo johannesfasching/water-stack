@@ -88,6 +88,4 @@ Template.addPinCode.helpers({
         console.log()
 
     }
-
-
 })

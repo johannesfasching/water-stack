@@ -1,0 +1,164 @@
+<template name="addedPinsRow">
+    <li>
+        <div class="key">Pin number</div>
+        <div class="value">{{pin.pin}}</div>
+        <div class="action">
+            <svg class="icon check">
+                <use xlink:href="./assets/images/icons.svg#check"></use>
+            </svg>
+        </div>
+    </li>
+</template>
+
+
+<template name="profile">
+    <main class="ui main">
+        <header class="ui center aligned profile header">
+            <div class="ui container"><a class="ui toggle-sidebar" href="#">
+                <svg class="icon menu">
+                    <use xlink:href="./assets/images/icons.svg#menu"></use>
+                </svg></a><a class="ui add-pin secondary mini button" href="javascript:void(0)">+ Add new pin</a>
+                <div class="content"><img class="avatar big" src="{{profileImage}}" width="100" height="100">
+                    <h1 class="title">{{profileName}}</h1>
+                    <p>{{profileEmail}}</p>
+                </div>
+            </div>
+        </header>
+        <div class="ui container">
+            {{> activityOverView }}
+            <section class="ui section">
+                <h2 class="title">Accounts</h2>
+                <div class="body">
+                    <ul class="ui key-value accounts">
+                        <li><a href="#">
+                            <svg class="icon facebook">
+                                <use xlink:href="./assets/images/icons.svg#facebook"></use>
+                            </svg>Connect to Facebook</a></li>
+                        <li><a href="#">
+                            <svg class="icon google-plus">
+                                <use xlink:href="./assets/images/icons.svg#google-plus"></use>
+                            </svg>Connect to Goolge</a></li>
+                    </ul>
+                    <div class="quiet small text top offset">By connecting your account with social netwok will ease your login process and help us spread the awareness of our initiative.</div>
+                </div>
+            </section>
+            <section class="ui section">
+                <h2 class="title">Added pins</h2>
+                <div class="body">
+                    <ul class="ui key-value">
+                        {{#each assignedPins}}
+                            {{> addedPinsRow}}
+                        {{/each}}
+                    </ul>
+                    <div class="small top bottom offset"><a class="ui mini add-pin button" href="javascript:void(0)">+ Add new pin</a></div>
+                    <div class="quiet small text">Lorem ipsum dolor sit amet, consectetur adiicing elit. For more information visit <a href="#">How To page</a>.</div>
+                </div>
+            </section>
+            <section class="ui section">
+                <h2 class="title">Profile information</h2>
+                <div class="body">
+                    {{#autoForm id="UserProfileEdit" collection="Meteor.users"  doc=currentUser type="update" resetOnSuccess=false}}
+
+                        <div class="action"><img class="avatar" src="{{profileImage}}" width="35" height="35"></div>
+                        {{> afQuickField name="profile.userName"}}
+                        {{> afQuickField name="profile.realName"}}
+                        {{> afQuickField name="profile.email"}}
+                        {{> afQuickField name="profile.age"}}
+                        {{> afQuickField name="profile.sex"}}
+
+                        {{#unless autoSaveMode}}
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary" disabled="{{disableButtons}}">Ok</button>
+                            </div>
+                        {{/unless}}
+                    {{/autoForm}}
+                    <form class="ui form" action="#" method="POST">
+                        <ul class="ui key-value">
+                            <li>
+                                <div class="key">Photo</div>
+                                <div class="value">Very nice, great photo</div>
+                                <div class="action"><img class="avatar" src="./assets/images/avatar.png" width="35" height="35"></div>
+                            </li>
+                            <li>
+                                <div class="key">User name</div>
+                                <div class="value">Danijel</div>
+                                <div class="action"><a href="#">
+                                    <svg class="icon edit">
+                                        <use xlink:href="./assets/images/icons.svg#edit"></use>
+                                    </svg></a></div>
+                            </li>
+                            <li>
+                                <div class="key">User name</div>
+                                <div class="value">Danijel</div>
+                                <div class="action"><a href="#">
+                                    <svg class="icon edit">
+                                        <use xlink:href="./assets/images/icons.svg#edit"></use>
+                                    </svg></a></div>
+                            </li>
+                            <li>
+                                <div class="key">Email address</div>
+                                <div class="value">danijel@sprawsm.com</div>
+                                <div class="action"><a href="#">
+                                    <svg class="icon edit">
+                                        <use xlink:href="./assets/images/icons.svg#edit"></use>
+                                    </svg></a></div>
+                            </li>
+                            <li class="slim field">
+                                <div class="key">Email address (form field)</div>
+                                <div class="value">
+                                    <input class="ui slim input" type="email" name="password" value="danijel@sprawsm.com" placeholder="Your email address">
+                                </div>
+                                <div class="action"><a href="#">
+                                    <svg class="icon edit">
+                                        <use xlink:href="./assets/images/icons.svg#edit"></use>
+                                    </svg></a></div>
+                            </li>
+                            <li class="slim field error">
+                                <div class="key">Email address (form field with error)</div>
+                                <div class="value">
+                                    <input class="ui slim input" type="email" name="password" value="danijel@sprawsm.com" placeholder="Your email address">
+                                </div>
+                                <div class="action"><a href="#">
+                                    <svg class="icon edit">
+                                        <use xlink:href="./assets/images/icons.svg#edit"></use>
+                                    </svg></a></div>
+                            </li>
+                            <li>
+                                <div class="key">Password</div>
+                                <div class="value">&bull; &bull; &bull; &bull; &bull; &bull; &bull; &bull; &bull;</div>
+                                <div class="action"><a href="#">
+                                    <svg class="icon edit">
+                                        <use xlink:href="./assets/images/icons.svg#edit"></use>
+                                    </svg></a></div>
+                            </li>
+                            <li>
+                                <div class="key">Age group</div>
+                                <div class="value">15 &mdash; 30 years</div>
+                                <div class="action"><a href="#">
+                                    <svg class="icon edit">
+                                        <use xlink:href="./assets/images/icons.svg#edit"></use>
+                                    </svg></a></div>
+                            </li>
+                            <li>
+                                <div class="key">Gender</div>
+                                <div class="value">Male</div>
+                                <div class="action"><a href="#">
+                                    <svg class="icon edit">
+                                        <use xlink:href="./assets/images/icons.svg#edit"></use>
+                                    </svg></a></div>
+                            </li>
+                        </ul>
+                    </form><a class="delete-link small top offset" href="#">
+                    <svg class="icon trash">
+                        <use xlink:href="./assets/images/icons.svg#trash"></use>
+                    </svg>Delete your account</a>
+                    <div class="quiet small text">With this action you will permanently lose all results. Pay attention with this.</div>
+                </div>
+            </section>
+        </div>
+    </main>
+</template>
+
+<template name="imageView">
+    <img class="ui small circular image" src="{{profileImage}}">
+</template>

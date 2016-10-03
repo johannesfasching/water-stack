@@ -32,3 +32,17 @@ body {
 .success {
   display: block !important;
 }
+
+.avatar {
+  width: 30px !important;
+  height: 30px !important;
+}
+
+.avatar.big{
+  width: 100px !important;
+  height: 100px !important;
+}
+
+.ui .modal {
+  bottom: auto !important;
+}

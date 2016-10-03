@@ -34,7 +34,6 @@ autopublish@1.0.7
 insecure@1.0.7
 aldeed:autoform
 fabienb4:autoform-semantic-ui
-sach:flow-db-admin
 alanning:roles
 fortawesome:fontawesome
 dburles:collection-helpers
@@ -47,5 +46,7 @@ cfs:standard-packages
 cfs:filesystem
 utilities:avatar
 meteorhacks:aggregate
-semantic:ui
 shell-server
+semantic:ui
+less@2.7.5
+alizbeo:flow-db-admin

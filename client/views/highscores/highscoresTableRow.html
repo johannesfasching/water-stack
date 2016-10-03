@@ -1,0 +1,12 @@
+<template name = "highscores_tablerow">
+    <tr>
+        <td class="rank">{{rank}}</td>
+        <td>
+            <div class="user">
+                <div class="user-avatar"><img class="avatar" src="./assets/images/avatar.png" width="30" height="30"></div>
+                <div class="user-name"><span class="overflowed text">{{userName}}</span></div>
+            </div>
+        </td>
+        <td class="points"><span class="ui yellow label">{{totalPoints}} PTS</span></td>
+    </tr>
+</template>

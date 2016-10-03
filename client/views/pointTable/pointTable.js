@@ -9,6 +9,8 @@ Template.pointTable.helpers({
         return result
     },
 
+
+
     reactPoints: function () {
 
         return {

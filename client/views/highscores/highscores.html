@@ -1,5 +1,4 @@
-<template name="highscores">
-
+<template name = "highscores">
     <main class="ui main">
         <header class="ui center aligned profile header">
             <div class="ui container"><a class="ui toggle-sidebar" href="#">
@@ -15,37 +14,7 @@
             </div>
         </header>
         <div class="ui container">
-            <section class="ui section">
-                <h2 class="title">Activity overview</h2>
-                <div class="body">
-                    <h3 class="subtitle">25 games played so far</h3>
-                    <ul class="ui challenge list">
-                        <li class="challenge-item">
-                            <h4 class="challenge-title">Tug of rope</h4><span class="challenge-point">2</span>
-                        </li>
-                        <li class="challenge-item">
-                            <h4 class="challenge-title">Drifting</h4><span class="challenge-point">22</span>
-                        </li>
-                        <li class="challenge-item">
-                            <h4 class="challenge-title">Swimming</h4><span class="challenge-point">1</span>
-                        </li>
-                        <li class="challenge-item">
-                            <h4 class="challenge-title">Boxing</h4><span class="challenge-point">3</span>
-                        </li>
-                    </ul>
-                    <h3 class="subtitle small bottom offset">You earned</h3>
-                    <div class="center aligned">
-                        <div class="challenge-points-number">1250</div>
-                        <div class="challenge-points-text">points</div>
-                        <div class="share-box"><a class="ui mini button" href="#">
-                            <svg class="icon share">
-                                <use xlink:href="./assets/images/icons.svg#share"></use>
-                            </svg>Share your scores</a>
-                            <div class="bleached small text">Help us spread the word about our initative by sharing your scores</div>
-                        </div>
-                    </div>
-                </div>
-            </section>
+            {{> activityOverView }}
             <section class="ui section">
                 <h2 class="title">leaderboard</h2>
                 <div class="body full">
@@ -63,76 +32,9 @@
                                     <div class="leaderboard-wrapper">
                                         <table class="ui basic small unstackable table">
                                             <tbody>
-                                            <tr>
-                                                <td class="rank">10th</td>
-                                                <td>
-                                                    <div class="user">
-                                                        <div class="user-avatar"><img class="avatar" src="./assets/images/avatar.png" width="30" height="30"></div>
-                                                        <div class="user-name"><span class="overflowed text">Donna Galiciouscas</span></div>
-                                                    </div>
-                                                </td>
-                                                <td class="points"><span class="ui yellow label">1550 PTS</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td class="rank">11th</td>
-                                                <td>
-                                                    <div class="user">
-                                                        <div class="user-avatar"><img class="avatar" src="./assets/images/avatar.png" width="30" height="30"></div>
-                                                        <div class="user-name"><span class="overflowed text">Susan</span></div>
-                                                    </div>
-                                                </td>
-                                                <td class="points"><span class="ui yellow label">1300 PTS</span></td>
-                                            </tr>
-                                            <tr class="highlighted">
-                                                <td class="rank">12th</td>
-                                                <td>
-                                                    <div class="user">
-                                                        <div class="user-avatar"><img class="avatar" src="./assets/images/avatar.png" width="30" height="30"></div>
-                                                        <div class="user-name"><span class="overflowed text">Danijel</span></div>
-                                                    </div>
-                                                </td>
-                                                <td class="points"><span class="ui yellow label">1250 PTS</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td class="rank">13th</td>
-                                                <td>
-                                                    <div class="user">
-                                                        <div class="user-avatar"><img class="avatar" src="./assets/images/avatar.png" width="30" height="30"></div>
-                                                        <div class="user-name"><span class="overflowed text">Lisa</span></div>
-                                                    </div>
-                                                </td>
-                                                <td class="points"><span class="ui yellow label">1100 PTS</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td class="rank">14th</td>
-                                                <td>
-                                                    <div class="user">
-                                                        <div class="user-avatar"><img class="avatar" src="./assets/images/avatar.png" width="30" height="30"></div>
-                                                        <div class="user-name"><span class="overflowed text">Lawrence</span></div>
-                                                    </div>
-                                                </td>
-                                                <td class="points"><span class="ui yellow label">1100 PTS</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td class="rank">15th</td>
-                                                <td>
-                                                    <div class="user">
-                                                        <div class="user-avatar"><img class="avatar" src="./assets/images/avatar.png" width="30" height="30"></div>
-                                                        <div class="user-name"><span class="overflowed text">Thomas</span></div>
-                                                    </div>
-                                                </td>
-                                                <td class="points"><span class="ui yellow label">1050 PTS</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td class="rank">16th</td>
-                                                <td>
-                                                    <div class="user">
-                                                        <div class="user-avatar"><img class="avatar" src="./assets/images/avatar.png" width="30" height="30"></div>
-                                                        <div class="user-name"><span class="overflowed text">Larry</span></div>
-                                                    </div>
-                                                </td>
-                                                <td class="points"><span class="ui yellow label">1000 PTS</span></td>
-                                            </tr>
+                                            {{#each highscore_1_week}}
+                                                {{> highscores_tablerow}}
+                                            {{/each}}
                                             </tbody>
                                         </table>
                                     </div>
@@ -142,76 +44,9 @@
                                     <div class="leaderboard-wrapper">
                                         <table class="ui basic small unstackable table">
                                             <tbody>
-                                            <tr>
-                                                <td class="rank">10th</td>
-                                                <td>
-                                                    <div class="user">
-                                                        <div class="user-avatar"><img class="avatar" src="./assets/images/avatar.png" width="30" height="30"></div>
-                                                        <div class="user-name"><span class="overflowed text">Lawrence</span></div>
-                                                    </div>
-                                                </td>
-                                                <td class="points"><span class="ui yellow label">2550 PTS</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td class="rank">11th</td>
-                                                <td>
-                                                    <div class="user">
-                                                        <div class="user-avatar"><img class="avatar" src="./assets/images/avatar.png" width="30" height="30"></div>
-                                                        <div class="user-name"><span class="overflowed text">Thomas</span></div>
-                                                    </div>
-                                                </td>
-                                                <td class="points"><span class="ui yellow label">2300 PTS</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td class="rank">12th</td>
-                                                <td>
-                                                    <div class="user">
-                                                        <div class="user-avatar"><img class="avatar" src="./assets/images/avatar.png" width="30" height="30"></div>
-                                                        <div class="user-name"><span class="overflowed text">Larry</span></div>
-                                                    </div>
-                                                </td>
-                                                <td class="points"><span class="ui yellow label">2250 PTS</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td class="rank">13th</td>
-                                                <td>
-                                                    <div class="user">
-                                                        <div class="user-avatar"><img class="avatar" src="./assets/images/avatar.png" width="30" height="30"></div>
-                                                        <div class="user-name"><span class="overflowed text">Dona</span></div>
-                                                    </div>
-                                                </td>
-                                                <td class="points"><span class="ui yellow label">2100 PTS</span></td>
-                                            </tr>
-                                            <tr class="highlighted">
-                                                <td class="rank">14th</td>
-                                                <td>
-                                                    <div class="user">
-                                                        <div class="user-avatar"><img class="avatar" src="./assets/images/avatar.png" width="30" height="30"></div>
-                                                        <div class="user-name"><span class="overflowed text">Lisa</span></div>
-                                                    </div>
-                                                </td>
-                                                <td class="points"><span class="ui yellow label">2100 PTS</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td class="rank">15th</td>
-                                                <td>
-                                                    <div class="user">
-                                                        <div class="user-avatar"><img class="avatar" src="./assets/images/avatar.png" width="30" height="30"></div>
-                                                        <div class="user-name"><span class="overflowed text">Susan</span></div>
-                                                    </div>
-                                                </td>
-                                                <td class="points"><span class="ui yellow label">2050 PTS</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td class="rank">16th</td>
-                                                <td>
-                                                    <div class="user">
-                                                        <div class="user-avatar"><img class="avatar" src="./assets/images/avatar.png" width="30" height="30"></div>
-                                                        <div class="user-name"><span class="overflowed text">Danijel</span></div>
-                                                    </div>
-                                                </td>
-                                                <td class="points"><span class="ui yellow label">2000 PTS</span></td>
-                                            </tr>
+                                            {{#each highscore_1_all}}
+                                                {{> highscores_tablerow}}
+                                            {{/each}}
                                             </tbody>
                                         </table>
                                     </div>
@@ -232,76 +67,9 @@
                                     <div class="leaderboard-wrapper">
                                         <table class="ui basic small unstackable table">
                                             <tbody>
-                                            <tr>
-                                                <td class="rank">10th</td>
-                                                <td>
-                                                    <div class="user">
-                                                        <div class="user-avatar"><img class="avatar" src="./assets/images/avatar.png" width="30" height="30"></div>
-                                                        <div class="user-name"><span class="overflowed text">Lawrence</span></div>
-                                                    </div>
-                                                </td>
-                                                <td class="points"><span class="ui yellow label">2550 PTS</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td class="rank">11th</td>
-                                                <td>
-                                                    <div class="user">
-                                                        <div class="user-avatar"><img class="avatar" src="./assets/images/avatar.png" width="30" height="30"></div>
-                                                        <div class="user-name"><span class="overflowed text">Thomas</span></div>
-                                                    </div>
-                                                </td>
-                                                <td class="points"><span class="ui yellow label">2300 PTS</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td class="rank">12th</td>
-                                                <td>
-                                                    <div class="user">
-                                                        <div class="user-avatar"><img class="avatar" src="./assets/images/avatar.png" width="30" height="30"></div>
-                                                        <div class="user-name"><span class="overflowed text">Larry</span></div>
-                                                    </div>
-                                                </td>
-                                                <td class="points"><span class="ui yellow label">2250 PTS</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td class="rank">13th</td>
-                                                <td>
-                                                    <div class="user">
-                                                        <div class="user-avatar"><img class="avatar" src="./assets/images/avatar.png" width="30" height="30"></div>
-                                                        <div class="user-name"><span class="overflowed text">Dona</span></div>
-                                                    </div>
-                                                </td>
-                                                <td class="points"><span class="ui yellow label">2100 PTS</span></td>
-                                            </tr>
-                                            <tr class="highlighted">
-                                                <td class="rank">14th</td>
-                                                <td>
-                                                    <div class="user">
-                                                        <div class="user-avatar"><img class="avatar" src="./assets/images/avatar.png" width="30" height="30"></div>
-                                                        <div class="user-name"><span class="overflowed text">Lisa</span></div>
-                                                    </div>
-                                                </td>
-                                                <td class="points"><span class="ui yellow label">2100 PTS</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td class="rank">15th</td>
-                                                <td>
-                                                    <div class="user">
-                                                        <div class="user-avatar"><img class="avatar" src="./assets/images/avatar.png" width="30" height="30"></div>
-                                                        <div class="user-name"><span class="overflowed text">Susan</span></div>
-                                                    </div>
-                                                </td>
-                                                <td class="points"><span class="ui yellow label">2050 PTS</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td class="rank">16th</td>
-                                                <td>
-                                                    <div class="user">
-                                                        <div class="user-avatar"><img class="avatar" src="./assets/images/avatar.png" width="30" height="30"></div>
-                                                        <div class="user-name"><span class="overflowed text">Danijel</span></div>
-                                                    </div>
-                                                </td>
-                                                <td class="points"><span class="ui yellow label">2000 PTS</span></td>
-                                            </tr>
+                                            {{#each highscore_1_week}}
+                                                {{> highscores_tablerow}}
+                                            {{/each}}
                                             </tbody>
                                         </table>
                                     </div>
@@ -311,76 +79,9 @@
                                     <div class="leaderboard-wrapper">
                                         <table class="ui basic small unstackable table">
                                             <tbody>
-                                            <tr>
-                                                <td class="rank">10th</td>
-                                                <td>
-                                                    <div class="user">
-                                                        <div class="user-avatar"><img class="avatar" src="./assets/images/avatar.png" width="30" height="30"></div>
-                                                        <div class="user-name"><span class="overflowed text">Donna Galiciouscas</span></div>
-                                                    </div>
-                                                </td>
-                                                <td class="points"><span class="ui yellow label">1550 PTS</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td class="rank">11th</td>
-                                                <td>
-                                                    <div class="user">
-                                                        <div class="user-avatar"><img class="avatar" src="./assets/images/avatar.png" width="30" height="30"></div>
-                                                        <div class="user-name"><span class="overflowed text">Susan</span></div>
-                                                    </div>
-                                                </td>
-                                                <td class="points"><span class="ui yellow label">1300 PTS</span></td>
-                                            </tr>
-                                            <tr class="highlighted">
-                                                <td class="rank">12th</td>
-                                                <td>
-                                                    <div class="user">
-                                                        <div class="user-avatar"><img class="avatar" src="./assets/images/avatar.png" width="30" height="30"></div>
-                                                        <div class="user-name"><span class="overflowed text">Danijel</span></div>
-                                                    </div>
-                                                </td>
-                                                <td class="points"><span class="ui yellow label">1250 PTS</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td class="rank">13th</td>
-                                                <td>
-                                                    <div class="user">
-                                                        <div class="user-avatar"><img class="avatar" src="./assets/images/avatar.png" width="30" height="30"></div>
-                                                        <div class="user-name"><span class="overflowed text">Lisa</span></div>
-                                                    </div>
-                                                </td>
-                                                <td class="points"><span class="ui yellow label">1100 PTS</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td class="rank">14th</td>
-                                                <td>
-                                                    <div class="user">
-                                                        <div class="user-avatar"><img class="avatar" src="./assets/images/avatar.png" width="30" height="30"></div>
-                                                        <div class="user-name"><span class="overflowed text">Lawrence</span></div>
-                                                    </div>
-                                                </td>
-                                                <td class="points"><span class="ui yellow label">1100 PTS</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td class="rank">15th</td>
-                                                <td>
-                                                    <div class="user">
-                                                        <div class="user-avatar"><img class="avatar" src="./assets/images/avatar.png" width="30" height="30"></div>
-                                                        <div class="user-name"><span class="overflowed text">Thomas</span></div>
-                                                    </div>
-                                                </td>
-                                                <td class="points"><span class="ui yellow label">1050 PTS</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td class="rank">16th</td>
-                                                <td>
-                                                    <div class="user">
-                                                        <div class="user-avatar"><img class="avatar" src="./assets/images/avatar.png" width="30" height="30"></div>
-                                                        <div class="user-name"><span class="overflowed text">Larry</span></div>
-                                                    </div>
-                                                </td>
-                                                <td class="points"><span class="ui yellow label">1000 PTS</span></td>
-                                            </tr>
+                                            {{#each highscore_1_all}}
+                                                {{> highscores_tablerow}}
+                                            {{/each}}
                                             </tbody>
                                         </table>
                                     </div>
@@ -401,76 +102,9 @@
                                     <div class="leaderboard-wrapper">
                                         <table class="ui basic small unstackable table">
                                             <tbody>
-                                            <tr>
-                                                <td class="rank">10th</td>
-                                                <td>
-                                                    <div class="user">
-                                                        <div class="user-avatar"><img class="avatar" src="./assets/images/avatar.png" width="30" height="30"></div>
-                                                        <div class="user-name"><span class="overflowed text">Donna Galiciouscas</span></div>
-                                                    </div>
-                                                </td>
-                                                <td class="points"><span class="ui yellow label">1550 PTS</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td class="rank">11th</td>
-                                                <td>
-                                                    <div class="user">
-                                                        <div class="user-avatar"><img class="avatar" src="./assets/images/avatar.png" width="30" height="30"></div>
-                                                        <div class="user-name"><span class="overflowed text">Susan</span></div>
-                                                    </div>
-                                                </td>
-                                                <td class="points"><span class="ui yellow label">1300 PTS</span></td>
-                                            </tr>
-                                            <tr class="highlighted">
-                                                <td class="rank">12th</td>
-                                                <td>
-                                                    <div class="user">
-                                                        <div class="user-avatar"><img class="avatar" src="./assets/images/avatar.png" width="30" height="30"></div>
-                                                        <div class="user-name"><span class="overflowed text">Danijel</span></div>
-                                                    </div>
-                                                </td>
-                                                <td class="points"><span class="ui yellow label">1250 PTS</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td class="rank">13th</td>
-                                                <td>
-                                                    <div class="user">
-                                                        <div class="user-avatar"><img class="avatar" src="./assets/images/avatar.png" width="30" height="30"></div>
-                                                        <div class="user-name"><span class="overflowed text">Lisa</span></div>
-                                                    </div>
-                                                </td>
-                                                <td class="points"><span class="ui yellow label">1100 PTS</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td class="rank">14th</td>
-                                                <td>
-                                                    <div class="user">
-                                                        <div class="user-avatar"><img class="avatar" src="./assets/images/avatar.png" width="30" height="30"></div>
-                                                        <div class="user-name"><span class="overflowed text">Lawrence</span></div>
-                                                    </div>
-                                                </td>
-                                                <td class="points"><span class="ui yellow label">1100 PTS</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td class="rank">15th</td>
-                                                <td>
-                                                    <div class="user">
-                                                        <div class="user-avatar"><img class="avatar" src="./assets/images/avatar.png" width="30" height="30"></div>
-                                                        <div class="user-name"><span class="overflowed text">Thomas</span></div>
-                                                    </div>
-                                                </td>
-                                                <td class="points"><span class="ui yellow label">1050 PTS</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td class="rank">16th</td>
-                                                <td>
-                                                    <div class="user">
-                                                        <div class="user-avatar"><img class="avatar" src="./assets/images/avatar.png" width="30" height="30"></div>
-                                                        <div class="user-name"><span class="overflowed text">Larry</span></div>
-                                                    </div>
-                                                </td>
-                                                <td class="points"><span class="ui yellow label">1000 PTS</span></td>
-                                            </tr>
+                                            {{#each highscore_1_week}}
+                                                {{> highscores_tablerow}}
+                                            {{/each}}
                                             </tbody>
                                         </table>
                                     </div>
@@ -480,76 +114,9 @@
                                     <div class="leaderboard-wrapper">
                                         <table class="ui basic small unstackable table">
                                             <tbody>
-                                            <tr>
-                                                <td class="rank">10th</td>
-                                                <td>
-                                                    <div class="user">
-                                                        <div class="user-avatar"><img class="avatar" src="./assets/images/avatar.png" width="30" height="30"></div>
-                                                        <div class="user-name"><span class="overflowed text">Lawrence</span></div>
-                                                    </div>
-                                                </td>
-                                                <td class="points"><span class="ui yellow label">2550 PTS</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td class="rank">11th</td>
-                                                <td>
-                                                    <div class="user">
-                                                        <div class="user-avatar"><img class="avatar" src="./assets/images/avatar.png" width="30" height="30"></div>
-                                                        <div class="user-name"><span class="overflowed text">Thomas</span></div>
-                                                    </div>
-                                                </td>
-                                                <td class="points"><span class="ui yellow label">2300 PTS</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td class="rank">12th</td>
-                                                <td>
-                                                    <div class="user">
-                                                        <div class="user-avatar"><img class="avatar" src="./assets/images/avatar.png" width="30" height="30"></div>
-                                                        <div class="user-name"><span class="overflowed text">Larry</span></div>
-                                                    </div>
-                                                </td>
-                                                <td class="points"><span class="ui yellow label">2250 PTS</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td class="rank">13th</td>
-                                                <td>
-                                                    <div class="user">
-                                                        <div class="user-avatar"><img class="avatar" src="./assets/images/avatar.png" width="30" height="30"></div>
-                                                        <div class="user-name"><span class="overflowed text">Dona</span></div>
-                                                    </div>
-                                                </td>
-                                                <td class="points"><span class="ui yellow label">2100 PTS</span></td>
-                                            </tr>
-                                            <tr class="highlighted">
-                                                <td class="rank">14th</td>
-                                                <td>
-                                                    <div class="user">
-                                                        <div class="user-avatar"><img class="avatar" src="./assets/images/avatar.png" width="30" height="30"></div>
-                                                        <div class="user-name"><span class="overflowed text">Lisa</span></div>
-                                                    </div>
-                                                </td>
-                                                <td class="points"><span class="ui yellow label">2100 PTS</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td class="rank">15th</td>
-                                                <td>
-                                                    <div class="user">
-                                                        <div class="user-avatar"><img class="avatar" src="./assets/images/avatar.png" width="30" height="30"></div>
-                                                        <div class="user-name"><span class="overflowed text">Susan</span></div>
-                                                    </div>
-                                                </td>
-                                                <td class="points"><span class="ui yellow label">2050 PTS</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td class="rank">16th</td>
-                                                <td>
-                                                    <div class="user">
-                                                        <div class="user-avatar"><img class="avatar" src="./assets/images/avatar.png" width="30" height="30"></div>
-                                                        <div class="user-name"><span class="overflowed text">Danijel</span></div>
-                                                    </div>
-                                                </td>
-                                                <td class="points"><span class="ui yellow label">2000 PTS</span></td>
-                                            </tr>
+                                            {{#each highscore_1_all}}
+                                                {{> highscores_tablerow}}
+                                            {{/each}}
                                             </tbody>
                                         </table>
                                     </div>
@@ -562,21 +129,4 @@
             </section>
         </div>
     </main>
-    <aside class="ui modal">
-        <div class="center aligned image content"><img class="image" src="assets/images/icons/barcode.png">
-            <div class="description">
-                <h4 class="description-title">Add new PIN</h4>
-                <p class="no bottom offset">Lorem ipsum dolor sit amet, consectetur adipisicingolor sit amet.</p>
-            </div>
-            <form class="ui form" action="#">
-                <div class="field">
-                    <input type="text" name="pin-no" placeholder="Enter PIN">
-                </div>
-                <div class="field error">
-                    <input type="text" name="pin-no" placeholder="Enter PIN" value="2350501">
-                </div>
-                <button class="fluid ui primary button" type="submit">Add pin</button>
-            </form>
-        </div>
-    </aside>
 </template>
