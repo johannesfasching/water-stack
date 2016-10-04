@@ -10,6 +10,15 @@
     </li>
 </template>
 
+<template name="checkboxLine">
+    <div class="field">
+        <div class="ui radio checkbox">
+            <input type="radio" name="{{name}}" checked="true" tabindex="0" class="" id="{{id}}">
+            <label for="{{id}}">{{label}}</label>
+        </div>
+    </div>
+</template>
+
 
 <template name="profile">
     <main class="ui main">
@@ -33,126 +42,154 @@
                         <li><a href="#">
                             <svg class="icon facebook">
                                 <use xlink:href="./assets/images/icons.svg#facebook"></use>
-                            </svg>Connect to Facebook</a></li>
+                            </svg>Mit Facebook verbinden</a></li>
                         <li><a href="#">
                             <svg class="icon google-plus">
                                 <use xlink:href="./assets/images/icons.svg#google-plus"></use>
-                            </svg>Connect to Goolge</a></li>
+                            </svg>Mit Google+ verbinden</a></li>
                     </ul>
-                    <div class="quiet small text top offset">By connecting your account with social netwok will ease your login process and help us spread the awareness of our initiative.</div>
+                    <div class="quiet small text top offset">Wenn du dich in einem sozialen Netzwerk anmeldest und deine Punkte teilst, hilft uns das Aufmerksamkeit für die Wasser-Rallye zu generieren.</div>
                 </div>
             </section>
             <section class="ui section">
-                <h2 class="title">Added pins</h2>
+                <h2 class="title">Hinzugefügte Pins</h2>
                 <div class="body">
                     <ul class="ui key-value">
                         {{#each assignedPins}}
                             {{> addedPinsRow}}
                         {{/each}}
                     </ul>
-                    <div class="small top bottom offset"><a class="ui mini add-pin button" href="javascript:void(0)">+ Add new pin</a></div>
-                    <div class="quiet small text">Lorem ipsum dolor sit amet, consectetur adiicing elit. For more information visit <a href="#">How To page</a>.</div>
+                    <div class="small top bottom offset"><a class="ui mini add-pin button" href="javascript:void(0)">+ Neuen Pin hinzufügen</a></div>
                 </div>
             </section>
             <section class="ui section">
-                <h2 class="title">Profile information</h2>
+                <h2 class="title">Profil</h2>
                 <div class="body">
-                    {{#autoForm id="UserProfileEdit" collection="Meteor.users"  doc=currentUser type="update" resetOnSuccess=false}}
+                    <!--{{#autoForm id="UserProfileEdit" collection="Meteor.users"  doc=currentUser type="update" resetOnSuccess=false}}-->
 
-                        <div class="action"><img class="avatar" src="{{profileImage}}" width="35" height="35"></div>
-                        {{> afQuickField name="profile.userName"}}
-                        {{> afQuickField name="profile.realName"}}
-                        {{> afQuickField name="profile.email"}}
-                        {{> afQuickField name="profile.age"}}
-                        {{> afQuickField name="profile.sex"}}
+                        <!--&lt;!&ndash;<div class="action"><img class="avatar" src="{{profileImage}}" width="35" height="35"></div>&ndash;&gt;-->
+                        <!--&lt;!&ndash;{{> afQuickField name="profile.userName"}}&ndash;&gt;-->
+                        <!--&lt;!&ndash;{{> afQuickField name="profile.realName"}}&ndash;&gt;-->
+                        <!--&lt;!&ndash;{{> afQuickField name="profile.email"}}&ndash;&gt;-->
+                        <!--&lt;!&ndash;{{> afQuickField name="profile.age"}}&ndash;&gt;-->
+                        <!--&lt;!&ndash;{{> afQuickField name="profile.sex"}}&ndash;&gt;-->
 
-                        {{#unless autoSaveMode}}
-                            <div class="form-group">
-                                <button type="submit" class="btn btn-primary" disabled="{{disableButtons}}">Ok</button>
-                            </div>
-                        {{/unless}}
-                    {{/autoForm}}
+                        <!--{{#unless autoSaveMode}}-->
+                            <!--<div class="form-group">-->
+                                <!--<button type="submit" class="btn btn-primary" disabled="{{disableButtons}}">Ok</button>-->
+                            <!--</div>-->
+                        <!--{{/unless}}-->
+                    <!--{{/autoForm}}-->
                     <form class="ui form" action="#" method="POST">
-                        <ul class="ui key-value">
+                        <ul class="ui key-value view">
                             <li>
-                                <div class="key">Photo</div>
-                                <div class="value">Very nice, great photo</div>
-                                <div class="action"><img class="avatar" src="./assets/images/avatar.png" width="35" height="35"></div>
+                                <div class="key">Foto</div>
+                                <div class="value">Sehr schön, nettes Foto</div>
+                                <div class="action"><img class="avatar" src="{{profileImage}}" width="35" height="35"></div>
                             </li>
                             <li>
-                                <div class="key">User name</div>
-                                <div class="value">Danijel</div>
-                                <div class="action"><a href="#">
-                                    <svg class="icon edit">
-                                        <use xlink:href="./assets/images/icons.svg#edit"></use>
-                                    </svg></a></div>
-                            </li>
-                            <li>
-                                <div class="key">User name</div>
-                                <div class="value">Danijel</div>
-                                <div class="action"><a href="#">
-                                    <svg class="icon edit">
-                                        <use xlink:href="./assets/images/icons.svg#edit"></use>
-                                    </svg></a></div>
-                            </li>
-                            <li>
-                                <div class="key">Email address</div>
-                                <div class="value">danijel@sprawsm.com</div>
-                                <div class="action"><a href="#">
-                                    <svg class="icon edit">
-                                        <use xlink:href="./assets/images/icons.svg#edit"></use>
-                                    </svg></a></div>
-                            </li>
-                            <li class="slim field">
-                                <div class="key">Email address (form field)</div>
-                                <div class="value">
-                                    <input class="ui slim input" type="email" name="password" value="danijel@sprawsm.com" placeholder="Your email address">
+                                <div  class="key">Benutzername</div>
+                                <input class="value valueEdit hidden" type="text"  value="{{profileName}}">
+                                <div class="value valueShow">{{profileName}}</div>
+                                <div class="action">
+                                    <a href="">
+                                        <svg class="icon edit">
+                                            <use xlink:href="./assets/images/icons.svg#edit"></use>
+                                        </svg>
+                                    </a>
                                 </div>
-                                <div class="action"><a href="#">
-                                    <svg class="icon edit">
-                                        <use xlink:href="./assets/images/icons.svg#edit"></use>
-                                    </svg></a></div>
                             </li>
-                            <li class="slim field error">
-                                <div class="key">Email address (form field with error)</div>
-                                <div class="value">
-                                    <input class="ui slim input" type="email" name="password" value="danijel@sprawsm.com" placeholder="Your email address">
+                            <li>
+                                <div class="key">Email-Adresse</div>
+                                <input class="value valueEdit hidden" type="text"  value="{{profileEmail}}">
+                                <div class="value valueShow">{{profileEmail}}</div>
+                                <div class="action">
+                                    <a href="">
+                                        <svg class="icon edit">
+                                            <use xlink:href="./assets/images/icons.svg#edit"></use>
+                                        </svg>
+                                    </a>
                                 </div>
-                                <div class="action"><a href="#">
-                                    <svg class="icon edit">
-                                        <use xlink:href="./assets/images/icons.svg#edit"></use>
-                                    </svg></a></div>
                             </li>
+                            <!--<li class="slim field error">-->
+                                <!--<div class="key">Email address (form field with error)</div>-->
+                                <!--<div class="value">-->
+                                    <!--<input class="ui slim input" type="email" name="password" value="danijel@sprawsm.com" placeholder="Your email address">-->
+                                <!--</div>-->
+                                <!--<div class="action"><a href="#">-->
+                                    <!--<svg class="icon edit">-->
+                                        <!--<use xlink:href="./assets/images/icons.svg#edit"></use>-->
+                                    <!--</svg></a></div>-->
+                            <!--</li>-->
                             <li>
-                                <div class="key">Password</div>
-                                <div class="value">&bull; &bull; &bull; &bull; &bull; &bull; &bull; &bull; &bull;</div>
-                                <div class="action"><a href="#">
-                                    <svg class="icon edit">
-                                        <use xlink:href="./assets/images/icons.svg#edit"></use>
-                                    </svg></a></div>
+                                <div class="key">Passwort</div>
+                                <input class="value valueEdit hidden" type="password"  value="">
+                                <div class="value valueShow">&bull; &bull; &bull; &bull; &bull; &bull; &bull; &bull; &bull;</div>
+                                <div class="action">
+                                    <a href="">
+                                        <svg class="icon edit">
+                                            <use xlink:href="./assets/images/icons.svg#edit"></use>
+                                        </svg>
+                                    </a>
+                                </div>
                             </li>
+
+                            <!--<li>-->
+                                <!--<div class="key">Passwort</div>-->
+                            <!--<div class="value">&bull; &bull; &bull; &bull; &bull; &bull; &bull; &bull; &bull;</div>-->
+                            <!--<div class="action"><a href="#">-->
+                                <!--<svg class="icon edit">-->
+                                    <!--<use xlink:href="./assets/images/icons.svg#edit"></use>-->
+                                <!--</svg></a></div>-->
+                            <!--</li>-->
+
+
                             <li>
-                                <div class="key">Age group</div>
-                                <div class="value">15 &mdash; 30 years</div>
-                                <div class="action"><a href="#">
-                                    <svg class="icon edit">
-                                        <use xlink:href="./assets/images/icons.svg#edit"></use>
-                                    </svg></a></div>
+                                <div class="key">Alter</div>
+                                <div class="ui hidden value valueEdit">
+                                    <div class="grouped fields">
+                                        {{#each ageData}}
+                                            {{>checkboxLine}}
+                                        {{/each}}
+                                    </div>
+                                </div>
+
+                                <div class="value valueShow">{{profileAge}}</div>
+                                <div class="action">
+                                    <a href="">
+                                        <svg class="icon edit">
+                                            <use xlink:href="./assets/images/icons.svg#edit"></use>
+                                        </svg>
+                                    </a>
+                                </div>
                             </li>
+
                             <li>
-                                <div class="key">Gender</div>
-                                <div class="value">Male</div>
-                                <div class="action"><a href="#">
-                                    <svg class="icon edit">
-                                        <use xlink:href="./assets/images/icons.svg#edit"></use>
-                                    </svg></a></div>
+                                <div class="key">Geschlecht</div>
+                                <div class="ui hidden value valueEdit">
+                                    <div class="grouped fields">
+                                        {{#each sexData}}
+                                            {{>checkboxLine}}
+                                        {{/each}}
+                                    </div>
+                                </div>
+
+                                <div class="value valueShow">{{profileSex}}</div>
+                                <div class="action">
+                                    <a href="">
+                                        <svg class="icon edit">
+                                            <use xlink:href="./assets/images/icons.svg#edit"></use>
+                                        </svg>
+                                    </a>
+                                </div>
                             </li>
+
                         </ul>
                     </form><a class="delete-link small top offset" href="#">
                     <svg class="icon trash">
                         <use xlink:href="./assets/images/icons.svg#trash"></use>
-                    </svg>Delete your account</a>
-                    <div class="quiet small text">With this action you will permanently lose all results. Pay attention with this.</div>
+                    </svg>Dein Profil löschen</a>
+                    <div class="quiet small text">Durch diese Aktion löscht du alle bisherigen Ergebnisse! Vorsicht!</div>
                 </div>
             </section>
         </div>

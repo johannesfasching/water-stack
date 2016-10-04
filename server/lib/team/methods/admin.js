@@ -9,8 +9,6 @@ Meteor.methods({
         else {
             return false;
         }
-
-        var currentUserId = Meteor.userId();
     },
 
     'insertTeamCodes': function(teamCodes){

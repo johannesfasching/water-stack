@@ -18,6 +18,80 @@ Template.profile.events({
 
 
         });
+    },
+
+    'click .ui.key-value.view>li>.action': function(event, template) {
+        //clicked = console.log(event.currentTarget.sibling("input"))
+
+        $(event.currentTarget)
+            .siblings(".valueEdit").removeClass("hidden")
+            .siblings(".valueShow").addClass("hidden")
+
+        $(event.currentTarget)
+            .find("svg").removeClass("edit").addClass("check")
+            .find("use").attr("href","./assets/images/icons.svg#check")
+
+        $(event.currentTarget)
+            .parent().parent().addClass("edit").removeClass("view")
+    },
+
+    'click .ui.key-value.edit>li>.action': function(event, template) {
+        //clicked = console.log(event.currentTarget.sibling("input"))
+
+        $(event.currentTarget)
+            .siblings(".valueEdit").addClass("hidden")
+            .siblings(".valueShow").removeClass("hidden")
+
+        $(event.currentTarget)
+            .find("svg").removeClass("check").addClass("edit")
+            .find("use").attr("href","./assets/images/icons.svg#edit")
+
+        $(event.currentTarget)
+            .parent().parent().addClass("view").removeClass("edit")
+
+
+
+        if($(event.currentTarget).siblings(".key").text() === "Benutzername") {
+            var userName = $(event.currentTarget).siblings("input").val();
+            Meteor.users.update({_id: Meteor.userId()}, {$set: {"profile.userName": userName}});
+            Meteor.users.update({_id: Meteor.userId()}, {$set: {"username": userName}});
+        }
+        else if($(event.currentTarget).siblings(".key").text() === "Email-Adresse") {
+            var email = $(event.currentTarget).siblings("input").val();
+            if (Meteor.users.findOne({'emails.address': email, id: {$not: Meteor.userId}})) {
+                console.log("already existing");
+                //error.push({name: "email", type: "exist"});
+            }
+            else
+                Meteor.users.update({_id: Meteor.userId()}, {$set: {'emails.0.address': email}});
+        }
+        else if($(event.currentTarget).siblings(".key").text() === "Passwort") {
+            var pass = $(event.currentTarget).siblings("input").val();
+            Meteor.call("changePW", pass)
+        }
+        else if($(event.currentTarget).siblings(".key").text() === "Alter") {
+            var selectedId = $('input[name="age"]:checked').attr("id")
+            var selectedOption = 0;
+            _.forEach(ages, function(val, nr) {
+                if(selectedId == val.id) {
+                    selectedOption = nr;
+                }
+            });
+            console.log(selectedOption)
+            Meteor.users.update({_id: Meteor.userId()}, {$set: {'profile.age': selectedOption}});
+        }
+        else if($(event.currentTarget).siblings(".key").text() === "Geschlecht") {
+            var selectedId = $('input[name="sex"]:checked').attr("id")
+            console.log("SEX",selectedId)
+            var selectedOption = 0;
+            _.forEach(sexes, function(val, nr) {
+                if(selectedId == val.id) {
+                    selectedOption = nr;
+                }
+            });
+            console.log(selectedOption)
+            Meteor.users.update({_id: Meteor.userId()}, {$set: {'profile.sex': selectedOption}});
+        }
     }
 
 
@@ -43,6 +117,22 @@ Template.profile.events({
 //    $("[name='profile.age']").val(Meteor.user().profile.age);
 //    $("[name='profile.sex']").val(Meteor.user().profile.sex);
 //}
+
+var ages = [
+    {label: "0-6 Jahre", id: "age_1", name:"age"},
+    {label: "6-10 Jahre", id: "age_2", name:"age"},
+    {label: "10-14 Jahre", id: "age_3", name:"age"},
+    {label: "14-18 Jahre", id: "age_4", name:"age"},
+    {label: "18-35 Jahre", id: "age_5", name:"age"},
+    {label: "35-99+ Jahre", id: "age_6", name:"age"},
+    {label: "Geheim", id: "age_7", name:"age"}
+]
+
+var sexes = [
+    {label: "Geheim", id: "sex_1", name:"sex"},
+    {label: "Weiblich", id: "sex_2", name:"sex"},
+    {label: "Männlich", id: "sex_3", name:"sex"}
+]
 
 Template.profile.helpers({
     assignedPins: function() {
@@ -97,7 +187,29 @@ Template.profile.helpers({
     },
 
     profileEmail: function () {
-        return Meteor.user().profile.email;
+        return Meteor.user().emails[0].address;
+    },
+
+    ageData: function() {
+        return ages;
+    },
+
+    sexData: function() {
+        return sexes;
+    },
+
+    profileAge: function() {
+        return ages[Meteor.user().profile.age].label
+    },
+
+    profileSex: function() {
+        var sex = Meteor.user().profile.sex
+        if(sex===2)
+            return "Männlich"
+        else if(sex===1)
+            return "Weiblich"
+        else
+            return "Geheim"
     }
 
 
