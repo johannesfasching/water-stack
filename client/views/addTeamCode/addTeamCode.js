@@ -20,5 +20,4 @@ Template.addPinCode.events({
             console.log(retObj)
         })
     }
-
 });

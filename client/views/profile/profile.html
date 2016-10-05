@@ -1,7 +1,19 @@
 <template name="addedPinsRow">
     <li>
         <div class="key">Pin number</div>
-        <div class="value">{{pin.pin}}</div>
+        <div class="value">{{pin.pin}}
+            {{#if pin.teamCode}}
+                <a class="ui add-team" href="">
+                    TeamCode: {{pin.teamCode}}
+                </a>
+            {{else}}
+                <a class="ui add-team mini  button" href="">
+                    + Team hinzufügen
+                </a>
+            {{/if}}
+
+
+        </div>
         <div class="action">
             <svg class="icon check">
                 <use xlink:href="./assets/images/icons.svg#check"></use>
@@ -21,6 +33,23 @@
 
 
 <template name="profile">
+    <aside id="addTeam" class="ui modal">
+        <div class="center aligned image content"><img class="image">
+            <div class="description">
+                <h4 class="description-title">Verknüpfe ein Team zu Pin: {{pinToAssignTeam}}</h4>
+                <p class="no bottom offset">Du bist Teil eines Teams? Ausgezeichnet. Gib die erhaltene TeamID hier ein:</p>
+            </div>
+            <div class="ui form">
+                <div class="field">
+                    <input id="teamCodeInput" type="text" placeholder="Enter Team">
+                </div>
+                <div id="teamError" class="ui field hidden error">
+                    <input id="teamErrorMessage" type="text">
+                </div>
+                <div id="addTeamCodeSubmitButton22" class="fluid ui primary button">Add team</div>
+            </div>
+        </div>
+    </aside>
     <main class="ui main">
         <header class="ui center aligned profile header">
             <div class="ui container"><a class="ui toggle-sidebar" href="#">

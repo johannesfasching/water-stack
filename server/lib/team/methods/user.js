@@ -10,7 +10,7 @@ Meteor.methods({
 
         if (team == undefined) {
             retObj.error = true
-            retObj.message = "Der TeamCode ist leider noch nicht im System enthalten"
+            retObj.message = "Den TeamCode gibt es nicht"
         }
         else {
             db.Pin.update(
@@ -26,7 +26,7 @@ Meteor.methods({
         }
 
 
-
+    console.log(retObj)
     return retObj;
 }
 })

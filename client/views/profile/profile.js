@@ -11,12 +11,8 @@ Template.profile.events({
                 Meteor.users.update(
                     {_id:Meteor.userId()},
                     {$set: {'profile.picture':fileObj._id} }
-
                 );
-
             });
-
-
         });
     },
 
@@ -92,9 +88,51 @@ Template.profile.events({
             console.log(selectedOption)
             Meteor.users.update({_id: Meteor.userId()}, {$set: {'profile.sex': selectedOption}});
         }
+    },
+
+    'click #addPinCodeSubmitButton': function(e) {
+        console.log("WUHUUUUUUU")
+        var userObj = {}
+        userObj.userId = Meteor.userId();
+        userObj.username = Meteor.userId().username;
+        userObj.pin = $("#teamCodeInput").val()
+        Meteor.call("addPinCode", userObj, function(error, retObj) {
+            if(retObj.error) {
+                $("#pinError").addClass("error");
+                $("#pinError").removeClass("success hidden")
+                $("#pinErrorMessage").text(retObj.message)
+            }
+            else {
+                $("#pinError").addClass("success");
+                $("#pinError").removeClass("error hidden")
+                $("#pinErrorMessage").text(retObj.message)
+            }
+            console.log(retObj)
+        })
+    },
+
+    'click #addTeamCodeSubmitButton22': function(e) {
+        e.preventDefault()
+        var userObj = {}
+        userObj.userId = Meteor.userId();
+        userObj.username = Meteor.userId().username;
+        userObj.pin = Session.get("pinToAssignTeam");
+        userObj.teamCode = $("#teamCodeInput").val()
+        Meteor.call("addTeamCode", userObj, function(error, retObj) {
+            console.log("DONE")
+            if(retObj.error) {
+                $("#teamError").addClass("error");
+                $("#teamError").removeClass("success hidden")
+                $("#teamErrorMessage").text(retObj.message)
+            }
+            else {
+                $("#teamError").addClass("success");
+                $("#teamError").removeClass("error hidden")
+                $("#teamErrorMessage").text(retObj.message)
+            }
+            console.log(retObj)
+        })
     }
-
-
 });
 
 //Template.imageView.helpers({
@@ -134,14 +172,23 @@ var sexes = [
     {label: "Männlich", id: "sex_3", name:"sex"}
 ]
 
+Tracker.autorun(function() {
+    Session.get("assignedPinsss")
+    Meteor.setTimeout(function() {
+        $("#addTeam").modal("attach events", ".add-team");
+        $(".add-team").click(function() {
+            $("#teamError").addClass('hidden')
+        })
+    },500)
+
+})
+
 Template.profile.helpers({
     assignedPins: function() {
         result = []
-        var pin = db.Pin.find({userId:Meteor.userId()}).fetch();
-        console.log(pin)
+        var pin = db.Pin.find({userId:Meteor.userId()},{sort: {pin: -1}}).fetch();
 
         pin.forEach(function(item) {
-            console.log(item)
             var team = {}
             var teamMembersAtPIN = {}
             var teamMembers = []
@@ -159,7 +206,7 @@ Template.profile.helpers({
             result.push({pin:item, team:team, teamMembers:teamMembers })
         })
 
-        console.log("assignedPins",result)
+        Session.set("assignedPinsss",result)
 
         return result
     },
@@ -210,7 +257,19 @@ Template.profile.helpers({
             return "Weiblich"
         else
             return "Geheim"
+    },
+
+    pinToAssignTeam: function() {
+        return Session.get("pinToAssignTeam")
     }
 
 
+})
+
+Template.addedPinsRow.events({
+    'click .add-team': function(event, template) {
+        //clicked = console.log(event.currentTarget.sibling("input"))
+        var pin = $(event.currentTarget).parent().text().split("+")[0];
+        Session.set("pinToAssignTeam",pin)
+    }
 })
