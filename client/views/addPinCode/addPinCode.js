@@ -86,6 +86,5 @@ Template.addPinCode.helpers({
             result.push({pin:item, team:team })
         })
         console.log()
-
     }
 })

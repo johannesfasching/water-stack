@@ -11,19 +11,72 @@
                 </div>
             </div>
         </header>
+
+         <div class="ui container">
+                 <section class="ui section">
+                     <h2 class="title">Team hinzufügen</h2>
+                     <div class="ui horizontal divider"></div>
+                         <button class="ui primary button newTeamButton">
+                             + Neues Team
+                         </button>
+
+
+                     <div class="body">
+                         <div class="newTeam hidden">
+                            {{> quickForm collection="db.Team" id="insertTeam" type="insert" fields="title,typ,teamCode,adress"}}
+                         </div>
+                     </div>
+                 </section>
+         </div>
+
+         <div class="ui container">
+         {{#if hasOwnedTeams}}
+
+             <section class="ui section">
+                 <h2 class="title">Von dir angelegte Teams</h2>
+
+                 <div class="body">
+                     <table class="ui selectable celled inverted green table">
+                         <thead>
+                             <tr>
+                                 <td>TeamCode</td>
+                                 <td>Titel</td>
+                             </tr>
+                         </thead>
+                         <tbody>
+                         {{#each ownedTeams}}
+                             <tr class="team-row">
+                                 <td>{{teamCode}}</td>
+                                 <td>{{title}}</td>
+                             </tr>
+                         {{/each}}
+                         </tbody>
+                     </table>
+                 </div>
+             </section>
+         {{/if}}
+
+         </div>
         <div class="ui container">
 
-            <section class="ui section">
-                <h2 class="title">Team</h2>
-                <div class="body">
+            {{#if teamUpdate}}
+                <section class="ui section">
+                    <h2 class="title">Team Ändern</h2>
+                    <div class="body">
+                        {{> quickForm collection="db.Team" doc=teamUpdate id="updateBookForm" type="update" fields="title,typ,teamCode,adress" buttonClasses="ui btn-primary btn updateSubmit"}}
+                        {{> quickRemoveButton collection="db.Team" _id=teamId  class="ui btn btn-danger deleteSubmit"}}
+                    </div>
+                    <h2 class="title">Team-Mitglieder:</h2>
+                    <ul>
+                        {{#each assignedTeamMembers}}
+                            <li>
+                                {{username}}
+                            </li>
+                        {{/each}}
+                    </ul>
 
-                    {{> quickForm collection="db.Team" id="insertTeamForm" type="insert"}}
-
-                    <!--{{> quickForm collection="db.Team" doc="teamTest" id="updateBookForm" type="update"}}-->
-
-
-                </div>
-            </section>
+                </section>
+            {{/if}}
         </div>
     </main>
 </template>

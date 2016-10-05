@@ -2,12 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8afdf6d6-f2f3-4040-9208-c7b46e724821" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/views/createTeam/createTeam.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/views/createTeam/createTeam.js" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/client/views/highscores/app.js" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/schemas/01_teams.js" afterPath="$PROJECT_DIR$/lib/schemas/01_teams.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/views/addPinCode/addPinCode.js" afterPath="$PROJECT_DIR$/client/views/addPinCode/addPinCode.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/views/createTeam/createTeam.html" afterPath="$PROJECT_DIR$/client/views/createTeam/createTeam.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/views/createTeam/createTeam.js" afterPath="$PROJECT_DIR$/client/views/createTeam/createTeam.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.meteor/packages" afterPath="$PROJECT_DIR$/.meteor/packages" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/views/profile/profile.js" afterPath="$PROJECT_DIR$/client/views/profile/profile.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/router/routes.js" afterPath="$PROJECT_DIR$/lib/router/routes.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/sidemenu.html" afterPath="$PROJECT_DIR$/client/sidemenu.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/style.css" afterPath="$PROJECT_DIR$/client/stylesheets/style.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.meteor/versions" afterPath="$PROJECT_DIR$/.meteor/versions" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="water-stack.iws" />
@@ -31,16 +35,6 @@
     <splitter split-orientation="vertical" split-proportion="0.4698457">
       <split-first>
         <leaf>
-          <file leaf-file-name="station.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/client/views/station/station.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
-                  <caret line="58" column="39" selection-start-line="58" selection-start-column="33" selection-end-line="58" selection-end-column="39" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
           <file leaf-file-name="highscores.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/client/views/highscores/highscores.js">
               <provider selected="true" editor-type-id="text-editor">
@@ -51,21 +45,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="sidemenu.html" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/client/sidemenu.html">
+          <file leaf-file-name="routes.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/lib/router/routes.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-11.125">
-                  <caret line="21" column="35" selection-start-line="21" selection-start-column="35" selection-end-line="21" selection-end-column="35" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="modalPinCode.html" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/client/views/modalPinCode/modalPinCode.html">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-6.75">
-                  <caret line="10" column="22" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="22" />
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="169" column="46" selection-start-line="169" selection-start-column="31" selection-end-line="169" selection-end-column="46" />
                   <folding />
                 </state>
               </provider>
@@ -75,7 +59,7 @@
             <entry file="file://$PROJECT_DIR$/client/views/addPinCode/addPinCode.js">
               <provider selected="true" editor-type-id="text-editor">
                 <state vertical-scroll-proportion="0.0">
-                  <caret line="9" column="60" selection-start-line="9" selection-start-column="60" selection-end-line="9" selection-end-column="60" />
+                  <caret line="86" column="10" selection-start-line="86" selection-start-column="10" selection-end-line="86" selection-end-column="10" />
                   <folding />
                 </state>
               </provider>
@@ -91,31 +75,61 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="profile.js" pinned="false" current-in-tab="true">
+          <file leaf-file-name="pointTable.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/client/views/pointTable/pointTable.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="9" column="6" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="profile.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/client/views/profile/profile.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.43554008">
-                  <caret line="268" column="0" selection-start-line="268" selection-start-column="0" selection-end-line="274" selection-end-column="2" />
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="272" column="2" selection-start-line="272" selection-start-column="2" selection-end-line="272" selection-end-column="2" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="highscores.html" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/client/views/highscores/highscores.html">
+          <file leaf-file-name="createTeam.js" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/client/views/createTeam/createTeam.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-22.65">
-                  <caret line="36" column="53" selection-start-line="36" selection-start-column="44" selection-end-line="36" selection-end-column="53" />
+                <state vertical-scroll-proportion="0.5302752">
+                  <caret line="42" column="32" selection-start-line="42" selection-start-column="32" selection-end-line="42" selection-end-column="32" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="nav.html" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/client/nav.html">
+          <file leaf-file-name="05_profile.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/lib/schemas/05_profile.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-3.375">
-                  <caret line="5" column="26" selection-start-line="5" selection-start-column="26" selection-end-line="5" selection-end-column="26" />
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="89" column="0" selection-start-line="89" selection-start-column="0" selection-end-line="89" selection-end-column="12" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="addTeamCode.html" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/client/views/addTeamCode/addTeamCode.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="-0.0">
+                  <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="addTeamCode.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/client/views/addTeamCode/addTeamCode.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="8" column="69" selection-start-line="8" selection-start-column="69" selection-end-line="8" selection-end-column="69" />
                   <folding />
                 </state>
               </provider>
@@ -125,41 +139,21 @@
       </split-first>
       <split-second>
         <leaf>
-          <file leaf-file-name="routes.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/lib/router/routes.js">
+          <file leaf-file-name="02_pins.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/lib/schemas/02_pins.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-14.477273">
-                  <caret line="278" column="29" selection-start-line="278" selection-start-column="19" selection-end-line="278" selection-end-column="29" />
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="29" column="9" selection-start-line="29" selection-start-column="9" selection-end-line="36" selection-end-column="9" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="01_teams.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/lib/schemas/01_teams.js">
+          <file leaf-file-name="03_stations.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/lib/schemas/03_stations.js">
               <provider selected="true" editor-type-id="text-editor">
                 <state vertical-scroll-proportion="0.0">
-                  <caret line="60" column="9" selection-start-line="60" selection-start-column="9" selection-end-line="60" selection-end-column="9" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="user.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/server/lib/pin/methods/user.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
-                  <caret line="9" column="51" selection-start-line="9" selection-start-column="30" selection-end-line="9" selection-end-column="51" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="profile.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/server/lib/profile/profile.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
-                  <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+                  <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
@@ -175,11 +169,21 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="admin.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/server/lib/pin/methods/admin.js">
+          <file leaf-file-name="publish.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/server/lib/config/publish.js">
               <provider selected="true" editor-type-id="text-editor">
                 <state vertical-scroll-proportion="0.0">
-                  <caret line="5" column="25" selection-start-line="5" selection-start-column="25" selection-end-line="5" selection-end-column="25" />
+                  <caret line="4" column="18" selection-start-line="4" selection-start-column="18" selection-end-line="4" selection-end-column="18" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="autoRn.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/server/lib/config/autoRn.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
@@ -198,18 +202,8 @@
           <file leaf-file-name="profile.html" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/client/views/profile/profile.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-8.775">
-                  <caret line="13" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="229" selection-end-column="11" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="createTeam.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/client/views/createTeam/createTeam.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
-                  <caret line="12" column="5" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
+                <state vertical-scroll-proportion="-4.2906976">
+                  <caret line="28" column="22" selection-start-line="28" selection-start-column="19" selection-end-line="28" selection-end-column="22" />
                   <folding />
                 </state>
               </provider>
@@ -218,8 +212,18 @@
           <file leaf-file-name="createTeam.html" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/client/views/createTeam/createTeam.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.56586826">
-                  <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+                <state vertical-scroll-proportion="0.598513">
+                  <caret line="72" column="27" selection-start-line="72" selection-start-column="27" selection-end-line="72" selection-end-column="27" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/client/stylesheets/style.css">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="-13.636364">
+                  <caret line="59" column="9" selection-start-line="59" selection-start-column="9" selection-end-line="59" selection-end-column="9" />
                   <folding />
                 </state>
               </provider>
@@ -266,7 +270,6 @@
         <option value="$PROJECT_DIR$/server/lib/httpmethods/stationmethods.js" />
         <option value="$PROJECT_DIR$/client/views/highscores/pointTable.js" />
         <option value="$PROJECT_DIR$/server/lib/config/autoRn.js" />
-        <option value="$PROJECT_DIR$/client/views/addPinCode/addPinCode.js" />
         <option value="$PROJECT_DIR$/client/views/profileSettings/profile.js" />
         <option value="$PROJECT_DIR$/server/lib/pin/methods/user.js" />
         <option value="$PROJECT_DIR$/server/lib/highscore/highscore.js" />
@@ -282,18 +285,19 @@
         <option value="$PROJECT_DIR$/server/lib/team/methods/admin.js" />
         <option value="$PROJECT_DIR$/server/lib/profile/profile.js" />
         <option value="$PROJECT_DIR$/lib/schemas/05_profile.js" />
-        <option value="$PROJECT_DIR$/client/stylesheets/style.css" />
-        <option value="$PROJECT_DIR$/client/views/addTeamCode/addTeamCode.js" />
         <option value="$PROJECT_DIR$/client/views/modalPinCode/modalPinCode.js" />
         <option value="$PROJECT_DIR$/client/views/modalPinCode/modalPinCode.html" />
         <option value="$PROJECT_DIR$/server/lib/team/methods/user.js" />
-        <option value="$PROJECT_DIR$/client/views/profile/profile.js" />
         <option value="$PROJECT_DIR$/client/views/profile/profile.html" />
-        <option value="$PROJECT_DIR$/lib/router/routes.js" />
         <option value="$PROJECT_DIR$/client/sidemenu.html" />
+        <option value="$PROJECT_DIR$/client/stylesheets/style.css" />
         <option value="$PROJECT_DIR$/lib/schemas/01_teams.js" />
-        <option value="$PROJECT_DIR$/client/views/createTeam/createTeam.js" />
+        <option value="$PROJECT_DIR$/client/views/addPinCode/addPinCode.js" />
+        <option value="$PROJECT_DIR$/client/views/addTeamCode/addTeamCode.js" />
+        <option value="$PROJECT_DIR$/lib/router/routes.js" />
+        <option value="$PROJECT_DIR$/client/views/profile/profile.js" />
         <option value="$PROJECT_DIR$/client/views/createTeam/createTeam.html" />
+        <option value="$PROJECT_DIR$/client/views/createTeam/createTeam.js" />
       </list>
     </option>
   </component>
@@ -332,8 +336,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -920,6 +922,8 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1039,13 +1043,14 @@
     <frame x="3838" y="0" width="3844" height="2108" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2447034" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19014831" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32944915" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32944915" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2498685" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2877433" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2901169" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.27049607" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32950392" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32950392" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -1055,7 +1060,6 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="REST Client" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3298647" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -1077,19 +1081,10 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/settings.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-6.681818">
           <caret line="35" column="38" selection-start-line="35" selection-start-column="38" selection-end-line="35" selection-end-column="38" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1097,7 +1092,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1105,7 +1099,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-9.325">
           <caret line="37" column="37" selection-start-line="37" selection-start-column="17" selection-end-line="37" selection-end-column="37" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1113,7 +1106,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1121,15 +1113,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/lib/config/publish.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="4" column="18" selection-start-line="4" selection-start-column="18" selection-end-line="4" selection-end-column="18" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1145,7 +1128,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="10" column="14" selection-start-line="10" selection-start-column="14" selection-end-line="10" selection-end-column="14" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1153,7 +1135,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-4.3444443">
           <caret line="45" column="14" selection-start-line="42" selection-start-column="18" selection-end-line="42" selection-end-column="21" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1161,7 +1142,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1169,10 +1149,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-897.593">
           <caret line="2886" column="1" selection-start-line="2886" selection-start-column="1" selection-end-line="2886" selection-end-column="1" />
-          <folding>
-            <marker date="1475638516394" expanded="true" signature="-1:-1" placeholder="{&quot;format&quot;: &quot;web-program-pre1&quot;...}" />
-            <marker date="1475638516394" expanded="true" signature="-1:-1" placeholder="[...]" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1188,20 +1164,12 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/assets/css/style.css.map">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="296.53488">
-          <caret line="0" column="181804" selection-start-line="0" selection-start-column="181804" selection-end-line="0" selection-end-column="181804" />
-          <folding />
-        </state>
-      </provider>
       <provider editor-type-id="sourcemapFileViewerProvider">
         <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/views/pointTable/pointTable.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="9" column="6" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
+        <state vertical-scroll-proportion="296.53488">
+          <caret line="0" column="181804" selection-start-line="0" selection-start-column="181804" selection-end-line="0" selection-end-column="181804" />
           <folding />
         </state>
       </provider>
@@ -1210,22 +1178,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="7.05">
           <caret line="11" column="4" selection-start-line="9" selection-start-column="0" selection-end-line="11" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/schemas/02_pins.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/lib/config/autoRn.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1294,22 +1246,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/views/highscores/highscores.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/views/highscores/highscores.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-22.65">
-          <caret line="36" column="53" selection-start-line="36" selection-start-column="44" selection-end-line="36" selection-end-column="53" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/views/activityOverView/activityOverView.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-10.8">
@@ -1322,7 +1258,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1334,26 +1269,40 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/schemas/05_profile.js">
+    <entry file="file://$PROJECT_DIR$/server/lib/pin/methods/admin.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="45" column="43" selection-start-line="45" selection-start-column="43" selection-end-line="45" selection-end-column="43" />
+          <caret line="5" column="25" selection-start-line="5" selection-start-column="25" selection-end-line="5" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/lib/profile/profile.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/lib/pin/methods/user.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="9" column="51" selection-start-line="9" selection-start-column="30" selection-end-line="9" selection-end-column="51" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/stylesheets/style.css">
+    <entry file="file://$PROJECT_DIR$/client/nav.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-34.363636">
-          <caret line="56" column="29" selection-start-line="56" selection-start-column="29" selection-end-line="56" selection-end-column="29" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="5" column="26" selection-start-line="5" selection-start-column="26" selection-end-line="5" selection-end-column="26" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/views/modalPinCode/modalPinCode.js">
+    <entry file="file://$PROJECT_DIR$/client/sidemenu.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="21" selection-end-column="12" />
+          <caret line="21" column="35" selection-start-line="21" selection-start-column="35" selection-end-line="21" selection-end-column="35" />
           <folding />
         </state>
       </provider>
@@ -1366,15 +1315,15 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/views/addTeamCode/addTeamCode.js">
+    <entry file="file://$PROJECT_DIR$/server/lib/config/publish.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="22" selection-end-column="3" />
+          <caret line="4" column="18" selection-start-line="4" selection-start-column="18" selection-end-line="4" selection-end-column="18" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/views/addTeamCode/addTeamCode.html">
+    <entry file="file://$PROJECT_DIR$/server/lib/config/autoRn.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -1382,26 +1331,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/lib/pin/methods/admin.js">
+    <entry file="file://$PROJECT_DIR$/lib/schemas/03_stations.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="5" column="25" selection-start-line="5" selection-start-column="25" selection-end-line="5" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/lib/profile/profile.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/lib/pin/methods/user.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="9" column="51" selection-start-line="9" selection-start-column="30" selection-end-line="9" selection-end-column="51" />
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1414,10 +1347,82 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/client/stylesheets/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-13.636364">
+          <caret line="59" column="9" selection-start-line="59" selection-start-column="9" selection-end-line="59" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/views/highscores/highscores.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.4534883">
+          <caret line="11" column="33" selection-start-line="11" selection-start-column="32" selection-end-line="11" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/schemas/01_teams.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="64" column="10" selection-start-line="64" selection-start-column="4" selection-end-line="64" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/client/views/addPinCode/addPinCode.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="9" column="60" selection-start-line="9" selection-start-column="60" selection-end-line="9" selection-end-column="60" />
+          <caret line="86" column="10" selection-start-line="86" selection-start-column="10" selection-end-line="86" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/views/highscores/highscores.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/views/modalPinCode/modalPinCode.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="21" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/views/pointTable/pointTable.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="9" column="6" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/views/addTeamCode/addTeamCode.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="8" column="69" selection-start-line="8" selection-start-column="69" selection-end-line="8" selection-end-column="69" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/schemas/02_pins.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="29" column="9" selection-start-line="29" selection-start-column="9" selection-end-line="36" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/views/profile/profile.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.2906976">
+          <caret line="28" column="22" selection-start-line="28" selection-start-column="19" selection-end-line="28" selection-end-column="22" />
           <folding />
         </state>
       </provider>
@@ -1430,66 +1435,50 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/views/profile/profile.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.775">
-          <caret line="13" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="229" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/nav.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.375">
-          <caret line="5" column="26" selection-start-line="5" selection-start-column="26" selection-end-line="5" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/router/routes.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-14.477273">
-          <caret line="278" column="29" selection-start-line="278" selection-start-column="19" selection-end-line="278" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/sidemenu.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.125">
-          <caret line="21" column="35" selection-start-line="21" selection-start-column="35" selection-end-line="21" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/schemas/01_teams.js">
-      <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="60" column="9" selection-start-line="60" selection-start-column="9" selection-end-line="60" selection-end-column="9" />
+          <caret line="169" column="46" selection-start-line="169" selection-start-column="31" selection-end-line="169" selection-end-column="46" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/client/views/profile/profile.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.43554008">
-          <caret line="268" column="0" selection-start-line="268" selection-start-column="0" selection-end-line="274" selection-end-column="2" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="272" column="2" selection-start-line="272" selection-start-column="2" selection-end-line="272" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/views/addTeamCode/addTeamCode.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/schemas/05_profile.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="89" column="0" selection-start-line="89" selection-start-column="0" selection-end-line="89" selection-end-column="12" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/client/views/createTeam/createTeam.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="12" column="5" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
+        <state vertical-scroll-proportion="0.5302752">
+          <caret line="42" column="32" selection-start-line="42" selection-start-column="32" selection-end-line="42" selection-end-column="32" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/client/views/createTeam/createTeam.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.56586826">
-          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.598513">
+          <caret line="72" column="27" selection-start-line="72" selection-start-column="27" selection-end-line="72" selection-end-column="27" />
           <folding />
         </state>
       </provider>

@@ -268,8 +268,6 @@ Template.profile.helpers({
 
 Template.addedPinsRow.events({
     'click .add-team': function(event, template) {
-        //clicked = console.log(event.currentTarget.sibling("input"))
-        var pin = $(event.currentTarget).parent().text().split("+")[0];
-        Session.set("pinToAssignTeam",pin)
+        Session.set("pinToAssignTeam",this.pin.pin)
     }
 })

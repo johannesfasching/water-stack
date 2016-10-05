@@ -50,3 +50,4 @@ shell-server
 semantic:ui
 less@2.7.5
 alizbeo:flow-db-admin
+aldeed:delete-button
