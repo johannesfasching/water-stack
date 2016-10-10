@@ -3,16 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="8afdf6d6-f2f3-4040-9208-c7b46e724821" name="Default" comment="">
       <change type="DELETED" beforePath="$PROJECT_DIR$/client/views/highscores/app.js" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/lib/highscore/highscore.js" afterPath="$PROJECT_DIR$/server/lib/highscore/highscore.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/views/highscores/highscores.html" afterPath="$PROJECT_DIR$/client/views/highscores/highscores.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/views/highscores/highscores.js" afterPath="$PROJECT_DIR$/client/views/highscores/highscores.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/views/highscores/highscoresTableRow.html" afterPath="$PROJECT_DIR$/client/views/highscores/highscoresTableRow.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/views/profile/profile.html" afterPath="$PROJECT_DIR$/client/views/profile/profile.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/views/profile/profile.js" afterPath="$PROJECT_DIR$/client/views/profile/profile.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/views/station/station.html" afterPath="$PROJECT_DIR$/client/views/station/station.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/views/station/station.js" afterPath="$PROJECT_DIR$/client/views/station/station.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/style.css" afterPath="$PROJECT_DIR$/client/stylesheets/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/lib/config/accounts.js" afterPath="$PROJECT_DIR$/server/lib/config/accounts.js" />
     </list>
     <ignored path="water-stack.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -118,8 +109,8 @@
           <file leaf-file-name="highscores.html" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/client/views/highscores/highscores.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.06020067">
-                  <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="14" selection-end-column="17" />
+                <state vertical-scroll-proportion="0.66220737">
+                  <caret line="22" column="13" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
                   <folding />
                 </state>
               </provider>
@@ -149,11 +140,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="accounts.js" pinned="false" current-in-tab="false">
+          <file leaf-file-name="accounts.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/server/lib/config/accounts.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
-                  <caret line="31" column="13" selection-start-line="31" selection-start-column="13" selection-end-line="31" selection-end-column="13" />
+                <state vertical-scroll-proportion="0.42857143">
+                  <caret line="8" column="49" selection-start-line="8" selection-start-column="49" selection-end-line="8" selection-end-column="49" />
                   <folding />
                 </state>
               </provider>
@@ -233,10 +224,10 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="sidemenu.html" pinned="false" current-in-tab="true">
+          <file leaf-file-name="sidemenu.html" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/client/sidemenu.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.58189654">
+                <state vertical-scroll-proportion="-6.75">
                   <caret line="33" column="35" selection-start-line="33" selection-start-column="35" selection-end-line="33" selection-end-column="35" />
                   <folding />
                 </state>
@@ -297,7 +288,6 @@
         <option value="$PROJECT_DIR$/client/views/activityOverView/activityOverView.html" />
         <option value="$PROJECT_DIR$/server/lib/pin/methods/user.js" />
         <option value="$PROJECT_DIR$/server/lib/pin/methods/admin.js" />
-        <option value="$PROJECT_DIR$/server/lib/config/accounts.js" />
         <option value="$PROJECT_DIR$/.meteor/packages" />
         <option value="$PROJECT_DIR$/server/lib/profile/profile.js" />
         <option value="$PROJECT_DIR$/client/views/login/login.html" />
@@ -312,6 +302,7 @@
         <option value="$PROJECT_DIR$/client/views/station/station.js" />
         <option value="$PROJECT_DIR$/client/views/station/station.html" />
         <option value="$PROJECT_DIR$/client/stylesheets/style.css" />
+        <option value="$PROJECT_DIR$/server/lib/config/accounts.js" />
       </list>
     </option>
   </component>
@@ -1283,14 +1274,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/lib/config/accounts.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="31" column="13" selection-start-line="31" selection-start-column="13" selection-end-line="31" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/server/lib/config/autoRn.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1537,14 +1520,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/sidemenu.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.58189654">
-          <caret line="33" column="35" selection-start-line="33" selection-start-column="35" selection-end-line="33" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/stylesheets/style.css">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-11.704545">
@@ -1553,10 +1528,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/client/sidemenu.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.75">
+          <caret line="33" column="35" selection-start-line="33" selection-start-column="35" selection-end-line="33" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/lib/config/accounts.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.42857143">
+          <caret line="8" column="49" selection-start-line="8" selection-start-column="49" selection-end-line="8" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/client/views/highscores/highscores.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.06020067">
-          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="14" selection-end-column="17" />
+        <state vertical-scroll-proportion="0.66220737">
+          <caret line="22" column="13" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
           <folding />
         </state>
       </provider>
