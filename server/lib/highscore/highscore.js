@@ -58,16 +58,18 @@ Meteor.methods({
             _.forEach(result, function(item){
                 var userPin = db.Pin.findOne({pin:item.pin});
                 var userName = "anonymous";
+                var userId
                 if(userPin && userPin.userId) {
                     var mUser = Meteor.users.findOne(
                         {_id:userPin.userId}
                     )
                     if(mUser && mUser.profile && mUser.profile.userName) {
                         userName = mUser.profile.userName;
+                        userId =  mUser._id;
                     }
                 }
 
-                var entry = { rank:rank, totalPoints:item.totalPoints, time:item.time, userName:userName, pin:item.pin }
+                var entry = { rank:rank, totalPoints:item.totalPoints, time:item.time, userName:userName, pin:item.pin, userId: userId }
                 res.push( entry )
                 rank++
             });
@@ -79,11 +81,16 @@ Meteor.methods({
 
     'highscore23_team':
         function (postData) {
-            //console.log("data", postData)
+            console.log("data", postData)
             if(!postData.stationId)
                 return "Error: no stationId provided"
             if(!postData.timerange)
                 return "Error: alltime or week not provided"
+            if(!postData.teamCode)
+                return "Error: teamCode not provided"
+
+
+
 
             var startDate
             if(postData.timerange === "week")
@@ -98,6 +105,7 @@ Meteor.methods({
                     {   $match:
                     {
                         stationId:postData.stationId,
+                        teamCode: postData.teamCode,
                         createdAt: {
                             $gte: startDate,
                             $lt: endDate
@@ -136,16 +144,19 @@ Meteor.methods({
             _.forEach(result, function(item){
                 var userPin = db.Pin.findOne({pin:item.pin});
                 var userName = "anonymous";
+                var userId
                 if(userPin && userPin.userId) {
                     var mUser = Meteor.users.findOne(
                         {_id:userPin.userId}
                     )
                     if(mUser && mUser.profile && mUser.profile.userName) {
                         userName = mUser.profile.userName;
+                        userId =  mUser._id;
+
                     }
                 }
 
-                var entry = { rank:rank, totalPoints:item.totalPoints, time:item.time, userName:userName, pin:item.pin }
+                var entry = { rank:rank, totalPoints:item.totalPoints, time:item.time, userName:userName, pin:item.pin, userId: userId }
                 res.push( entry )
                 rank++
             });
@@ -155,12 +166,14 @@ Meteor.methods({
             return res;
         },
 
-    'highscore':
+    'highscore_team':
         function (postData) {
             if(!postData.timerange)
                 return "Error: alltime or week not provided"
+            if(!postData.teamCode)
+                return "Error: teamCode not provided"
 
-            console.log("MeteorMethod: highscore", postData)
+            console.log("MeteorMethod: highscore_team", postData)
 
             var startDate
             if(postData.timerange === "week")
@@ -179,6 +192,92 @@ Meteor.methods({
                             $gte: startDate,
                             $lt: endDate
                         }
+                    }
+                    },
+                    { "$sort":
+                    {
+                        "gamePoints": -1
+                    }
+                    },
+                    {    $group:
+                    {
+                        _id: "$pin",
+                        totalPoints: { $max: "$gamePoints" },
+                        pin : { $first: '$pin' }
+                    }
+                    },
+                    { "$sort":
+                    {
+                        "totalPoints": -1
+                    }
+                    },
+                    {
+                        $limit:100
+                    }
+
+                ]
+            )
+
+            console.log("XXXXX", JSON.stringify(result) )
+
+
+            var res = []
+            var rank = 1
+
+            _.forEach(result, function(item){
+                var userPin = db.Pin.findOne({pin:item.pin});
+                var userName = "anonymous";
+                var userId;
+
+                if(userPin && userPin.userId) {
+                    var mUser = Meteor.users.findOne(
+                        {_id:userPin.userId}
+                    )
+                    if(mUser && mUser.profile && mUser.profile.userName) {
+                        userName = mUser.profile.userName;
+                        userId =  mUser._id;
+                    }
+                }
+
+                var entry = { rank:rank, totalPoints:item.totalPoints, userName:userName, pin:item.pin, userId: userId }
+                res.push( entry )
+                rank++
+            });
+
+            //return res;
+            console.log("result:",JSON.stringify(res))
+            return res;
+        },
+
+
+
+    'highscore_team':
+        function (postData) {
+            if(!postData.timerange)
+                return "Error: alltime or week not provided"
+            if(!postData.teamCode)
+                return "Error: teamCode not provided"
+
+            console.log("MeteorMethod: highscore_team", postData)
+
+            var startDate
+            if(postData.timerange === "week")
+                startDate = moment().startOf('isoWeek').toDate();
+            if(postData.timerange === "all")
+                startDate = moment().add(-10, 'years').toDate();
+
+            var endDate = moment().add(10, 'days').toDate();
+
+            var result = db.Competition.aggregate([
+
+                    {   $match:
+                    {
+                        stationId:"station1",
+                        createdAt: {
+                            $gte: startDate,
+                            $lt: endDate
+                        },
+                        teamCode: postData.teamCode
 
                     }
                     },
@@ -215,16 +314,18 @@ Meteor.methods({
             _.forEach(result, function(item){
                 var userPin = db.Pin.findOne({pin:item.pin});
                 var userName = "anonymous";
+                var userId;
                 if(userPin && userPin.userId) {
                     var mUser = Meteor.users.findOne(
                         {_id:userPin.userId}
                     )
                     if(mUser && mUser.profile && mUser.profile.userName) {
                         userName = mUser.profile.userName;
+                        userId = mUser._id
                     }
                 }
 
-                var entry = { rank:rank, totalPoints:item.totalPoints, userName:userName, pin:item.pin }
+                var entry = { rank:rank, totalPoints:item.totalPoints, userName:userName, pin:item.pin, userId: userId }
                 res.push( entry )
                 rank++
             });
@@ -233,6 +334,7 @@ Meteor.methods({
             console.log("result:",JSON.stringify(res))
             return res;
         },
+
     'countStations':
         function (data) {
             //console.log(data)

@@ -2,10 +2,45 @@ function getImageUrl() {
     return Images.findOne({_id:Meteor.user().profile.picture}).url();
 }
 
+getimagebyid = function(userId) {
+    if(!userId) {
+        return "./assets/images/anonym.png"
+    }
+    console.log("userId", userId)
+    var user = Meteor.users.findOne(userId);
+    if(!user) {
+        return "./assets/images/anonym.png"
+    }
+
+    if (user.services) {
+        if (user.services.facebook) {
+            console.log("FACEBOOK")
+            return "http://graph.facebook.com/" + user.services.facebook.id + "/picture?type=square"
+        }
+        else if (user.services.google) {
+            console.log("GOOGLE")
+            return user.services.google.picture;
+        }
+        else {
+            var img = Images.findOne({_id: user.profile.picture}).url();
+            if (img)
+                return img
+            else
+                return "./assets/images/anonym.png"
+
+        }
+    }
+    else
+        return "./assets/images/anonym.png"
+};
+
+
 
 Template.profile.events({
     'change #imagesProfile': function(event, template) {
         FS.Utility.eachFile(event, function(file) {
+
+            console.log(file)
 
             Images.insert(file, function (err, fileObj) {
                 Meteor.users.update(
@@ -226,7 +261,7 @@ Template.profile.helpers({
     },
 
     profileImage: function () {
-        return getImageUrl();
+        return getimagebyid(Meteor.userId());
     },
 
     profileName: function () {

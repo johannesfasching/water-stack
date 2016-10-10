@@ -4,14 +4,14 @@ html {
 }
 
 body {
-  font-family: "Open Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif /*rtl:prepend:"Droid Arabic Kufi","Droid Sans", */;
-  background: #fcfcfc url(/imgs/bg.jpg) repeat;
-  margin: 0px;
-  /* Margin bottom by footer height */
-  margin-bottom: 70px;
-  padding: 0px;
-  color: #555555;
-  min-width: 320px;
+  /*font-family: "Open Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif /!*rtl:prepend:"Droid Arabic Kufi","Droid Sans", *!/;*/
+  /*background: #fcfcfc url(/imgs/bg.jpg) repeat;*/
+  /*margin: 0px;*/
+  /*/!* Margin bottom by footer height *!/*/
+  /*margin-bottom: 70px;*/
+  /*padding: 0px;*/
+  /*color: #555555;*/
+  /*min-width: 320px;*/
 }
 
 #content {
@@ -25,8 +25,8 @@ body {
 }
 
 #footer > .container {
-  padding-right: 15px;
-  padding-left: 15px;
+  /*padding-right: 15px;*/
+  /*padding-left: 15px;*/
 }
 
 .success {
@@ -40,6 +40,11 @@ body {
 
 .avatar.big{
   width: 100px !important;
+  height: 100px !important;
+}
+
+.avatar.stationImg{
+  width: 141px !important;
   height: 100px !important;
 }
 
@@ -57,4 +62,34 @@ body {
   margin-left:50px !important;
 }
 
-.team-row:hover { background-color: #f5f5f5; }
+.team-row:hover {
+  background-color: #f5f5f5;
+}
+
+.wasser-quiz:before {
+   background-image: url("./assets/images/station/Station_1_RZ.svg") !important;
+}
+
+.brunnen-bohren:before {
+  background-image: url("./assets/images/station/Station_2_RZ.svg") !important;
+}
+
+.wasser-ziehen:before {
+  background-image: url("./assets/images/station/Station_3_RZ.svg") !important;
+}
+
+.der-lauf-fur-wasser:before {
+  background-image: url("./assets/images/station/Station_4_RZ.svg") !important;
+}
+
+.station {
+  background: url("../images/child-blended.jpg") center center no-repeat rgba(87,140,238,500) !important;
+}
+
+.how-to, .profile, .wasser-quiz.header {
+  background: url("images/child-blended.jpg") center!important;
+  -webkit-background-size: cover !important;
+  -moz-background-size: cover!important
+  -o-background-size: cover!important
+  background-size: cover!important
+}

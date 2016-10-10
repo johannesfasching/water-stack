@@ -50,6 +50,7 @@
             </div>
         </div>
     </aside>
+
     <main class="ui main">
         <header class="ui center aligned profile header">
             <div class="ui container"><a class="ui toggle-sidebar" href="#">
@@ -94,27 +95,21 @@
             <section class="ui section">
                 <h2 class="title">Profil</h2>
                 <div class="body">
-                    <!--{{#autoForm id="UserProfileEdit" collection="Meteor.users"  doc=currentUser type="update" resetOnSuccess=false}}-->
-
-                        <!--&lt;!&ndash;<div class="action"><img class="avatar" src="{{profileImage}}" width="35" height="35"></div>&ndash;&gt;-->
-                        <!--&lt;!&ndash;{{> afQuickField name="profile.userName"}}&ndash;&gt;-->
-                        <!--&lt;!&ndash;{{> afQuickField name="profile.realName"}}&ndash;&gt;-->
-                        <!--&lt;!&ndash;{{> afQuickField name="profile.email"}}&ndash;&gt;-->
-                        <!--&lt;!&ndash;{{> afQuickField name="profile.age"}}&ndash;&gt;-->
-                        <!--&lt;!&ndash;{{> afQuickField name="profile.sex"}}&ndash;&gt;-->
-
-                        <!--{{#unless autoSaveMode}}-->
-                            <!--<div class="form-group">-->
-                                <!--<button type="submit" class="btn btn-primary" disabled="{{disableButtons}}">Ok</button>-->
-                            <!--</div>-->
-                        <!--{{/unless}}-->
-                    <!--{{/autoForm}}-->
                     <form class="ui form" action="#" method="POST">
                         <ul class="ui key-value view">
                             <li>
                                 <div class="key">Foto</div>
                                 <div class="value">Sehr schön, nettes Foto</div>
-                                <div class="action"><img class="avatar" src="{{profileImage}}" width="35" height="35"></div>
+                                <div class="action profileImage">
+                                    <img class="avatar" src="{{profileImage currentUser._id}}" width="35" height="35">
+                                </div>
+
+                                <form action="#" method="post" enctype="multipart/form-data">
+                                    <p>
+                                        <input id="imagesProfile" value="Senden" name="Datei" label="Datei" text="datei" type="file" size="50">
+                                    </p>
+                                </form>
+
                             </li>
                             <li>
                                 <div  class="key">Benutzername</div>

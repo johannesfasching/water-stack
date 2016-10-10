@@ -35,20 +35,41 @@
                 </div>
             </section>
             <section class="ui section">
-                <h2 class="title">Team Spieler</h2>
+
+                <h2 class="title">Deine Teams</h2>
+
+                        <div class="body">
+                            <table class="ui selectable celled inverted green table">
+                                <thead>
+                                <tr>
+                                    <td>TeamCode</td>
+                                    <td>Titel</td>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {{#each teamss}}
+                                    <tr class="team-row">
+                                        <td>{{teamCode}}</td>
+                                        <td>{{title}}</td>
+                                    </tr>
+                                {{/each}}
+                                </tbody>
+                            </table>
+                        </div>
+
                 <div class="body full">
                     <div class="ui leaderboard">
                         <article>
-                            {{>highscoreTable table=highscore_1}}
+                            {{>highscoreTable table=highscore_1_team}}
                         </article>
                         <article>
-                            {{>highscoreTable table=highscore_2}}
+                            {{>highscoreTable table=highscore_2_team}}
                         </article>
                         <article>
-                            {{>highscoreTable table=highscore_3}}
+                            {{>highscoreTable table=highscore_3_team}}
                         </article>
                         <article>
-                            {{>highscoreTable table=highscore_4}}
+                            {{>highscoreTable table=highscore_4_team}}
                         </article>
                     </div>
                 </div>

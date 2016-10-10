@@ -3,6 +3,7 @@ var highscore_1 = function() {
     table.title = "Wasser-Quiz"
     table.scoresWeek = Session.get('highscore_1_week')
     table.scoresAll = Session.get('highscore_1_all')
+    table.stationImage = "./assets/images/station/Station_1_RZ.svg"
     return table;
 }
 
@@ -11,6 +12,7 @@ var highscore_2 = function() {
     table.title = "Wasser-Ziehen"
     table.scoresWeek = Session.get('highscore_2_week')
     table.scoresAll = Session.get('highscore_2_all')
+    table.stationImage = "./assets/images/station/Station_3_RZ.svg"
     return table;
 }
 
@@ -19,6 +21,7 @@ var highscore_3 = function() {
     table.title = "Wasser-Bohren"
     table.scoresWeek = Session.get('highscore_3_week')
     table.scoresAll = Session.get('highscore_3_all')
+    table.stationImage = "./assets/images/station/Station_2_RZ.svg"
     return table;
 }
 
@@ -27,6 +30,7 @@ var highscore_4 = function() {
     table.title = "Wasser-Tragen"
     table.scoresWeek = Session.get('highscore_4_week')
     table.scoresAll = Session.get('highscore_4_all')
+    table.stationImage = "./assets/images/station/Station_4_RZ.svg"
     return table;
 }
 
