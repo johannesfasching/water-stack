@@ -1,17 +1,17 @@
 // Set up login services
 Meteor.startup(function() {
   // Add Facebook configuration entry
-  /*
+
   ServiceConfiguration.configurations.update(
     { service: "facebook" },
     { $set: {
-        appId: "XXXXXXXXXXXXXXX",
-        secret: "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+        appId: "1008589855934836",
+        secret: "0c86ee97e31da3549d68a73e78694855"
       }
     },
     { upsert: true }
-  );
-  */
+  ),
+
 
   // Add GitHub configuration entry
   /*
@@ -30,9 +30,9 @@ Meteor.startup(function() {
   ServiceConfiguration.configurations.update(
     { service: "google" },
     { $set: {
-        clientId: "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
-        client_email: "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
-        secret: "XXXXXXXXXXXXXXXXXXXXXXXX"
+        clientId: "830637270069-hrdo503rlb9pbl48242vkdk6obnmnhim.apps.googleusercontent.com",
+        client_email: "fasching@golemdigital.at",
+        secret: "Zejef1z9dRQ-UNsfGxMUVmNM"
       }
     },
     { upsert: true }

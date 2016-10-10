@@ -20,7 +20,24 @@ Meteor.methods({
                         teamCode: usrObj.teamCode
                     }
                 },
-                {selector: {type: 'user'}})
+                {selector:
+                    { type: 'user' }
+                }
+            )
+
+            db.Competition.update(
+                { pin: usrObj.pin },
+                { $set: {teamCode: usrObj.teamCode} },
+                { multi: true }
+            )
+
+            db.Competition23.update(
+                { pin: usrObj.pin },
+                { $set: {teamCode: usrObj.teamCode} },
+                { multi: true }
+            )
+
+
             retObj.error = false
             retObj.message = "Erfolgreich zugewiesen"
         }

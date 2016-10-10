@@ -1,6 +1,11 @@
 <template name="ownStationScores">
     <div class="content">
         <h1 class="title">{{stationTitle}}</h1>
+
+        <svg class="">
+            <use xlink:href="./images/station/Station_1_RZ.svg"></use>
+        </svg>
+
         <ul class="stats">
             <li>
                 <div class="stat">
@@ -42,7 +47,8 @@
             </svg>Tweet</a><a class="timeline-share-facebook" href="#">
             <svg class="icon facebook">
                 <use xlink:href="./assets/images/icons.svg#facebook"></use>
-            </svg>Share</a></div>
+            </svg>Share</a>
+        </div>
     </li>
 </template>
 
@@ -52,37 +58,9 @@
         <div class="body">
             <ul class="ui timeline">
 
-                {{#each highscore_1_history}}
+                {{#each highscore_history}}
                     {{>timeLinePoint}}
                 {{/each}}
-                <li><span class="timeline-point">
-                    <svg class="icon check">
-                        <use xlink:href="./assets/images/icons.svg#check"></use>
-                    </svg></span>
-                    <div class="timeline-meta">21.04.2016</div>
-                    <div class="timeline-text">30 points earned. Very nice!</div>
-                    <div class="timeline-share"><a class="timeline-share-twitter" href="#">
-                        <svg class="icon twitter">
-                            <use xlink:href="./assets/images/icons.svg#twitter"></use>
-                        </svg>Tweet</a><a class="timeline-share-facebook" href="#">
-                        <svg class="icon facebook">
-                            <use xlink:href="./assets/images/icons.svg#facebook"></use>
-                        </svg>Share</a></div>
-                </li>
-                <li><span class="timeline-point">
-                    <svg class="icon check">
-                        <use xlink:href="./assets/images/icons.svg#check"></use>
-                    </svg></span>
-                    <div class="timeline-meta">15.04.2016</div>
-                    <div class="timeline-text">50 points earned. Very nice!</div>
-                    <div class="timeline-share"><a class="timeline-share-twitter" href="#">
-                        <svg class="icon twitter">
-                            <use xlink:href="./assets/images/icons.svg#twitter"></use>
-                        </svg>Tweet</a><a class="timeline-share-facebook" href="#">
-                        <svg class="icon facebook">
-                            <use xlink:href="./assets/images/icons.svg#facebook"></use>
-                        </svg>Share</a></div>
-                </li>
             </ul>
         </div>
     </section>
@@ -91,10 +69,14 @@
 <template name="station">
     <main class="ui main">
         <header class="ui center aligned wasser-quiz stations header">
-            <div class="ui container"><a class="ui toggle-sidebar" href="#">
-                <svg class="icon menu">
-                    <use xlink:href="./assets/images/icons.svg#menu"></use>
-                </svg></a><a class="ui add-pin secondary mini button" href="#">+ Add new pin</a>
+            <div class="ui container">
+                <a class="ui toggle-sidebar" href="#">
+                    <svg class="icon menu">
+                        <use xlink:href="./assets/images/icons.svg#menu"></use>
+                    </svg>
+                </a>
+                <a class="ui add-pin secondary mini button" href="#">+ Add new pin</a>
+
                 {{>ownStationScores}}
             </div>
         </header>
@@ -106,31 +88,7 @@
             <section class="ui section">
                 <h2 class="title">Station leaderboard</h2>
                 <div class="body">
-                    <div class="ui top attached small tabular menu"><a class="item active" data-tab="this-week-1">This week</a><a class="item" data-tab="all-time-1">All time</a></div>
-                    <div class="ui bottom attached tab segment active" data-tab="this-week-1">
-                        <div class="leaderboard-wrapper">
-                            <table class="ui basic small unstackable table">
-                                <tbody>
-                                {{#each highscore_1_week}}
-                                    {{> highscores_tablerow}}
-                                {{/each}}
-                                </tbody>
-                            </table>
-                        </div>
-                        <div class="leaderboard-footer"><a class="ui mini button">Show more results</a></div>
-                    </div>
-                    <div class="ui bottom attached tab segment" data-tab="all-time-1">
-                        <div class="leaderboard-wrapper">
-                            <table class="ui basic small unstackable table">
-                                <tbody>
-                                {{#each highscore_1_all}}
-                                    {{> highscores_tablerow}}
-                                {{/each}}
-                                </tbody>
-                            </table>
-                        </div>
-                        <div class="leaderboard-footer"><a class="ui mini button">Show more results</a></div>
-                    </div>
+                    {{>highscoreTable table=highscore}}
                 </div>
             </section>
         </div>

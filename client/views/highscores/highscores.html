@@ -16,117 +16,44 @@
         <div class="ui container">
             {{> activityOverView }}
             <section class="ui section">
-                <h2 class="title">leaderboard</h2>
+                <h2 class="title">Einzel Spieler</h2>
                 <div class="body full">
                     <div class="ui leaderboard">
                         <article>
-                            <div class="card">
-                                <div class="card-header">
-                                    <svg class="icon trophy">
-                                        <use xlink:href="./assets/images/icons.svg#trophy"></use>
-                                    </svg>
-                                    <div class="uppercased">Brunnen Bohren High Score</div>
-                                </div>
-                                <div class="ui top attached small tabular menu"><a class="item active" data-tab="this-week-1">This week</a><a class="item" data-tab="all-time-1">All time</a></div>
-                                <div class="ui bottom attached tab segment active" data-tab="this-week-1">
-                                    <div class="leaderboard-wrapper">
-                                        <table class="ui basic small unstackable table">
-                                            <tbody>
-                                            {{#each highscore_1_week}}
-                                                {{> highscores_tablerow}}
-                                            {{/each}}
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                    <div class="leaderboard-footer"><a class="ui mini button">Show more results</a></div>
-                                </div>
-                                <div class="ui bottom attached tab segment" data-tab="all-time-1">
-                                    <div class="leaderboard-wrapper">
-                                        <table class="ui basic small unstackable table">
-                                            <tbody>
-                                            {{#each highscore_1_all}}
-                                                {{> highscores_tablerow}}
-                                            {{/each}}
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                    <div class="leaderboard-footer"><a class="ui mini button">Show more results</a></div>
-                                </div>
-                            </div>
+                            {{>highscoreTable table=highscore_1}}
                         </article>
                         <article>
-                            <div class="card">
-                                <div class="card-header">
-                                    <svg class="icon trophy">
-                                        <use xlink:href="./assets/images/icons.svg#trophy"></use>
-                                    </svg>
-                                    <div class="uppercased">Brunnen Bohren High Score</div>
-                                </div>
-                                <div class="ui top attached small tabular menu"><a class="item active" data-tab="this-week-2">This week</a><a class="item" data-tab="all-time-2">All time</a></div>
-                                <div class="ui bottom attached tab segment active" data-tab="this-week-2">
-                                    <div class="leaderboard-wrapper">
-                                        <table class="ui basic small unstackable table">
-                                            <tbody>
-                                            {{#each highscore_1_week}}
-                                                {{> highscores_tablerow}}
-                                            {{/each}}
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                    <div class="leaderboard-footer"><a class="ui mini button">Show more results</a></div>
-                                </div>
-                                <div class="ui bottom attached tab segment" data-tab="all-time-2">
-                                    <div class="leaderboard-wrapper">
-                                        <table class="ui basic small unstackable table">
-                                            <tbody>
-                                            {{#each highscore_1_all}}
-                                                {{> highscores_tablerow}}
-                                            {{/each}}
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                    <div class="leaderboard-footer"><a class="ui mini button">Show more results</a></div>
-                                </div>
-                            </div>
+                            {{>highscoreTable table=highscore_2}}
                         </article>
                         <article>
-                            <div class="card">
-                                <div class="card-header">
-                                    <svg class="icon trophy">
-                                        <use xlink:href="./assets/images/icons.svg#trophy"></use>
-                                    </svg>
-                                    <div class="uppercased">Brunnen Bohren High Score</div>
-                                </div>
-                                <div class="ui top attached small tabular menu"><a class="item active" data-tab="this-week-3">This week</a><a class="item" data-tab="all-time-3">All time</a></div>
-                                <div class="ui bottom attached tab segment active" data-tab="this-week-3">
-                                    <div class="leaderboard-wrapper">
-                                        <table class="ui basic small unstackable table">
-                                            <tbody>
-                                            {{#each highscore_1_week}}
-                                                {{> highscores_tablerow}}
-                                            {{/each}}
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                    <div class="leaderboard-footer"><a class="ui mini button">Show more results</a></div>
-                                </div>
-                                <div class="ui bottom attached tab segment" data-tab="all-time-3">
-                                    <div class="leaderboard-wrapper">
-                                        <table class="ui basic small unstackable table">
-                                            <tbody>
-                                            {{#each highscore_1_all}}
-                                                {{> highscores_tablerow}}
-                                            {{/each}}
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                    <div class="leaderboard-footer"><a class="ui mini button">Show more results</a></div>
-                                </div>
-                            </div>
+                            {{>highscoreTable table=highscore_3}}
+                        </article>
+                        <article>
+                            {{>highscoreTable table=highscore_4}}
+                        </article>
+                    </div>
+                </div>
+            </section>
+            <section class="ui section">
+                <h2 class="title">Team Spieler</h2>
+                <div class="body full">
+                    <div class="ui leaderboard">
+                        <article>
+                            {{>highscoreTable table=highscore_1}}
+                        </article>
+                        <article>
+                            {{>highscoreTable table=highscore_2}}
+                        </article>
+                        <article>
+                            {{>highscoreTable table=highscore_3}}
+                        </article>
+                        <article>
+                            {{>highscoreTable table=highscore_4}}
                         </article>
                     </div>
                 </div>
             </section>
         </div>
+
     </main>
 </template>

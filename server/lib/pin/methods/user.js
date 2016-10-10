@@ -5,6 +5,8 @@ Meteor.methods({
         var result = db.Pin.findOne({pin: usrObj.pin})
         console.log(result)
 
+
+
         if (result == undefined) {
             retObj.error = true
             retObj.message = "Die PIN gibt es nicht"

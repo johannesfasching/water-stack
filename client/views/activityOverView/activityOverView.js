@@ -6,24 +6,18 @@ Tracker.autorun(function () {
     });
     console.log("pins",pinList);
     Session.set("pins", pinList);
+
+    Meteor.call("countStations",{pins: Session.get("pins")}, function(err, data) {
+        console.log("counter", data)
+        Session.set("Counter",data)
+    })
 });
+
+
 
 Template.activityOverView.helpers({
 
-    countStation1: function () {
-        var pins = Session.get("pins");
-        return db.Competition.find({pin: {$in: pins}, stationId: "station1"}).count();
-    },
-    countStation2: function () {
-        var pins = Session.get("pins");
-        return db.Competition23.find({pin: {$in: pins}, stationId: "station2"}).count();
-    },
-    countStation3: function () {
-        var pins = Session.get("pins");
-        return db.Competition23.find({pin: {$in: pins}, stationId: "station3"}).count();
-    },
-    countStation4: function () {
-        var pins = Session.get("pins");
-        return db.Competition23.find({pin: {$in: pins}, stationId: "station4"}).count();
+    counter: function () {
+        return Session.get("Counter")
     }
 });

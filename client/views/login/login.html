@@ -1,0 +1,103 @@
+<template name="login">
+
+    <div class="ui fixed faded login cover"></div>
+    <div class="ui center aligned auth container"><img src="assets/images/logo.png" width="270" alt="">
+        <div class="ui form segment" action="highscores.html">
+            {{#if currentUser}}
+            {{else}}
+                <div class="field">
+                    <button class="fluid ui facebook button">
+                        <svg class="icon facebook">
+                            <use xlink:href="./assets/images/icons.svg#facebook"></use>
+                        </svg>Sign up with Facebook
+                    </button>
+                </div>
+                <div class="field">
+                    <button class="fluid ui google plus button">
+                        <svg class="icon google-plus">
+                            <use xlink:href="./assets/images/icons.svg#google-plus"></use>
+                        </svg>Sign up with Google
+                    </button>
+                </div>
+            <div class="ui horizontal divider">or</div>
+
+            <div class="field">
+                <input type="email" name="email" placeholder="Your email">
+            </div>
+            <div class="field">
+                <input type="password" name="password" placeholder="Your password">
+            </div>
+            <div class="field clearfix large bottom offset">
+                <a class="ui right floated quiet text" href="reset-password.html"><strong>Forgot password?</strong></a>
+            </div>
+            {{/if}}
+
+            {{#if currentUser}}
+                {{ currentUser.username }}
+                <button class="fluid ui primary logout button" type="submit">Log out</button>
+            {{else}}
+                <button class="fluid ui primary password button" type="submit">Log in</button>
+            {{/if}}
+
+
+                    <div class="ui middle top offset">
+                <small>By signing up, you agree to the <a href="#">Terms of Service.</a></small>
+            </div>
+        </div>
+        <p class="ui light large text top bottom middle offset">Don't have an account?</p><a class="ui secondary button" href="createaccount">Create Account</a>
+    </div>
+</template>
+
+
+<template name="createaccount">
+
+    <div class="ui fixed faded login cover"></div>
+    <div class="ui center aligned auth container"><img src="assets/images/logo.png" width="270" alt="">
+        <div class="ui form segment" action="highscores.html">
+            {{#if currentUser}}
+            {{else}}
+
+                <div class="field">
+                    <button class="fluid ui facebook button">
+                        <svg class="icon facebook">
+                            <use xlink:href="./assets/images/icons.svg#facebook"></use>
+                        </svg>Sign up with Facebook
+                    </button>
+                </div>
+                <div class="field">
+                    <button class="fluid ui google plus button">
+                        <svg class="icon google-plus">
+                            <use xlink:href="./assets/images/icons.svg#google-plus"></use>
+                        </svg>Sign up with Google
+                    </button>
+                </div>
+                <div class="ui horizontal divider">or</div>
+                <div class="field">
+                    <input type="text" name="yourName" placeholder="Your Name">
+                </div>
+                <div class="field">
+                    <input type="email" name="email" placeholder="Your email">
+                </div>
+                <div class="field">
+                    <input type="password" name="password" placeholder="Your password">
+                </div>
+                <div class="field clearfix large bottom offset">
+                    <a class="ui right floated quiet text" href="reset-password.html"><strong>Forgot password?</strong></a>
+                </div>
+            {{/if}}
+
+            {{#if currentUser}}
+                {{ currentUser.username }}
+                <button class="fluid ui primary logout button" type="submit">Log out</button>
+            {{else}}
+                <button class="fluid ui primary password button" type="submit">Register</button>
+            {{/if}}
+
+
+            <div class="ui middle top offset">
+                <small>By signing up, you agree to the <a href="#">Terms of Service.</a></small>
+            </div>
+        </div>
+        <p class="ui light large text top bottom middle offset">Already have an account?</p><a class="ui secondary button" href="login">Login to existing Account.</a>
+    </div>
+</template>

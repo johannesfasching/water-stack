@@ -2,8 +2,14 @@ Meteor.methods({
     'insertPINs': function(pins){
 
         if(pins == undefined) {
-            for(var i=0; i<50; i++) {
-                p = "p"+i
+
+
+
+            for(var i=0; i<2000; i++) {
+                var strI = String(i)
+                while(strI.length < 8)
+                    strI = "0"+strI;
+                p = strI
                 result = db.Pin.findOne({pin:p})
                 if(result == undefined) {
                     console.log(result)
@@ -31,3 +37,4 @@ Meteor.methods({
         var currentUserId = Meteor.userId();
     }
 });
+

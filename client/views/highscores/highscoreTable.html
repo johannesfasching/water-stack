@@ -1,0 +1,38 @@
+<template name="highscoreTable">
+    <div class="card">
+        <div class="card-header">
+            <svg class="icon trophy">
+                <use xlink:href="./assets/images/icons.svg#trophy"></use>
+            </svg>
+            <div class="uppercased">{{table.title}}</div>
+        </div>
+        <div class="ui top attached small tabular menu">
+            <a class="item active" data-tab="this-week-1">Diese Woche</a>
+            <a class="item" data-tab="all-time-1">Alles</a>
+        </div>
+        <div class="ui bottom attached tab segment active" data-tab="this-week-1">
+            <div class="leaderboard-wrapper">
+                <table class="ui basic small unstackable table">
+                    <tbody>
+                    {{#each table.scoresWeek}}
+                        {{> highscores_tablerow}}
+                    {{/each}}
+                    </tbody>
+                </table>
+            </div>
+            <div class="leaderboard-footer"><a class="ui mini button">Mehr Ergebnisse</a></div>
+        </div>
+        <div class="ui bottom attached tab segment" data-tab="all-time-1">
+            <div class="leaderboard-wrapper">
+                <table class="ui basic small unstackable table">
+                    <tbody>
+                    {{#each table.scoresAll}}
+                        {{> highscores_tablerow}}
+                    {{/each}}
+                    </tbody>
+                </table>
+            </div>
+            <div class="leaderboard-footer"><a class="ui mini button">Mehr Ergebnisse</a></div>
+        </div>
+    </div>
+</template>
