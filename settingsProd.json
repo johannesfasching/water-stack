@@ -1,0 +1,7 @@
+{
+	"galaxy.meteor.com": {
+		"env": {
+		  "MONGO_URL": "mongodb://138.68.89.201:27018/WaterStackDB"
+		}
+	}
+}
