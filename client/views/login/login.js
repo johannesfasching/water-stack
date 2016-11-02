@@ -1,10 +1,10 @@
-Template.login.helpers({
+//Template.login.helpers({
+//
+//
+//})
 
 
-})
-
-
-var fbLogin = function(event, template) {
+fbLogin = function(event, template) {
     console.log("facebookLogin")
     Meteor.loginWithFacebook({
         requestPermissions: ['user_friends', 'public_profile', 'email']
@@ -18,7 +18,7 @@ var fbLogin = function(event, template) {
     });
 }
 
-var gLogin = function(event, template) {
+gLogin = function(event, template) {
     console.log("googleLogin")
     Meteor.loginWithGoogle({
         requestPermissions: [  'email']
@@ -32,7 +32,7 @@ var gLogin = function(event, template) {
     });
 }
 
-var pwLogin = function(event, template) {
+pwLogin = function(event, template) {
     console.log("passLogin")
     Meteor.loginWithPassword(
         $("input[name='email']").val(),
@@ -47,7 +47,7 @@ var pwLogin = function(event, template) {
         });
 }
 
-var pwRegister = function(event, template) {
+pwRegister = function(event, template) {
     console.log("passRegister")
     var username = $("input[name='yourName']").val()
     var password = $("input[name='password']").val()
@@ -59,12 +59,13 @@ var pwRegister = function(event, template) {
         } else {
             console.log("successful register!")
             FlowRouter.go('highscores')
+
         }
     });
 }
 
 
-var allLogout = function(event, template) {
+allLogout = function(event, template) {
     console.log("logout")
     Meteor.logout(
         function(err){

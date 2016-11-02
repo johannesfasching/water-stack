@@ -1,38 +1,94 @@
 <template name="highscoreTable">
     <div class="card">
         <div class="card-header">
-            <svg class="icon trophy">
-                <use xlink:href="./assets/images/icons.svg#trophy"></use>
-            </svg>
+            <img class="avatar stationImg" src="{{table.stationImage}}" width="50" height="50">
+            <!--<svg class="icon trophy">-->
+                <!--<use xlink:href="{{table.stationImage}}"></use>-->
+                <!--&lt;!&ndash;src="{{highscore.stationImage}}"&ndash;&gt;-->
+            <!--</svg>-->
             <div class="uppercased">{{table.title}}</div>
         </div>
         <div class="ui top attached small tabular menu">
-            <a class="item active" data-tab="this-week-1">Diese Woche</a>
-            <a class="item" data-tab="all-time-1">Alles</a>
+            <a class="item" data-tab="this-week-1">Diese Woche</a>
+            <a class="item active" data-tab="all-time-1">Bisher</a>
         </div>
-        <div class="ui bottom attached tab segment active" data-tab="this-week-1">
-            <div class="leaderboard-wrapper">
+
+
+
+        <div class="ui bottom attached tab segment" data-tab="this-week-1">
+            {{#if table.myWeek.hasPlayed}}
+            <table class="ui basic small unstackable table">
+                <thead>
+                <tr class="ownedScore">
+                    <td>
+                        <div class="user">
+                            <div class="user-name"><span class="overflowed text"><b>Mein Bester Platz: Rang {{table.myWeek.rank}}</b></span></div>
+                        </div>
+                    </td>
+                    <td class="points"><span class="ui yellow label">{{table.myWeek.totalPoints}} PTS</span></td>
+                </tr>
+                </thead>
+            </table>
+            {{/if}}
+            <!--<div class="leaderboard-wrapper">-->
                 <table class="ui basic small unstackable table">
                     <tbody>
                     {{#each table.scoresWeek}}
-                        {{> highscores_tablerow}}
+                        {{> highscores_tablerow showPIN=table.showPIN}}
                     {{/each}}
                     </tbody>
                 </table>
+            <!--</div>-->
+            <div class="leaderboard-footer">
+                <a class="ui mini button {{table.moreButtonWeek}}">Mehr Ergebnisse anzeigen</a>
             </div>
-            <div class="leaderboard-footer"><a class="ui mini button">Mehr Ergebnisse</a></div>
         </div>
-        <div class="ui bottom attached tab segment" data-tab="all-time-1">
-            <div class="leaderboard-wrapper">
+
+
+        <div class="ui bottom attached tab segment active" data-tab="all-time-1">
+            <!--<div class="leaderboard-wrapper">-->
+                {{#if table.myWeek.hasPlayed}}
+                    <table class="ui basic small unstackable table">
+                        <thead>
+                        <tr class="ownedScore">
+                            <td>
+                                <div class="user">
+                                    <div class="user-name"><span class="overflowed text"><b>Mein Bester Platz: Rang {{table.myWeek.rank}}</b></span></div>
+                                </div>
+                            </td>
+                            <td class="points"><span class="ui yellow label">{{table.myWeek.totalPoints}} PTS</span></td>
+                        </tr>
+                        </thead>
+                    </table>
+                {{/if}}
                 <table class="ui basic small unstackable table">
                     <tbody>
                     {{#each table.scoresAll}}
-                        {{> highscores_tablerow}}
+                        {{> highscores_tablerow }}
                     {{/each}}
                     </tbody>
                 </table>
+            <!--</div>-->
+
+                <!-- existing code ... -->
+                <!--<nav>-->
+                    <!--<ul class="pager">-->
+                        <!--<li class="{{prevPageClass}}">-->
+                            <!--<a id="prevPage" class="ui secondary button" href="{{prevPage}}">-->
+                                <!--<span aria-hidden="true">&larr;</span> Previous-->
+                            <!--</a>-->
+                        <!--</li>-->
+                        <!--<li class="{{nextPageClass}}">-->
+                            <!--<a id="nextPage" class="ui secondary button" href="{{nextPage}}">-->
+                                <!--Next <span aria-hidden="true">&rarr;</span>-->
+                            <!--</a>-->
+                        <!--</li>-->
+                    <!--</ul>-->
+                <!--</nav>-->
+
+            <div class="leaderboard-footer">
+                <a class="ui mini button {{table.moreButtonAll}}">Mehr Ergebnisse anzeigen</a>
             </div>
-            <div class="leaderboard-footer"><a class="ui mini button">Mehr Ergebnisse</a></div>
         </div>
     </div>
 </template>

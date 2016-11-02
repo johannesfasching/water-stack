@@ -1,0 +1,7 @@
+.station>a {
+    BACKGROUND-COLOR: RGBA(0,0,200,0.4) !important;
+}
+
+.station-body>.station-title {
+    color:#fff !important;
+}

@@ -30,9 +30,9 @@ Meteor.startup(function() {
   ServiceConfiguration.configurations.update(
     { service: "google" },
     { $set: {
-        clientId: "830637270069-hrdo503rlb9pbl48242vkdk6obnmnhim.apps.googleusercontent.com",
+        clientId: "830637270069-1kmv93slthg6bod173f88l5b6nodi9qe.apps.googleusercontent.com",
         client_email: "fasching@golemdigital.at",
-        secret: "Zejef1z9dRQ-UNsfGxMUVmNM"
+        secret: "GQc0D0vFVAUJ-h4286kMiMEZ"
       }
     },
     { upsert: true }

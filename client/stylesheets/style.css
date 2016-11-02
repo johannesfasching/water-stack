@@ -93,3 +93,18 @@ body {
   -o-background-size: cover!important
   background-size: cover!important
 }
+
+.shareit-pinterest-colors, .shareit-google-colors, .googleplus-share, .pinterest-share {
+  display:none;
+}
+
+.share-buttons {
+  padding-bottom: 10px;
+  display: table;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+.share-box>.share-buttons>.fb-share, .share-box>.share-buttons>.twitter-share {
+  margin-bottom:10px !important;
+}

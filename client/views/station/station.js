@@ -4,6 +4,10 @@ var highscore_1 = function() {
     table.scoresWeek = Session.get('highscore_1_week')
     table.scoresAll = Session.get('highscore_1_all')
     table.stationImage = "./assets/images/station/Station_1_RZ.svg"
+    table.moreButtonWeek = "more_1_week"
+    table.moreButtonAll = "more_1_all"
+    table.myWeek = Session.get("myHS1_w")
+    table.myAll = Session.get("myHS1_a")
     return table;
 }
 
@@ -13,6 +17,10 @@ var highscore_2 = function() {
     table.scoresWeek = Session.get('highscore_2_week')
     table.scoresAll = Session.get('highscore_2_all')
     table.stationImage = "./assets/images/station/Station_3_RZ.svg"
+    table.moreButtonWeek = "more_2_week"
+    table.moreButtonAll = "more_2_all"
+    table.myWeek = Session.get("myHS2_w")
+    table.myAll = Session.get("myHS2_a")
     return table;
 }
 
@@ -22,6 +30,10 @@ var highscore_3 = function() {
     table.scoresWeek = Session.get('highscore_3_week')
     table.scoresAll = Session.get('highscore_3_all')
     table.stationImage = "./assets/images/station/Station_2_RZ.svg"
+    table.moreButtonWeek = "more_3_week"
+    table.moreButtonAll = "more_3_all"
+    table.myWeek = Session.get("myHS3_w")
+    table.myAll = Session.get("myHS3_a")
     return table;
 }
 
@@ -31,6 +43,10 @@ var highscore_4 = function() {
     table.scoresWeek = Session.get('highscore_4_week')
     table.scoresAll = Session.get('highscore_4_all')
     table.stationImage = "./assets/images/station/Station_4_RZ.svg"
+    table.moreButtonWeek = "more_4_week"
+    table.moreButtonAll = "more_4_all"
+    table.myWeek = Session.get("myHS4_w")
+    table.myAll = Session.get("myHS4_a")
     return table;
 }
 

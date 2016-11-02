@@ -7,26 +7,29 @@
         <header class="sidebar-header"><img src="assets/images/logo-white.png" width="270"
                                             alt="Neven Subotic Stiftung Logo">
 
-            <h1 class="sidebar-title">Welcome to Water Rally!</h1>
+            <h1 class="sidebar-title">Willkommen zur Wasser-Rallye</h1>
         </header>
         <ul class="ui sidebar-menu">
-            <li><a href="highscores">Highscores</a></li>
-            <li><a class="stations-show" href="#">Station List
+            <li><a href="highscores">Bestenliste</a></li>
+            <li><a class="stations-show" href="#">Stationen
                 <svg class="icon chevron-right">
                     <use xlink:href="./assets/images/icons.svg#chevron-right"></use>
                 </svg>
             </a></li>
-            <li><a href="profile">Your profile</a></li>
-            <li><a href="#">Invite friends</a></li>
-            <li><a href="howto">How to play</a></li>
-            <li><a href="createTeam">Create Team</a></li>
+            <li><a href="profile">Mein Profil</a></li>
+            <li><a href="share">Freunde einladen</a></li>
+            <li><a href="howto">Spielregeln</a></li>
+            <li><a href="createTeam">Team erstellen</a></li>
         </ul>
-        <div class="sidebar-cta"><a class="fluid ui secondary button" href="#">Donate</a></div>
+        <div class="sidebar-cta">
+            <a class="fluid ui secondary button" href="http://nevensuboticstiftung.de/spenden">Spenden</a></div>
+        <div class="sidebar-cta">
+            <a class="fluid ui secondary button" href="login">Abmelden</a></div>
         <div class="ui stations-container"><a class="stations-header" href="station">
             <svg class="icon back">
                 <use xlink:href="./assets/images/icons.svg#back"></use>
             </svg>
-            <h2 class="stations-title">Station List</h2></a>
+            <h2 class="stations-title">Stationen</h2></a>
 
             <div class="stations-body">
                 <article class="station"><a href="stationWasserQuiz">
@@ -34,7 +37,7 @@
                     <div class="station-body">
                         <h3 class="station-title">Wasser-Quiz</h3>
 
-                        <p class="middle bottom offset quiet text">played 2 times</p><span class="ui fluid mini button">Visit station</span>
+                        <p class="middle bottom offset quiet text">Bisher {{counter.countStation1}} mal gespielt</p><span class="ui fluid mini button">Zur Station</span>
                     </div>
                 </a></article>
                 <hr>
@@ -43,8 +46,8 @@
                     <div class="station-body">
                         <h3 class="station-title">Wasser-Bohren</h3>
 
-                        <p class="middle bottom offset quiet text">played 2 times</p><span class="ui fluid mini button"
-                                                                                           href="#">Visit station</span>
+                        <p class="middle bottom offset quiet text">Bisher {{counter.countStation3}} mal gespielt</p><span class="ui fluid mini button"
+                                                                                           href="#">Zur Station</span>
                     </div>
                 </a></article>
                 <hr>
@@ -53,8 +56,8 @@
                     <div class="station-body">
                         <h3 class="station-title">Wasser-Ziehen</h3>
 
-                        <p class="middle bottom offset quiet text">played 2 times</p><span class="ui fluid mini button"
-                                                                                           href="#">Visit station</span>
+                        <p class="middle bottom offset quiet text">Bisher {{counter.countStation2}} mal gespielt</p><span class="ui fluid mini button"
+                                                                                           href="#">Zur Station</span>
                     </div>
                 </a></article>
                 <hr>
@@ -63,8 +66,8 @@
                     <div class="station-body">
                         <h3 class="station-title">Wasser-Tragen</h3>
 
-                        <p class="middle bottom offset quiet text">played 2 times</p><span class="ui fluid mini button"
-                                                                                           href="#">Visit station</span>
+                        <p class="middle bottom offset quiet text">Bisher {{counter.countStation4}} mal gespielt</p><span class="ui fluid mini button"
+                                                                                           href="#">Zur Station</span>
                     </div>
                 </a></article>
             </div>

@@ -1,0 +1,20 @@
+<template name="share">
+    <main class="ui main">
+
+        <header class="ui center aligned profile header">
+            <div class="ui container"><a class="ui toggle-sidebar" href="#">
+                <svg class="icon menu">
+                    <use xlink:href="./assets/images/icons.svg#menu"></use>
+                </svg></a><a class="ui add-pin secondary mini button" href="javascript:void(0)">+ Add new pin</a>
+                <div class="content"><img class="avatar big" src="{{profileImage}}" width="100" height="100">
+                    <h1 class="title">{{profileName}}</h1>
+                    <p>{{profileEmail}}</p>
+                </div>
+            </div>
+        </header>
+
+        <div class="ui container">
+            {{> activityOverView }}
+        </div>
+    </main>
+</template>

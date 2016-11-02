@@ -1,8 +1,8 @@
 <template name="activityOverView">
     <section class="ui section">
-        <h2 class="title">Activity overview</h2>
+        <h2 class="title">Überblick</h2>
         <div class="body">
-            <h3 class="subtitle">25 games played so far</h3>
+            <h3 class="subtitle">Bisher wurde {{counter.countSum}} mal gespielt</h3>
             <ul class="ui challenge list">
                 <li class="challenge-item">
                     <h4 class="challenge-title">Wasser-Quiz</h4><span class="challenge-point">{{counter.countStation1}}</span>
@@ -17,15 +17,14 @@
                     <h4 class="challenge-title">Wasser-Tragen</h4><span class="challenge-point">{{counter.countStation4}}</span>
                 </li>
             </ul>
-            <h3 class="subtitle small bottom offset">You earned</h3>
+            <h3 class="subtitle small bottom offset">Du hast</h3>
             <div class="center aligned">
                 <div class="big primary strong text">{{counter.allEarnedPoints}}</div>
-                <div class="uppercased">points</div>
-                <div class="share-box"><a class="ui mini button" href="#">
-                    <svg class="icon share">
-                        <use xlink:href="./assets/images/icons.svg#share"></use>
-                    </svg>Share your scores</a>
-                    <div class="bleached small text">Help us spread the word about our initative by sharing your scores</div>
+                <div class="uppercased">Punkte erreicht</div>
+                <div class="share-box">
+                    {{>shareit title="Wasser Ralley - Ich war dabei" excerpt=scores description="Wasser Ralley - Ich war dabei" summary="Wasser Ralley" media="http://nevensuboticstiftung.de/cms/wp-content/uploads/2013/02/header61.jpg"}}
+
+                    <div class="bleached small text">Hilf uns Aufmerksamkeit zu generieren, in dem Du Dein Ergebnis teilst</div>
                 </div>
             </div>
         </div>

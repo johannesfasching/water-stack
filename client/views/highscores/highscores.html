@@ -4,12 +4,13 @@
             <div class="ui container"><a class="ui toggle-sidebar" href="#">
                 <svg class="icon menu">
                     <use xlink:href="./assets/images/icons.svg#menu"></use>
-                </svg></a><a class="ui add-pin secondary mini button" href="javascript:void(0)">+ Add new pin</a>
+                </svg></a>
+                <a class="ui add-pin secondary mini button" href="javascript:void(0)">+ Neuen PIN hinzufügen</a>
                 <div class="content">
                     <svg class="icon trophy">
                         <use xlink:href="./assets/images/icons.svg#trophy"></use>
                     </svg>
-                    <h1 class="title">Highscore List</h1>
+                    <h1 class="title">Bestenliste</h1>
                 </div>
             </div>
         </header>
@@ -57,6 +58,7 @@
                             </table>
                         </div>
 
+                {{#if hasTeamSelected}}
                 <div class="body full">
                     <div class="ui leaderboard">
                         <article>
@@ -73,6 +75,7 @@
                         </article>
                     </div>
                 </div>
+                {{/if}}
             </section>
         </div>
 

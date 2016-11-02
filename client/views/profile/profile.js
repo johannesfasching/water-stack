@@ -2,6 +2,25 @@ function getImageUrl() {
     return Images.findOne({_id:Meteor.user().profile.picture}).url();
 }
 
+ShareIt.configure({
+    sites: {                // nested object for extra configurations
+        'facebook': {
+            'appId': 1008589855934836   // use sharer.php when it's null, otherwise use share dialog
+        },
+        'twitter': {},
+        'googleplus': {},
+        'pinterest': {}
+    },
+    classes: "large btn", // string (default: 'large btn')
+                          // The classes that will be placed on the sharing buttons, bootstrap by default.
+    iconOnly: false,      // boolean (default: false)
+                          // Don't put text on the sharing buttons
+    applyColors: true,     // boolean (default: true)
+    // apply classes to inherit each social networks background color
+    faSize: '',            // font awesome size
+    faClass: ''       // font awesome classes like square
+});
+
 getimagebyid = function(userId) {
     if(!userId) {
         return "./assets/images/anonym.png"
@@ -218,6 +237,24 @@ Tracker.autorun(function() {
 
 })
 
+Tracker.autorun(function () {
+
+    var pins = db.Pin.find({userId: Meteor.userId()});
+    var pinList = [];
+    pins.forEach( function(item) {
+        pinList.push(item.pin)
+    });
+    console.log("pins",pinList);
+
+
+    Session.set("pins", pinList);
+
+    Meteor.call("countStations",{pins: Session.get("pins")}, function(err, data) {
+        console.log("counter", data)
+        Session.set("Counter",data)
+    })
+});
+
 Template.profile.helpers({
     assignedPins: function() {
         result = []
@@ -296,7 +333,14 @@ Template.profile.helpers({
 
     pinToAssignTeam: function() {
         return Session.get("pinToAssignTeam")
+    },
+
+    scores: function () {
+        var counter = Session.get("Counter")
+        return "Ich hab " + String(counter.countSum) + " mal gespielt und dabei insgesamt " + String(counter.allEarnedPoints) + " Punkte erreicht"
     }
+
+
 
 
 })
