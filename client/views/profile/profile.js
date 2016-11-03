@@ -239,44 +239,50 @@ Tracker.autorun(function() {
 
 Tracker.autorun(function () {
 
-    var pins = db.Pin.find({userId: Meteor.userId()});
-    var pinList = [];
-    pins.forEach( function(item) {
-        pinList.push(item.pin)
-    });
-    console.log("pins",pinList);
+    if(Meteor.user()) {
+
+        var pins = db.Pin.find({userId: Meteor.userId()});
+        var pinList = [];
+        pins.forEach(function (item) {
+            pinList.push(item.pin)
+        });
+        console.log("pins", pinList);
 
 
-    Session.set("pins", pinList);
+        Session.set("pins", pinList);
 
-    Meteor.call("countStations",{pins: Session.get("pins")}, function(err, data) {
-        console.log("counter", data)
-        Session.set("Counter",data)
-    })
+        Meteor.call("countStations", {pins: Session.get("pins")}, function (err, data) {
+            console.log("counter", data)
+            Session.set("Counter", data)
+        })
+    }
 });
 
 Template.profile.helpers({
     assignedPins: function() {
         result = []
-        var pin = db.Pin.find({userId:Meteor.userId()},{sort: {pin: -1}}).fetch();
+        if(Meteor.user()) {
 
-        pin.forEach(function(item) {
-            var team = {}
-            var teamMembersAtPIN = {}
-            var teamMembers = []
+            var pin = db.Pin.find({userId: Meteor.userId()}, {sort: {pin: -1}}).fetch();
+
+            pin.forEach(function (item) {
+                var team = {}
+                var teamMembersAtPIN = {}
+                var teamMembers = []
 
 
-            if(item.teamCode!=undefined && item.teamCode!="") {
-                team = db.Team.findOne({teamCode:item.teamCode});
+                if (item.teamCode != undefined && item.teamCode != "") {
+                    team = db.Team.findOne({teamCode: item.teamCode});
 
-                var teamMembersAtPIN = db.Pin.find({teamCode:item.teamCode}).fetch();
-                teamMembersAtPIN.forEach(function teamMember(teamMemb) {
-                    var user = Meteor.users.findOne({_id:teamMemb.userId});
-                    teamMembers.push(user);
-                });
-            }
-            result.push({pin:item, team:team, teamMembers:teamMembers })
-        })
+                    var teamMembersAtPIN = db.Pin.find({teamCode: item.teamCode}).fetch();
+                    teamMembersAtPIN.forEach(function teamMember(teamMemb) {
+                        var user = Meteor.users.findOne({_id: teamMemb.userId});
+                        teamMembers.push(user);
+                    });
+                }
+                result.push({pin: item, team: team, teamMembers: teamMembers})
+            })
+        }
 
         Session.set("assignedPinsss",result)
 

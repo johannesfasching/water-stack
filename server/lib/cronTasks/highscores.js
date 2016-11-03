@@ -31,7 +31,7 @@ function getTeamHighscore(call, teamCode, stationId, timeRange, showPin) {
     });
 }
 
-Meteor.startup(
+Meteor.setInterval(
     function() {
         console.log("wuhu")
         //
@@ -96,4 +96,4 @@ Meteor.startup(
         //    db.Team.update({teamCode:"1233"},{$set:{highscores4:highscores}})
         //    console.log(highscores)
         //});
-})
+}, 10*60*1000)

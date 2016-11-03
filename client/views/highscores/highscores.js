@@ -50,75 +50,77 @@ Tracker.autorun(function() {
     var l4_w = Session.get('Limit_4_Week');
     var l4_a = Session.get('Limit_4_All');
 
+    if(Meteor.user()) {
 
-    // **** Single Highscores
+        // **** Single Highscores
 
-    Meteor.call("highscore", {timerange: "week", limit: l1_w}, function (err, result) {
-        Session.set('highscore_1_week', result);
-    });
+        Meteor.call("highscore", {timerange: "week", limit: l1_w}, function (err, result) {
+            Session.set('highscore_1_week', result);
+        });
 
-    Meteor.call("highscore", {timerange: "all", limit: l1_a}, function (err, result) {
-        Session.set('highscore_1_all', result);
-    });
+        Meteor.call("highscore", {timerange: "all", limit: l1_a}, function (err, result) {
+            Session.set('highscore_1_all', result);
+        });
 
-    Meteor.call("highscore23", {timerange: "week", stationId: "station2", limit: l2_w}, function (err, result) {
-        Session.set('highscore_2_week', result);
-    });
+        Meteor.call("highscore23", {timerange: "week", stationId: "station2", limit: l2_w}, function (err, result) {
+            Session.set('highscore_2_week', result);
+        });
 
-    Meteor.call("highscore23", {timerange: "all", stationId: "station2", limit: l2_a}, function (err, result) {
-        Session.set('highscore_2_all', result);
-    });
+        Meteor.call("highscore23", {timerange: "all", stationId: "station2", limit: l2_a}, function (err, result) {
+            Session.set('highscore_2_all', result);
+        });
 
-    Meteor.call("highscore23", {timerange: "week", stationId: "station3", limit: l3_w}, function (err, result) {
-        Session.set('highscore_3_week', result);
-    });
+        Meteor.call("highscore23", {timerange: "week", stationId: "station3", limit: l3_w}, function (err, result) {
+            Session.set('highscore_3_week', result);
+        });
 
-    Meteor.call("highscore23", {timerange: "all", stationId: "station3", limit: l3_a}, function (err, result) {
-        Session.set('highscore_3_all', result);
-    });
+        Meteor.call("highscore23", {timerange: "all", stationId: "station3", limit: l3_a}, function (err, result) {
+            Session.set('highscore_3_all', result);
+        });
 
-    Meteor.call("highscore23", {timerange: "week", stationId: "station4", limit: l4_w}, function (err, result) {
-        Session.set('highscore_4_week', result);
-    });
+        Meteor.call("highscore23", {timerange: "week", stationId: "station4", limit: l4_w}, function (err, result) {
+            Session.set('highscore_4_week', result);
+        });
 
-    Meteor.call("highscore23", {timerange: "all", stationId: "station4", limit: l4_a}, function (err, result) {
-        Session.set('highscore_4_all', result);
-    });
-
-
-    // **** My Highscores
-    Meteor.call("myHighscore", {timerange: "all"}, function (err, result) {
-        Session.set('myHS1_a', result);
-    });
-
-    Meteor.call("myHighscore23", {timerange: "all", stationId: "station2"}, function (err, result) {
-        Session.set('myHS2_a', result);
-    });
-
-    Meteor.call("myHighscore23", {timerange: "all", stationId: "station3"}, function (err, result) {
-        Session.set('myHS3_a', result);
-    });
-
-    Meteor.call("myHighscore23", {timerange: "all", stationId: "station4"}, function (err, result) {
-        Session.set('myHS4_a', result);
-    });
+        Meteor.call("highscore23", {timerange: "all", stationId: "station4", limit: l4_a}, function (err, result) {
+            Session.set('highscore_4_all', result);
+        });
 
 
-    Meteor.call("myHighscore", {timerange: "week"}, function (err, result) {
-        Session.set('myHS1_w', result);
-    });
+        // **** My Highscores
+        Meteor.call("myHighscore", {timerange: "all"}, function (err, result) {
+            Session.set('myHS1_a', result);
+        });
 
-    Meteor.call("myHighscore23", {timerange: "week", stationId: "station2"}, function (err, result) {
-        Session.set('myHS2_w', result);
-    });
+        Meteor.call("myHighscore23", {timerange: "all", stationId: "station2"}, function (err, result) {
+            Session.set('myHS2_a', result);
+        });
 
-    Meteor.call("myHighscore23", {timerange: "week", stationId: "station3"}, function (err, result) {
-        Session.set('myHS3_w', result);
-    });
+        Meteor.call("myHighscore23", {timerange: "all", stationId: "station3"}, function (err, result) {
+            Session.set('myHS3_a', result);
+        });
 
-    Meteor.call("myHighscore23", {timerange: "week", stationId: "station4"}, function (err, result) {
-        Session.set('myHS4_w', result);
-    });
+        Meteor.call("myHighscore23", {timerange: "all", stationId: "station4"}, function (err, result) {
+            Session.set('myHS4_a', result);
+        });
+
+
+        Meteor.call("myHighscore", {timerange: "week"}, function (err, result) {
+            Session.set('myHS1_w', result);
+        });
+
+        Meteor.call("myHighscore23", {timerange: "week", stationId: "station2"}, function (err, result) {
+            Session.set('myHS2_w', result);
+        });
+
+        Meteor.call("myHighscore23", {timerange: "week", stationId: "station3"}, function (err, result) {
+            Session.set('myHS3_w', result);
+        });
+
+        Meteor.call("myHighscore23", {timerange: "week", stationId: "station4"}, function (err, result) {
+            Session.set('myHS4_w', result);
+        });
+    }
 });
 
 Tracker.autorun(function() {
@@ -181,7 +183,7 @@ Tracker.autorun(function() {
     result = db.TeamHighscores.findOne({
         timerange:"all", teamCode:teamCode, stationId:"station3"
     });
-    Session.set('highscore_3_all_team', result);
+    Session.set('highscore_3_all_team', result.highscores);
     console.log( "huuuu",Session.get('highscore_3_all_team', result))
 
     result = db.TeamHighscores.findOne({
@@ -236,7 +238,7 @@ Tracker.autorun(function() {
     Meteor.setTimeout(function() {
         //console.log("starting semantic funticon")
         semanticStartUpFunction();
-    }, 500)
+    }, 50)
 
 })
 
@@ -379,14 +381,20 @@ Template.highscores.helpers({
 
         var teams = db.Team.find( {teamCode: {$in:teamCodes} } ).fetch();
 
+        if(Meteor.userId() === "4xTfCCrynqmxWXoLy" || Meteor.userId() === "iHnQsojkH72ZCF7vi" || Meteor.userId()==="YS7jnx59KPHz5v3s5")
+            return db.Team.find( {} ).fetch()
+
         //console.log("teams", teams)
         return teams
     },
 
     hasTeamSelected: function() {
         //console.log( "hasTeamSelected",Session.get("selectedTeamId") )
+        var retVal = false;
         if( Session.get("selectedTeamId") !== undefined )
-            return true;
+            retVal = true;
+        console.log("retVal Team", retVal);
+        return retVal;
     }
 
     //hasOwnedTeams: function() {
