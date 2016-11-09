@@ -7,12 +7,12 @@ Meteor.methods({
 
 
 
-        if (result == undefined) {
+        if (result === undefined) {
             retObj.error = true
             retObj.message = "Die PIN gibt es nicht"
         }
         else {
-            if (result.userId == undefined) {
+            if (result.userId === undefined) {
                 retObj.error = false
                 retObj.message = "Die PIN wurde erfolgreich zugewiesen"
                 //if (usrObj.teamCode != "") {
@@ -23,8 +23,7 @@ Meteor.methods({
                         result._id,
                         { $set: {
                             userId: usrObj.userId
-                        }},
-                        { selector: { type: 'user' } })
+                        }})
                 //}
             }
             else {

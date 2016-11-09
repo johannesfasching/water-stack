@@ -1,0 +1,107 @@
+<template name = "emty">
+    <h1>blabla</h1>
+</template>
+
+
+<template name = "highscoresTeam">
+    <main class="ui main">
+        <header class="ui center aligned profile header">
+            <div class="ui container"><a class="ui toggle-sidebar" href="#">
+                <svg class="icon menu">
+                    <use xlink:href="./assets/images/icons.svg#menu"></use>
+                </svg></a>
+                <a class="ui add-pin secondary mini button" href="javascript:void(0)">+ Neuen PIN hinzufügen</a>
+                <div class="content">
+                    <svg class="icon trophy">
+                        <use xlink:href="./assets/images/icons.svg#trophy"></use>
+                    </svg>
+                    <h1 class="title">Bestenliste</h1>
+                </div>
+            </div>
+        </header>
+
+        <div class="ui container">
+            <section class="ui section">
+
+                <h2 class="title">Deine Teams</h2>
+
+                <div class="body">
+                    <table class="ui selectable celled inverted green table">
+                        <thead>
+                        <tr>
+                            <td>TeamCode</td>
+                            <td>Titel</td>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {{#each teamss}}
+                            <tr class="team-row">
+                                <td>{{teamCode}}</td>
+                                <td>{{title}}</td>
+                            </tr>
+                        {{/each}}
+                        </tbody>
+                    </table>
+                </div>
+
+
+
+                <input class="ui dropdown datetimepicker dateFrom" type="text" name="daterange" value="01/01/2015 0:00 PM - 01/02/2015 0:00 PM" />
+                <input class="ui dropdown datetimepicker dateTo" type="text" name="daterange" value="01/01/2015 0:00 PM - 01/02/2015 0:00 PM" />
+
+                <br>
+                <div class="ui form">
+                    <div class="grouped fields">
+                        <label>Wähle Daten für das PDF</label>
+                        <div class="field">
+                            <div class="ui slider checkbox checked">
+                                <input type="checkbox" name="throughput" checked="checked">
+                                <label>Pin</label>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <div class="ui slider checkbox checked">
+                                <input type="checkbox" name="throughput">
+                                <label>Name</label>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <div class="ui slider checkbox checked">
+                                <input type="checkbox" name="throughput">
+                                <label>Punkte</label>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <div class="ui slider checkbox checked">
+                                <input type="checkbox" name="throughput">
+                                <label>Zeit</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="ui primary button printToPdf" text="enter">PDF</button>
+
+
+                    <!--{{#if hasTeamSelected}}-->
+                <div class="body full">
+                    <div class="ui">
+                        <article>
+                            {{>highscoreTableTeam table=highscore_1}}
+                        </article>
+                        <article>
+                            {{>highscoreTableTeam table=highscore_2}}
+                        </article>
+                        <article>
+                            {{>highscoreTableTeam table=highscore_3}}
+                        </article>
+                        <article>
+                            {{>highscoreTableTeam table=highscore_4}}
+                        </article>
+                    </div>
+                </div>
+                <!--{{/if}}-->
+            </section>
+        </div>
+
+    </main>
+</template>

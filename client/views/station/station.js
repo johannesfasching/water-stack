@@ -55,7 +55,7 @@ var highscore_1_history = function() {
     var x = db.Competition.find({pin: {$in: pins}}, {sort: {createdAt:-1}});
     var map = [];
     x.forEach(function(item){
-        map.push({totalPoints:item.gamePoints, createdAt:moment(item.createdAt).format("DD.MMM.YYYY")})
+        map.push({totalPoints:item.gamePoints, createdAt:moment(item.createdAt).format("DD.MMM.YYYY"), message:"Wasser Ralley - Ich hab  "+ item.totalPoints +" Punkte geschafft ;) Mach auch du mit."})
     });
     return map;
 }
@@ -65,7 +65,7 @@ var highscore_2_history = function() {
     var x = db.Competition23.find({pin: {$in: pins}, stationId: "station2"}, {sort: {createdAt:-1}});
     var map = [];
     x.forEach(function(item){
-        map.push({totalPoints:item.totalPoints, createdAt:moment(item.createdAt).format("DD.MMM.YYYY")})
+        map.push({totalPoints:item.totalPoints, createdAt:moment(item.createdAt).format("DD.MMM.YYYY"), message:"Wasser Ralley - Ich hab  "+ item.totalPoints +" Punkte geschafft ;) Mach auch du mit."})
     });
     return map;
 }
@@ -75,7 +75,7 @@ var highscore_3_history = function() {
     var x = db.Competition23.find({pin: {$in: pins}, stationId: "station3"}, {sort: {createdAt:-1}});
     var map = [];
     x.forEach(function(item){
-        map.push({totalPoints:item.totalPoints, createdAt:moment(item.createdAt).format("DD.MMM.YYYY")})
+        map.push({totalPoints:item.totalPoints, createdAt:moment(item.createdAt).format("DD.MMM.YYYY"), message:"Wasser Ralley - Ich hab  "+ item.totalPoints +" Punkte geschafft ;) Mach auch du mit."})
     });
     return map;
 }
@@ -85,7 +85,7 @@ var highscore_4_history = function() {
     var x = db.Competition23.find({pin: {$in: pins}, stationId: "station4"}, {sort: {createdAt:-1}});
     var map = [];
     x.forEach(function(item){
-        map.push({totalPoints:item.totalPoints, createdAt:moment(item.createdAt).format("DD.MMM.YYYY")})
+        map.push({totalPoints:item.totalPoints, createdAt:moment(item.createdAt).format("DD.MMM.YYYY"), message:"Wasser Ralley - Ich hab  "+ item.totalPoints +" Punkte geschafft ;) Mach auch du mit."})
     });
     return map;
 }

@@ -50,7 +50,7 @@ HTTP.methods({
             if(postData.pin) {
 
                 var id = db.Competition23.insert({
-                    groupId: postData.groupId,
+                    teamCode: postData.groupId,
                     pin: postData.pin,
                     stationId: postData.stationId,
                     level: postData.level,
@@ -61,10 +61,10 @@ HTTP.methods({
                     timeEnded: postData.timeEnded
                 })
 
-                var teamCode = db.Pin.findOne({pin:postData.pin}).teamCode
-                if( teamCode != null && teamCode != undefined) {
-                    db.Competition23.update({_id: id},{$set:{teamCode:teamCode}})
-                }
+                //var teamCode = db.Pin.findOne({pin:postData.pin}).teamCode
+                //if( teamCode != null && teamCode != undefined) {
+                //    db.Competition23.update({_id: id},{$set:{teamCode:teamCode}})
+                //}
 
                 return (JSON.stringify(postData))
             }

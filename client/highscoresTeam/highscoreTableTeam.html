@@ -1,0 +1,14 @@
+<template name="highscoreTableTeam">
+    <div class="card">
+        <p class="card-header">
+            <p class="uppercased">{{table.title}}</p>
+        </p>
+
+        <!--<ul class="ui basic small unstackable table innerHighscore">-->
+            {{#each score in table.scores}}
+                {{> highscores_team_tablerow score=score}}
+            {{/each}}
+        <!--</ul>-->
+
+    </div>
+</template>

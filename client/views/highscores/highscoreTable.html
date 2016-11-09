@@ -31,10 +31,10 @@
             </table>
             {{/if}}
             <!--<div class="leaderboard-wrapper">-->
-                <table class="ui basic small unstackable table">
+                <table class="ui basic small unstackable table innerHighscore">
                     <tbody>
-                    {{#each table.scoresWeek}}
-                        {{> highscores_tablerow showPIN=table.showPIN}}
+                    {{#each score in table.scoresWeek}}
+                        {{> highscores_tablerow score=score showPIN=table.showPIN}}
                     {{/each}}
                     </tbody>
                 </table>
@@ -47,24 +47,24 @@
 
         <div class="ui bottom attached tab segment active" data-tab="all-time-1">
             <!--<div class="leaderboard-wrapper">-->
-                {{#if table.myWeek.hasPlayed}}
+                {{#if table.myAll.hasPlayed}}
                     <table class="ui basic small unstackable table">
                         <thead>
                         <tr class="ownedScore">
                             <td>
                                 <div class="user">
-                                    <div class="user-name"><span class="overflowed text"><b>Mein Bester Platz: Rang {{table.myWeek.rank}}</b></span></div>
+                                    <div class="user-name"><span class="overflowed text"><b>Mein Bester Platz: Rang {{table.myAll.rank}}</b></span></div>
                                 </div>
                             </td>
-                            <td class="points"><span class="ui yellow label">{{table.myWeek.totalPoints}} PTS</span></td>
+                            <td class="points"><span class="ui yellow label">{{table.myAll.totalPoints}} PTS</span></td>
                         </tr>
                         </thead>
                     </table>
                 {{/if}}
-                <table class="ui basic small unstackable table">
+                <table class="ui basic small unstackable table innerHighscore">
                     <tbody>
-                    {{#each table.scoresAll}}
-                        {{> highscores_tablerow }}
+                    {{#each score in table.scoresAll}}
+                        {{> highscores_tablerow score=score showPIN=table.showPIN}}
                     {{/each}}
                     </tbody>
                 </table>

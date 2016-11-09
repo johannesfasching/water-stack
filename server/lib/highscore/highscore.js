@@ -1,3 +1,5 @@
+var Future = Npm.require( 'fibers/future' );
+
 Meteor.methods({
     'myScores':
         function(postData) {
@@ -10,9 +12,9 @@ Meteor.methods({
             })
 
             var stat1 = db.Competition.findOne({pin: {$in: pins}},{sort: {"gamePoints": -1}})
-            var stat2 = db.Competition23.findOne({pin: {$in: pins}, stationId: "station1"},{sort: {"totalPoints": -1}})
-            var stat3 = db.Competition23.findOne({pin: {$in: pins}, stationId: "station2"},{sort: {"totalPoints": -1}})
-            var stat4 = db.Competition23.findOne({pin: {$in: pins}, stationId: "station3"},{sort: {"totalPoints": -1}})
+            var stat2 = db.Competition23.findOne({pin: {$in: pins}, stationId: "station2"},{sort: {"totalPoints": -1}})
+            var stat3 = db.Competition23.findOne({pin: {$in: pins}, stationId: "station3"},{sort: {"totalPoints": -1}})
+            var stat4 = db.Competition23.findOne({pin: {$in: pins}, stationId: "station4"},{sort: {"totalPoints": -1}})
 
             return {scoreStat1:stat1, scoreStat2:stat2, scoreStat3:stat3, scoreStat4:stat4}
         },
@@ -144,13 +146,14 @@ Meteor.methods({
             var myId = this.userId;
             var resss = { rank:-1, totalPoints:0, time:0, pin:0, hasPlayed:false };
 
-            _.forEach(result, function(item){
+            _.find(result, function(item){
                 var userPin = db.Pin.findOne({pin:item.pin});
                 //console.log(userPin)
                 if(userPin && userPin.userId) {
                     if(myId == userPin.userId) {
                         resss = { rank:rank, totalPoints:item.totalPoints, time:item.time, pin:item.pin, hasPlayed:true }
-                        return;
+
+                        return resss;
                     }
                 }
                 rank++
@@ -215,9 +218,6 @@ Meteor.methods({
                     {
                         "totalPoints": -1
                     }
-                    },
-                    {
-                        $limit:limit
                     }
 
                 ]
@@ -228,7 +228,7 @@ Meteor.methods({
 
              //console.log("user:",this.userId)
 
-             var myId = this.userId;
+             //var myId = this.userId;
 
             _.forEach(result, function(item){
                 var userPin = db.Pin.findOne({pin:item.pin});
@@ -244,7 +244,7 @@ Meteor.methods({
                     }
                 }
 
-                var entry = { rank:rank, totalPoints:item.totalPoints, time:item.time, userName:userName, pin:item.pin, userId: userId, owned: myId===userId }
+                var entry = { rank:rank, totalPoints:item.totalPoints, time:item.time, userName:userName, pin:item.pin, userId: userId }
                 res.push( entry )
                 rank++
             });
@@ -279,6 +279,16 @@ Meteor.methods({
                 startDate = moment().add(-10, 'years').toDate();
 
             var endDate = moment().add(10, 'days').toDate();
+
+            if(postData.dateFrom) {
+                startDate = moment(postData.dateFrom).toDate();
+            }
+            if(postData.dateTo) {
+                endDate = moment(postData.dateTo).toDate();
+            }
+
+            console.log("startDate", startDate)
+            console.log("endDate", endDate)
 
             var result = db.Competition23.aggregate([
 
@@ -333,7 +343,7 @@ Meteor.methods({
                     }
                 }
 
-                var entry = { rank:rank, totalPoints:item.totalPoints, time:item.time, userName:userName, pin:item.pin, userId: userId, showPin: true }
+                var entry = { rank:rank, totalPoints:item.totalPoints, time:item.time, userName:userName, pin:item.pin, userId: userId }
                 res.push( entry )
                 rank++
             });
@@ -397,9 +407,6 @@ Meteor.methods({
                     {
                         "totalPoints": -1
                     }
-                    },
-                    {
-                        $limit:limit
                     }
 
                 ]
@@ -426,7 +433,7 @@ Meteor.methods({
                     }
                 }
 
-                var entry = { rank:rank, totalPoints:item.totalPoints, userName:userName, pin:item.pin, userId: userId }
+                var entry = { rank:rank, totalPoints:item.totalPoints, userName:userName, pin:item.pin, userId: userId  }
                 res.push( entry )
                 rank++
             });
@@ -436,6 +443,83 @@ Meteor.methods({
             return res;
         },
 
+    'highscore_teams':
+        function(postData) {
+            var future = new Future();
+
+            results = {}
+            done = [false, false, false, false]
+            function isDone() {
+                console.log(done)
+                if(done[0] && done[1] && done[2] && done[3]) {
+                    console.log("results", results)
+                    //return results;
+                    future.return( results );
+                }
+            }
+
+            Meteor.call("highscore_team", {
+                timerange: "all",
+                stationId: "station1",
+                teamCode: postData.teamCode,
+                limit: 1000,
+                dateFrom: postData.dateFrom,
+                dateTo: postData.dateTo
+
+            }, function (err, result) {
+                console.log(result)
+                results.station1 = result;
+                done[0] = true
+                isDone()
+            });
+
+            Meteor.call("highscore23_team", {
+                timerange: "all",
+                stationId: "station2",
+                teamCode: postData.teamCode,
+                limit: 1000,
+                dateFrom: postData.dateFrom,
+                dateTo: postData.dateTo
+
+            }, function (err, result) {
+                console.log(result)
+                results.station2 = result;
+                done[1] = true
+                isDone()
+            });
+
+            Meteor.call("highscore23_team", {
+                timerange: "all",
+                stationId: "station3",
+                teamCode: postData.teamCode,
+                limit: 1000,
+                dateFrom: postData.dateFrom,
+                dateTo: postData.dateTo
+
+            }, function (err, result) {
+                console.log(result)
+                results.station3 = result;
+                done[2] = true
+                isDone()
+            });
+
+            Meteor.call("highscore23_team", {
+                timerange: "all",
+                stationId: "station4",
+                teamCode: postData.teamCode,
+                limit: 1000,
+                dateFrom: postData.dateFrom,
+                dateTo: postData.dateTo
+
+            }, function (err, result) {
+                console.log(result)
+                results.station4 = result;
+                done[3] = true
+                isDone()
+            });
+
+            return future.wait();
+        },
 
 
     'highscore_team':
@@ -456,6 +540,16 @@ Meteor.methods({
                 startDate = moment().add(-10, 'years').toDate();
 
             var endDate = moment().add(10, 'days').toDate();
+
+            if(postData.dateFrom) {
+                startDate = moment(postData.dateFrom).toDate();
+            }
+            if(postData.dateTo) {
+                endDate = moment(postData.dateTo).toDate();
+            }
+
+            console.log("startDate", startDate)
+            console.log("endDate", endDate)
 
             var limit = 10
             if(postData.limit) {
@@ -516,7 +610,7 @@ Meteor.methods({
                     }
                 }
 
-                var entry = { rank:rank, totalPoints:item.totalPoints, userName:userName, pin:item.pin, userId: userId, showPin: true }
+                var entry = { rank:rank, totalPoints:item.totalPoints, userName:userName, pin:item.pin, userId: userId}
                 res.push( entry )
                 rank++
             });

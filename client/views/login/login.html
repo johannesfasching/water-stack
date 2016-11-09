@@ -44,6 +44,9 @@
             {{#if currentUser}}
                 {{ currentUser.username }}
                 <button class="fluid ui primary logout button" type="submit">Abmelden</button>
+                <div class="ui horizontal divider">oder</div>
+
+                <a class="fluid ui primary button" href="highscores">Zurück zur BestenListe</a>
             {{else}}
                 <button class="fluid ui primary password button" type="submit">Anmelden</button>
             {{/if}}
@@ -53,8 +56,12 @@
                 <!--<small>By signing up, you agree to the <a href="#">Terms of Service.</a></small>-->
             </div>
         </div>
-        <p class="ui light large text top bottom middle offset">Du hast kein Konto?</p><a class="ui secondary button" href="createaccount">Erstelle hier ein neues Konto</a>
-        <a class="ui secondary button" href="highscores">BestenListe</a>
+        {{#unless currentUser}}
+            <p class="ui light large text top bottom middle offset">Du hast kein Konto?</p><a class="ui secondary button" href="createaccount">Erstelle hier ein neues Konto</a>
+        {{/unless}}
+        <!--{{#if currentUser}}-->
+            <!--<a class="ui secondary button" href="highscores">Zurück zur BestenListe</a>-->
+        <!--{{/if}}-->
     </div>
 </template>
 

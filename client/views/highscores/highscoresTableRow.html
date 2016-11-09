@@ -1,12 +1,16 @@
 <template name = "highscores_tablerow">
-    <tr class="{{#if owned}}ownedScore{{/if}}">
-        <td class="rank">{{rank}}</td>
+    <tr class="">
+        <td class="rank">{{score.rank}}</td>
         <td>
             <div class="user">
-                <div class="user-avatar"><img class="avatar" src="{{profileImage this.userId}}" width="30" height="30"></div>
-                <div class="user-name"><span class="overflowed text">{{userName}} {{#if showPin}} / {{pin}} {{/if}}  </span></div>
+                <div class="user-avatar"><img class="avatar" src="{{profileImage score.userId}}" width="30" height="30"></div>
+                <div class="user-name"><span class="overflowed text">{{score.userName}} {{#if showPIN}} / {{score.pin}} {{/if}}  </span></div>
             </div>
         </td>
-        <td class="points"><span class="ui yellow label">{{totalPoints}} PTS</span></td>
+        <td class="points"><span class="ui yellow label">{{score.totalPoints}} PTS</span></td>
     </tr>
+</template>
+
+<template name = "highscores_team_tablerow">
+        {{score.rank}}... {{score.userName}}...{{score.pin}}...{{score.totalPoints}}...PTS<br>
 </template>

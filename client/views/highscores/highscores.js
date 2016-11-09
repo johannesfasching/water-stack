@@ -38,54 +38,8 @@ Session.set('Limit_3_All_t', 10);
 Session.set('Limit_4_Week_t', 10);
 Session.set('Limit_4_All_t', 10);
 
-
 Tracker.autorun(function() {
-
-    var l1_w = Session.get('Limit_1_Week');
-    var l1_a = Session.get('Limit_1_All');
-    var l2_w = Session.get('Limit_2_Week');
-    var l2_a = Session.get('Limit_2_All');
-    var l3_w = Session.get('Limit_3_Week');
-    var l3_a = Session.get('Limit_3_All');
-    var l4_w = Session.get('Limit_4_Week');
-    var l4_a = Session.get('Limit_4_All');
-
     if(Meteor.user()) {
-
-        // **** Single Highscores
-
-        Meteor.call("highscore", {timerange: "week", limit: l1_w}, function (err, result) {
-            Session.set('highscore_1_week', result);
-        });
-
-        Meteor.call("highscore", {timerange: "all", limit: l1_a}, function (err, result) {
-            Session.set('highscore_1_all', result);
-        });
-
-        Meteor.call("highscore23", {timerange: "week", stationId: "station2", limit: l2_w}, function (err, result) {
-            Session.set('highscore_2_week', result);
-        });
-
-        Meteor.call("highscore23", {timerange: "all", stationId: "station2", limit: l2_a}, function (err, result) {
-            Session.set('highscore_2_all', result);
-        });
-
-        Meteor.call("highscore23", {timerange: "week", stationId: "station3", limit: l3_w}, function (err, result) {
-            Session.set('highscore_3_week', result);
-        });
-
-        Meteor.call("highscore23", {timerange: "all", stationId: "station3", limit: l3_a}, function (err, result) {
-            Session.set('highscore_3_all', result);
-        });
-
-        Meteor.call("highscore23", {timerange: "week", stationId: "station4", limit: l4_w}, function (err, result) {
-            Session.set('highscore_4_week', result);
-        });
-
-        Meteor.call("highscore23", {timerange: "all", stationId: "station4", limit: l4_a}, function (err, result) {
-            Session.set('highscore_4_all', result);
-        });
-
 
         // **** My Highscores
         Meteor.call("myHighscore", {timerange: "all"}, function (err, result) {
@@ -121,7 +75,86 @@ Tracker.autorun(function() {
             Session.set('myHS4_w', result);
         });
     }
-});
+})
+
+// **** Single Highscores
+
+
+Tracker.autorun(function() {
+    var l1_w = Session.get('Limit_1_Week');
+    if(Meteor.user()) {
+        var high = db.Highscores.findOne({timerange: "week", stationId: "station1"})
+        if (high)
+            Session.set('highscore_1_week', high.highscores)
+    }
+})
+
+Tracker.autorun(function() {
+    var l1_a = Session.get('Limit_1_All');
+    if(Meteor.user()) {
+        var high = db.Highscores.findOne({timerange: "all", stationId: "station1"})
+        if (high)
+            Session.set('highscore_1_all', high.highscores)
+    }
+})
+
+Tracker.autorun(function() {
+    var l2_w = Session.get('Limit_2_Week');
+    if(Meteor.user()) {
+        var high = db.Highscores.findOne({timerange: "week", stationId: "station2"})
+        if (high)
+            Session.set('highscore_2_week', high.highscores)
+    }
+})
+
+Tracker.autorun(function() {
+    var l2_a = Session.get('Limit_2_All');
+    if(Meteor.user()) {
+        var high = db.Highscores.findOne({timerange: "all", stationId: "station2"})
+        if (high)
+            Session.set('highscore_2_all', high.highscores)
+    }
+})
+
+Tracker.autorun(function() {
+    var l3_w = Session.get('Limit_3_Week');
+    if(Meteor.user()) {
+        var high = db.Highscores.findOne({timerange: "week", stationId: "station3"})
+        if (high)
+            Session.set('highscore_3_all', high.highscores)
+    }
+})
+
+Tracker.autorun(function() {
+    var l3_a = Session.get('Limit_3_All');
+    if(Meteor.user()) {
+        var high = db.Highscores.findOne({timerange: "all", stationId: "station3"})
+        if (high)
+            Session.set('highscore_3_all', high.highscores)
+    }
+})
+
+Tracker.autorun(function() {
+    var l4_w = Session.get('Limit_4_Week');
+    if(Meteor.user()) {
+        var high = db.Highscores.findOne({timerange: "week", stationId: "station4"})
+        if (high)
+            Session.set('highscore_4_week', high.highscores)
+    }
+})
+
+Tracker.autorun(function() {
+    var l4_a = Session.get('Limit_4_All');
+    if(Meteor.user()) {
+        var high = db.Highscores.findOne({timerange: "all", stationId: "station4"})
+        if (high)
+            Session.set('highscore_4_all', high.highscores)
+    }
+})
+
+
+
+
 
 Tracker.autorun(function() {
 
@@ -184,7 +217,6 @@ Tracker.autorun(function() {
         timerange:"all", teamCode:teamCode, stationId:"station3"
     });
     Session.set('highscore_3_all_team', result.highscores);
-    console.log( "huuuu",Session.get('highscore_3_all_team', result))
 
     result = db.TeamHighscores.findOne({
         timerange:"week", teamCode:teamCode, stationId:"station3"
@@ -261,6 +293,7 @@ Template.highscores.helpers({
         table.myWeek = Session.get("myHS1_w")
         table.myAll = Session.get("myHS1_a")
         table.stationImage = "./assets/images/station/Station_1_RZ.svg"
+        table.showPIN = false
         return table;
     },
     highscore_2: function() {
@@ -273,6 +306,7 @@ Template.highscores.helpers({
         table.myWeek = Session.get("myHS2_w")
         table.myAll = Session.get("myHS2_a")
         table.stationImage = "./assets/images/station/Station_3_RZ.svg"
+        table.showPIN = false
         return table;
     },
     highscore_3: function() {
@@ -285,6 +319,7 @@ Template.highscores.helpers({
         table.myWeek = Session.get("myHS3_w")
         table.myAll = Session.get("myHS3_a")
         table.stationImage = "./assets/images/station/Station_2_RZ.svg"
+        table.showPIN = false
         return table;
     },
     highscore_4: function() {
@@ -297,6 +332,7 @@ Template.highscores.helpers({
         table.myWeek = Session.get("myHS4_w")
         table.myAll = Session.get("myHS4_a")
         table.stationImage = "./assets/images/station/Station_4_RZ.svg"
+        table.showPIN = false
         return table;
     },
     highscore_1_team: function() {

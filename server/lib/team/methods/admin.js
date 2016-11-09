@@ -23,7 +23,7 @@ Meteor.methods({
                 console.log(result)
                 if(result == undefined) {
                     console.log(result)
-                    db.Team.insert({title:"Team "+t, teamCode:t}, { selector: { type: 'admin' } })
+                    db.Team.insert({title:"Team "+t, teamCode:t})
                 }
                 else {
                     console.log(t,"already existing")
@@ -34,7 +34,7 @@ Meteor.methods({
         else {
             _.forEach(teamCodes, function (t) {
                 console.log(t)
-                result = db.Team.findOne({teamCode: t}, { selector: { type: 'admin' } })
+                result = db.Team.findOne({teamCode: t})
                 if (result == undefined) {
                     console.log(result)
                     db.Team.insert({teamCode: t})
@@ -44,7 +44,16 @@ Meteor.methods({
                 }
             });
         }
+    },
 
-        var currentUserId = Meteor.userId();
+    'copyGroupIdToTeamCode': function() {
+        var comps = db.Competition23.find({groupId:{ $exists: true }}).fetch()
+        _.forEach(comps, function(item){
+            var teamCode = db.Team.findOne({teamCode: item.groupId});
+            if(teamCode !== undefined && teamCode !== null) {
+                console.log("modifying old/new", item.teamCode, item.groupId)
+                db.Competition23.update({_id:item._id}, {$set:{teamCode:item.groupId}})
+            }
+        })
     }
 });

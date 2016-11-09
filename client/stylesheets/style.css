@@ -108,3 +108,16 @@ body {
 .share-box>.share-buttons>.fb-share, .share-box>.share-buttons>.twitter-share {
   margin-bottom:10px !important;
 }
+
+.ui.timeline {
+  height: 20vh;
+  overflow: scroll;
+  overflow-x: hidden;
+}
+
+.innerHighscore {
+  height: 20vh !important;
+  overflow: scroll;
+  overflow-x: hidden;
+  display: block;
+}

@@ -5,7 +5,7 @@ Meteor.methods({
 
 
 
-            for(var i=0; i<2000; i++) {
+            for(var i=99990000; i<99999999; i++) {
                 var strI = String(i)
                 while(strI.length < 8)
                     strI = "0"+strI;
@@ -13,7 +13,7 @@ Meteor.methods({
                 result = db.Pin.findOne({pin:p})
                 if(result == undefined) {
                     console.log(result)
-                    db.Pin.insert({pin:p}, { selector: { type: 'admin' } })
+                    db.Pin.insert({pin:p})
                 }
                 else {
                     console.log(p,"already existing")
@@ -27,7 +27,7 @@ Meteor.methods({
                 result = db.Pin.findOne({pin:pin})
                 if(result == undefined) {
                     console.log(result)
-                    db.Pin.insert({pin:pin}, { selector: { type: 'admin' } })
+                    db.Pin.insert({pin:pin})
                 }
                 else {
                     console.log(pin,"already existing")
