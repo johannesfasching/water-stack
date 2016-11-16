@@ -112,7 +112,7 @@ Meteor.methods({
                     {   $match:
                     {
                         stationId:postData.stationId,
-                        createdAt: {
+                        timeStarted: {
                             $gte: startDate,
                             $lt: endDate
                         }
@@ -254,6 +254,7 @@ Meteor.methods({
             return res;
         },
 
+
     'highscore23_team':
         function (postData) {
             console.log("starting team 23 ", postData.stationId)
@@ -296,7 +297,7 @@ Meteor.methods({
                     {
                         stationId:postData.stationId,
                         teamCode: postData.teamCode,
-                        createdAt: {
+                        timeStarted: {
                             $gte: startDate,
                             $lt: endDate
                         }
@@ -452,7 +453,6 @@ Meteor.methods({
             function isDone() {
                 console.log(done)
                 if(done[0] && done[1] && done[2] && done[3]) {
-                    console.log("results", results)
                     //return results;
                     future.return( results );
                 }
@@ -467,7 +467,6 @@ Meteor.methods({
                 dateTo: postData.dateTo
 
             }, function (err, result) {
-                console.log(result)
                 results.station1 = result;
                 done[0] = true
                 isDone()
@@ -482,7 +481,6 @@ Meteor.methods({
                 dateTo: postData.dateTo
 
             }, function (err, result) {
-                console.log(result)
                 results.station2 = result;
                 done[1] = true
                 isDone()
@@ -497,7 +495,6 @@ Meteor.methods({
                 dateTo: postData.dateTo
 
             }, function (err, result) {
-                console.log(result)
                 results.station3 = result;
                 done[2] = true
                 isDone()
@@ -512,7 +509,6 @@ Meteor.methods({
                 dateTo: postData.dateTo
 
             }, function (err, result) {
-                console.log(result)
                 results.station4 = result;
                 done[3] = true
                 isDone()
@@ -561,11 +557,11 @@ Meteor.methods({
                     {   $match:
                     {
                         stationId:"station1",
-                        createdAt: {
+                        teamCode: postData.teamCode,
+                        timeStarted: {
                             $gte: startDate,
                             $lt: endDate
-                        },
-                        teamCode: postData.teamCode
+                        }
 
                     }
                     },

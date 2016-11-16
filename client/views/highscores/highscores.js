@@ -38,42 +38,100 @@ Session.set('Limit_3_All_t', 10);
 Session.set('Limit_4_Week_t', 10);
 Session.set('Limit_4_All_t', 10);
 
+
+function getMyHighscore(stationId, timerange) {
+    var resss = { rank:-1, totalPoints:0, time:0, pin:0, hasPlayed:false };
+    var pins = Session.get("pins");
+
+    var scores = db.Highscores.findOne({"stationId":stationId, timerange:timerange, "highscores.pin":{$in:pins}})
+    if(scores) {
+        var match = _.find(scores.highscores, function (item) {
+            if (_.contains(pins, item.pin))
+                return true;
+        })
+
+        if (match) {
+            match.hasPlayed = true;
+            return match
+        }
+    }
+    else {
+        return resss
+    }
+
+
+}
+
+function getMyHighscores() {
+    console.log("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx")
+
+    if(Meteor.user()) {
+
+
+        Session.set('myHS1_a', getMyHighscore("station1", "all"))
+        Session.set('myHS2_a', getMyHighscore("station2", "all"))
+        Session.set('myHS3_a', getMyHighscore("station3", "all"))
+        Session.set('myHS4_a', getMyHighscore("station4", "all"))
+
+        Session.set('myHS1_w', getMyHighscore("station1", "week"))
+        Session.set('myHS2_w', getMyHighscore("station2", "week"))
+        Session.set('myHS3_w', getMyHighscore("station3", "week"))
+        Session.set('myHS4_w', getMyHighscore("station4", "week"))
+    }
+}
+
+Meteor.startup(getMyHighscores)
+
 Tracker.autorun(function() {
     if(Meteor.user()) {
 
-        // **** My Highscores
-        Meteor.call("myHighscore", {timerange: "all"}, function (err, result) {
-            Session.set('myHS1_a', result);
-        });
+        Session.set('myHS1_a', getMyHighscore("station1", "all"))
+        Session.set('myHS2_a', getMyHighscore("station2", "all"))
+        Session.set('myHS3_a', getMyHighscore("station3", "all"))
+        Session.set('myHS4_a', getMyHighscore("station4", "all"))
 
-        Meteor.call("myHighscore23", {timerange: "all", stationId: "station2"}, function (err, result) {
-            Session.set('myHS2_a', result);
-        });
-
-        Meteor.call("myHighscore23", {timerange: "all", stationId: "station3"}, function (err, result) {
-            Session.set('myHS3_a', result);
-        });
-
-        Meteor.call("myHighscore23", {timerange: "all", stationId: "station4"}, function (err, result) {
-            Session.set('myHS4_a', result);
-        });
-
-
-        Meteor.call("myHighscore", {timerange: "week"}, function (err, result) {
-            Session.set('myHS1_w', result);
-        });
-
-        Meteor.call("myHighscore23", {timerange: "week", stationId: "station2"}, function (err, result) {
-            Session.set('myHS2_w', result);
-        });
-
-        Meteor.call("myHighscore23", {timerange: "week", stationId: "station3"}, function (err, result) {
-            Session.set('myHS3_w', result);
-        });
-
-        Meteor.call("myHighscore23", {timerange: "week", stationId: "station4"}, function (err, result) {
-            Session.set('myHS4_w', result);
-        });
+        Session.set('myHS1_w', getMyHighscore("station1", "week"))
+        Session.set('myHS2_w', getMyHighscore("station2", "week"))
+        Session.set('myHS3_w', getMyHighscore("station3", "week"))
+        Session.set('myHS4_w', getMyHighscore("station4", "week"))
+        //
+        //
+        //// **** My Highscores
+        //Meteor.call("myHighscore", {timerange: "all"}, function (err, result) {
+        //    Session.set('myHS1_a', result);
+        //});
+        //
+        //
+        //
+        //
+        //Meteor.call("myHighscore23", {timerange: "all", stationId: "station2"}, function (err, result) {
+        //    Session.set('myHS2_a', result);
+        //});
+        //
+        //Meteor.call("myHighscore23", {timerange: "all", stationId: "station3"}, function (err, result) {
+        //    Session.set('myHS3_a', result);
+        //});
+        //
+        //Meteor.call("myHighscore23", {timerange: "all", stationId: "station4"}, function (err, result) {
+        //    Session.set('myHS4_a', result);
+        //});
+        //
+        //
+        //Meteor.call("myHighscore", {timerange: "week"}, function (err, result) {
+        //    Session.set('myHS1_w', result);
+        //});
+        //
+        //Meteor.call("myHighscore23", {timerange: "week", stationId: "station2"}, function (err, result) {
+        //    Session.set('myHS2_w', result);
+        //});
+        //
+        //Meteor.call("myHighscore23", {timerange: "week", stationId: "station3"}, function (err, result) {
+        //    Session.set('myHS3_w', result);
+        //});
+        //
+        //Meteor.call("myHighscore23", {timerange: "week", stationId: "station4"}, function (err, result) {
+        //    Session.set('myHS4_w', result);
+        //});
     }
 })
 

@@ -1,6 +1,8 @@
 <template name="pointTable">
     <div class="ui fluid center aligned basic fitted very padded container segment">
         <h1>Allgemeine Punkte Tabelle</h1>
+        <button type="button" id="actionButton">Action</button>
+        <input id="teamPinDate" class="ui dropdown datetimepicker dateFrom" type="text" name="daterange" value="01/01/2015 0:00 PM - 01/02/2015 0:00 PM" />
 
         {{> reactiveTable settings=reactPoints}}
 

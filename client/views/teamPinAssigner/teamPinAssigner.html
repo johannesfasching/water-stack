@@ -1,0 +1,79 @@
+<template name = "teamPinAssigner">
+    <main class="ui main">
+        <header class="ui center aligned profile header">
+            <div class="ui container"><a class="ui toggle-sidebar" href="#">
+                <svg class="icon menu">
+                    <use xlink:href="./assets/images/icons.svg#menu"></use>
+                </svg></a>
+                <a class="ui add-pin secondary mini button" href="javascript:void(0)">+ Neuen PIN hinzufügen</a>
+                <div class="content">
+                    <svg class="icon trophy">
+                        <use xlink:href="./assets/images/icons.svg#trophy"></use>
+                    </svg>
+                    <h1 class="title">Bestenliste</h1>
+                </div>
+            </div>
+        </header>
+
+        <div class="ui container wideContainer">
+
+            <section class="ui section">
+
+                    <div class="ui fluid container segment">
+                        <div class="ui form">
+                            <div class="grouped fields">
+                                <label>Wähle die Stationen</label>
+
+                                <div class="field disabled">
+                                    <div class="ui slider checkbox checked disabled">
+                                        <input type="checkbox" class="checkStation1 checkboxStations disabled" checked="checked">
+                                        <label>station 1</label>
+                                    </div>
+                                </div>
+                                <div class="field">
+                                    <div class="ui slider checkbox checked">
+                                        <input type="checkbox" class="checkStation2 checkboxStations" checked="checked">
+                                        <label>station 2</label>
+                                    </div>
+                                </div>
+                                <div class="field">
+                                    <div class="ui slider checkbox checked">
+                                        <input type="checkbox" class="checkStation3 checkboxStations" checked="checked">
+                                        <label>station 3</label>
+                                    </div>
+                                </div>
+                                <div class="field">
+                                    <div class="ui slider checkbox checked">
+                                        <input type="checkbox" class="checkStation4 checkboxStations" checked="checked">
+                                        <label>station 4</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ui fluid container segment">
+                        <input id="teamPinDate" class="ui dropdown datetimepicker dateFrom" type="text" name="daterange" value="01/01/2015 0:00 PM - 01/02/2015 0:00 PM" />
+                        <br>
+                    </div>
+
+
+                <div class="ui fluid center aligned basic fitted very padded wideContainer container segment">
+
+
+                        <input id="checkboxAll" type="checkbox" name="checkboxAll"  value="value">
+                        <label id="checkboxAllLabel" for="checkboxAll">Check All</label>
+                        {{> reactiveTable settings=reactPoints}}
+                        <input type="text" id="teamCodeNew" name="teamCodeNew">
+                        <label id="teamCodeNewLabel" for="teamCodeNew">Neuer Teamcode</label>
+                        <button type="button" id="actionButton">Action</button>
+                    </div>
+            </section>
+        </div>
+
+        <div class="ui fluid center aligned basic fitted very padded container segment">
+            {{> quickForm collection="db.Competition23" doc=currentDoc id="updateComp23" type="update"}}
+        </div>
+
+    </main>
+</template>

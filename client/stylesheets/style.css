@@ -121,3 +121,12 @@ body {
   overflow-x: hidden;
   display: block;
 }
+
+#checkboxAll, #checkboxAllLabel {
+  float:left;
+}
+
+.wideContainer {
+  width: initial !important;
+  max-width: initial !important;
+}

@@ -45,42 +45,46 @@
                 </div>
 
 
-
                 <input class="ui dropdown datetimepicker dateFrom" type="text" name="daterange" value="01/01/2015 0:00 PM - 01/02/2015 0:00 PM" />
-                <input class="ui dropdown datetimepicker dateTo" type="text" name="daterange" value="01/01/2015 0:00 PM - 01/02/2015 0:00 PM" />
 
                 <br>
-                <div class="ui form">
-                    <div class="grouped fields">
-                        <label>Wähle Daten für das PDF</label>
-                        <div class="field">
-                            <div class="ui slider checkbox checked">
-                                <input type="checkbox" name="throughput" checked="checked">
-                                <label>Pin</label>
-                            </div>
-                        </div>
-                        <div class="field">
-                            <div class="ui slider checkbox checked">
-                                <input type="checkbox" name="throughput">
-                                <label>Name</label>
-                            </div>
-                        </div>
-                        <div class="field">
-                            <div class="ui slider checkbox checked">
-                                <input type="checkbox" name="throughput">
-                                <label>Punkte</label>
-                            </div>
-                        </div>
-                        <div class="field">
-                            <div class="ui slider checkbox checked">
-                                <input type="checkbox" name="throughput">
-                                <label>Zeit</label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <button class="ui primary button printToPdf" text="enter">PDF</button>
+                <!--<div class="ui form">-->
+                    <!--<div class="grouped fields">-->
+                        <!--<label>Wähle Daten für das PDF</label>-->
+                        <!--<div class="field">-->
+                            <!--<div class="ui slider checkbox checked">-->
+                                <!--<input type="checkbox" class="checkPin" checked="checked">-->
+                                <!--<label>Pin</label>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--<div class="field">-->
+                            <!--<div class="ui slider checkbox checked">-->
+                                <!--<input type="checkbox" class="checkName">-->
+                                <!--<label>Name</label>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--<div class="field">-->
+                            <!--<div class="ui slider checkbox checked">-->
+                                <!--<input type="checkbox" class="checkPoint">-->
+                                <!--<label>Punkte</label>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--<div class="field">-->
+                            <!--<div class="ui slider checkbox checked">-->
+                                <!--<input type="checkbox" class="checkTime">-->
+                                <!--<label>Zeit</label>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <button class="ui primary button printToPdf" text="enter">CSV</button>
 
+                <div class="ui segment">
+                    <div class="ui teamLoading dimmer">
+                        <div class="ui small text loader">Loading</div>
+                    </div>
+                    <p></p>
+                </div>
 
                     <!--{{#if hasTeamSelected}}-->
                 <div class="body full">

@@ -236,39 +236,72 @@ Template.highscoresTeam.events({
         $(".team-row").removeClass("active")
         $(e.target).parent().addClass("active")
         console.log(Session.get("selectedTeamId"))
+        updateTeam()
     },
     'click .printToPdf': function(e) {
-        var doc = new PDFDocument({size: 'A4', margin: 50});
-        doc.fontSize(20)
-            .fillColor('#8AAAD9')
-            .text('Wasser Raelly 2016',{align: 'center'})
-            .text('TeamCode: ' + Session.get("selectedTeamId"),{align: 'center'})
-            .moveDown()
-            .moveDown()
-            .fillColor('#000')
+        var checkPin = $(".checkPin").is(':checked');
+        var checkName = $(".checkName").is(':checked');
+        var checkPoint = $(".checkPoint").is(':checked');
+        var checkTime = $(".checkTime").is(':checked');
 
+        var teamCode = Session.get("selectedTeamId")
+        var title = db.Team.findOne({teamCode:teamCode}).title
 
+        var str = "Wasserralley\n" + "Team: "+ teamCode + ", " + title + "\n"
+        str+= "Gespielt am: " + moment($(".dateFrom").val(), "DD.MM.YYYY").format("DD.MMMM.YYYY") + "\n\n"
         _.forEach(Scores, function(item) {
             var table = item();
-            doc.fontSize(14)
-                .fillColor('#8AAAD9')
-                .text(table.title, {align: 'center'})
-                .moveDown()
-                .fontSize(10)
-                .fillColor("#000")
+
+            str += "\n" + table.title + "\n"
             var scores =  table.scores
             _.forEach(scores, function(score) {
-                doc.moveDown();
-                doc.text(score.rank + "   " + score.totalPoints);
+                str += score.rank + ";" + score.pin + ";" + score.totalPoints + "\n";
             })
         })
+
+
+        //console.log("csv",csvContent)
+        window.open('data:text/csv;charset=utf-8,' + escape(str), '_self');
+        //
+        //doc.fontSize(20)
+        //    .fillColor('#8AAAD9')
+        //    .text('Wasser Raelly 2016',{align: 'center'})
+        //    .text('TeamCode: ' + Session.get("selectedTeamId"),{align: 'center'})
+        //    .moveDown()
+        //    .moveDown()
+        //    .fillColor('#000')
+        //
+        //
+        //_.forEach(Scores, function(item) {
+        //    var table = item();
+        //    doc.fontSize(14)
+        //        .fillColor('#8AAAD9')
+        //        .text(table.title, {align: 'center'})
+        //        .moveDown()
+        //        .fontSize(10)
+        //        .fillColor("#000")
+        //    var scores =  table.scores
+        //    _.forEach(scores, function(score) {
+        //        doc.moveDown();
+        //        var str = score.rank;
+        //        if(checkPin)
+        //            str += "   " + score.pin;
+        //        if(checkName)
+        //            str+="   " + score.userName;
+        //        if(checkPoint)
+        //            str+="   " + score.totalPoints;
+        //        if(checkTime)
+        //            str+="   " + score.time;
+        //        doc.text(str);
+        //    })
+        //})
 
         //var scores = Session.get("highscore_3_team")
 
 
 
 
-        doc.write('PDFKitExampleClientSide.pdf');
+        //doc.write('PDFKitExampleClientSide.pdf');
         //Blaze.outputAsPDF(Template.highscoreTableTeam, "dataurlnewwindow", {
         //    data: {table:Session.get("highscore3_pdf")},
         //    //table: Session.get("highscore3_pdf"),
@@ -282,46 +315,62 @@ Template.highscoresTeam.events({
     }
 });
 
-Template.highscoresTeam.onRendered(function() {
-    $(".ui.checkbox").checkbox('setting', 'onChange', function () {
-        console.log('fire!',this);
+function updateTeam() {
+    console.log( $(".dateFrom").val() )
+    $('.teamLoading').addClass("active")
+
+    Meteor.call("highscore_teams", {
+        teamCode: Session.get("selectedTeamId"),
+        dateFrom: moment($(".dateFrom").val(), "DD.MM.YYYY").format(),
+        dateTo: moment($(".dateFrom").val(), "DD.MM.YYYY").add(1,'d').format()
+
+    }, function (err, result) {
+        console.log("result:", result)
+        Session.set("highscore_1_team", result.station1)
+        Session.set("highscore_2_team", result.station2)
+        Session.set("highscore_3_team", result.station3)
+        Session.set("highscore_4_team", result.station4)
+        $('.teamLoading').removeClass("active")
+
+        //results = []
+        //_.forEach(result, function (item) {
+        //    results.push({
+        //            rank: item.rank,
+        //            totalPoints: item.totalPoints,
+        //            time: item.time,
+        //            userName: item.userName,
+        //            pin: item.pin,
+        //            userId: item.userId
+        //        }
+        //    )
+        //});
+        //
+        //db.TeamHighscores.upsert({teamCode: teamCode, timerange:timeRange, stationId:stationId}, {$set: {highscores:results}} )
     });
+}
+
+Template.highscoresTeam.onRendered(function() {
+    //$(".ui.checkbox").checkbox('setting', 'onChange', function () {
+    //    console.log('fire!',this);
+    //});
+
 
     this.$('.datetimepicker').datetimepicker({
         lang: "de",
+        todayButton: true,
+        timepicker:false,
+        format:'DD.MM.YYYY',
+        formatDate:'DD.MM.YYYY',
+        startDate:moment().date(),
+        date: moment().date(),
+        value:moment().date(),
+        inline:true,
+        //format:'d.m.Y',
         onChangeDateTime:function(dp,$input){
-            //console.log($input.val())
-            console.log( $(".dateFrom").val() )
-            console.log( $(".dateTo").val() )
-
-            Meteor.call("highscore_teams", {
-                teamCode: Session.get("selectedTeamId"),
-                dateFrom: $(".dateFrom").val(),
-                dateTo: $(".dateTo").val()
-
-            }, function (err, result) {
-                console.log("result:", result)
-                Session.set("highscore_1_team", result.station1)
-                Session.set("highscore_2_team", result.station2)
-                Session.set("highscore_3_team", result.station3)
-                Session.set("highscore_4_team", result.station4)
-
-                             //results = []
-                //_.forEach(result, function (item) {
-                //    results.push({
-                //            rank: item.rank,
-                //            totalPoints: item.totalPoints,
-                //            time: item.time,
-                //            userName: item.userName,
-                //            pin: item.pin,
-                //            userId: item.userId
-                //        }
-                //    )
-                //});
-                //
-                //db.TeamHighscores.upsert({teamCode: teamCode, timerange:timeRange, stationId:stationId}, {$set: {highscores:results}} )
-            });
+            updateTeam()
         }
     });
+
+
 
 })

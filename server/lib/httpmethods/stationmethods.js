@@ -28,10 +28,24 @@ HTTP.methods({
                     questionPoints: postData.questionPoints
                 })
 
-                var teamCode = db.Pin.findOne({pin:postData.pin}).teamCode
-                if( teamCode != null && teamCode != undefined) {
-                    db.Competition.update({_id: id},{$set:{teamCode:teamCode}})
+                // Assign Team to Pin if teamCode exists
+                if(postData.groupId) {
+                    var teamCode = db.Team.findOne({teamCode:postData.groupId}).teamCode
+                    if( teamCode != null && teamCode != undefined) {
+                        db.Pin.update(
+                            { pin:postData.pin },
+                            { $set: {teamCode: postData.groupId} }
+                        )
+                    }
+                    var teamCode = db.Pin.findOne({pin:postData.pin}).teamCode
+                    if( teamCode != null && teamCode != undefined) {
+                        db.Competition.update({_id: id},{$set:{teamCode:teamCode}})
+                    }
                 }
+
+
+                // Assign Teamcode to competition if Pin has already teamcode
+
 
                 return (JSON.stringify(postData))
             }
@@ -60,6 +74,19 @@ HTTP.methods({
                     timeStarted: postData.timeStarted,
                     timeEnded: postData.timeEnded
                 })
+
+                // Assign Team to Pin if teamCode exists
+                if(postData.groupId) {
+                    var teamCode = db.Team.findOne({teamCode:postData.groupId}).teamCode
+                    if( teamCode != null && teamCode != undefined) {
+                        db.Pin.update(
+                            { pin:postData.pin },
+                            { $set: {teamCode: postData.groupId} }
+                        )
+                    }
+                }
+
+
 
                 //var teamCode = db.Pin.findOne({pin:postData.pin}).teamCode
                 //if( teamCode != null && teamCode != undefined) {
