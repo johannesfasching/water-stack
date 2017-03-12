@@ -18,11 +18,13 @@
         <div class="ui container wideContainer">
 
             <section class="ui section">
-
+                <div class="ui horizontal divider">
+                    Wähle die Stationen (Station 1 - Quizz, ist noch nicht enthalten, da eigene Tabelle)
+                </div>
                     <div class="ui fluid container segment">
+
                         <div class="ui form">
                             <div class="grouped fields">
-                                <label>Wähle die Stationen</label>
 
                                 <div class="field disabled">
                                     <div class="ui slider checkbox checked disabled">
@@ -52,11 +54,18 @@
                         </div>
                     </div>
 
+                <div class="ui horizontal divider">
+                    Wähle den Tag
+                </div>
+
                     <div class="ui fluid container segment">
                         <input id="teamPinDate" class="ui dropdown datetimepicker dateFrom" type="text" name="daterange" value="01/01/2015 0:00 PM - 01/02/2015 0:00 PM" />
                         <br>
                     </div>
 
+                <div class="ui horizontal divider">
+                    Hier kannst du nochmals filtern und jede Spalte sortieren. Der Filter wirkt sich auf alle Spalten aus.
+                </div>
 
                 <div class="ui fluid center aligned basic fitted very padded wideContainer container segment">
 
@@ -65,12 +74,15 @@
                         <label id="checkboxAllLabel" for="checkboxAll">Check All</label>
                         {{> reactiveTable settings=reactPoints}}
                         <input type="text" id="teamCodeNew" name="teamCodeNew">
-                        <label id="teamCodeNewLabel" for="teamCodeNew">Neuer Teamcode</label>
-                        <button type="button" id="actionButton">Action</button>
+                        <label id="teamCodeNewLabel" for="teamCodeNew">Neuer Teamcode (selektierte Einträge)</label>
+                        <button type="button" id="actionButton">TEAMCODE ÄNDERN</button>
                     </div>
             </section>
         </div>
 
+        <div class="ui horizontal divider">
+            Hier kannst du einen einzelnen Eintrag ändern - einfach oben in eine Zeile der Tabelle klicken
+        </div>
         <div class="ui fluid center aligned basic fitted very padded container segment">
             {{> quickForm collection="db.Competition23" doc=currentDoc id="updateComp23" type="update"}}
         </div>

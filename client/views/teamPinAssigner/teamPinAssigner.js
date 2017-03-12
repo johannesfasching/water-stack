@@ -7,10 +7,12 @@
 Session.set("filterTeamPin", {
         stationId:{$in:["station1", "station2", "station3", "station4"]},
         timeStarted:{
-            $gte:new Date("2016-11-09 10:43:11.000Z")
+            $gte:new Date(moment().add(-2,'d').format())
         }
     }
 )
+
+Session.set("stationsForTeamPin", ["station1", "station2", "station3", "station4"])
 
 Template.teamPinAssigner.helpers({
 
@@ -145,6 +147,7 @@ function updateFilter() {
             }
         }
     )
+    console.log( Session.get("filterTeamPin") )
 }
 
 Template.teamPinAssigner.onRendered(function() {
