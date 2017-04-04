@@ -28,15 +28,25 @@ Meteor.startup(function() {
 
   // Add Google configuration entry
   ServiceConfiguration.configurations.update(
-    { service: "google" },
-    { $set: {
-        clientId: "830637270069-1kmv93slthg6bod173f88l5b6nodi9qe.apps.googleusercontent.com",
-        client_email: "fasching@golemdigital.at",
-        secret: "GQc0D0vFVAUJ-h4286kMiMEZ"
+      { service: "google" },
+      { $set: {
+          clientId: "1056370637316-6smth4arafdng7p4ni72r3m7aovjl4k6.apps.googleusercontent.com",
+          client_email: "fasching@golemdigital.at",
+          secret: "Dwg2KxbIavGTgUYPhtY3brxG"
       }
-    },
-    { upsert: true }
+      },
+      { upsert: true }
   );
+  //ServiceConfiguration.configurations.update(
+  //  { service: "google" },
+  //  { $set: {
+  //      clientId: "830637270069-1kmv93slthg6bod173f88l5b6nodi9qe.apps.googleusercontent.com",
+  //      client_email: "fasching@golemdigital.at",
+  //      secret: "GQc0D0vFVAUJ-h4286kMiMEZ"
+  //    }
+  //  },
+  //  { upsert: true }
+  //);
 
   // Add Linkedin configuration entry
   /*

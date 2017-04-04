@@ -1,19 +1,27 @@
 HTTP.methods({
+
+// *******************************************************************
+//
+//             get all competitions Quizzstation
+//
+// *******************************************************************
     '/api/getStation': {
         get: function (data) {
             return db.Competition.find().fetch()
         }
     },
-    '/api/startTeam': {
-        post: function (data) {
-            console.log("data",JSON.stringify(data))
-            return (JSON.stringify(data))
-        }
-    },
+
+
+
+// *******************************************************************
+//
+//             Add Competition from Station1 (Quizzstation)
+//
+// *******************************************************************
     '/api/addCompetition': {
         post: function (data) {
             var postData = JSON.parse(data);
-            console.log("data", postData)
+            console.log("API: addCompetition - Data", postData)
 
             if(postData.pin && postData.stationId && postData.timeStarted && postData.timeEnded && postData.gamePoints) {
 
@@ -30,16 +38,22 @@ HTTP.methods({
 
                 // Assign Team to Pin if teamCode exists
                 if(postData.groupId) {
-                    var teamCode = db.Team.findOne({teamCode:postData.groupId}).teamCode
+                    var teamCode = db.Team.findOne({teamCode:postData.groupId})
                     if( teamCode != null && teamCode != undefined) {
-                        db.Pin.update(
-                            { pin:postData.pin },
-                            { $set: {teamCode: postData.groupId} }
-                        )
+                        teamCode = teamCode.teamCode
+                        if( teamCode != null && teamCode != undefined) {
+                            db.Pin.update(
+                                {pin: postData.pin},
+                                {$set: {teamCode: postData.groupId}}
+                            )
+                        }
                     }
-                    var teamCode = db.Pin.findOne({pin:postData.pin}).teamCode
+                    var teamCode = db.Pin.findOne({pin:postData.pin})
                     if( teamCode != null && teamCode != undefined) {
-                        db.Competition.update({_id: id},{$set:{teamCode:teamCode}})
+                        teamCode = teamCode.teamCode
+                        if( teamCode != null && teamCode != undefined) {
+                            db.Competition.update({_id: id}, {$set: {teamCode: teamCode}})
+                        }
                     }
                 }
 
@@ -56,10 +70,16 @@ HTTP.methods({
 
         }
     },
+
+// *******************************************************************
+//
+//             Add Competition from Station2,3,4
+//
+// *******************************************************************
     '/api/addCompetition23': {
         post: function (data) {
             var postData = JSON.parse(data);
-            console.log("data", postData)
+            console.log("API: addCompetition23 - Data", postData)
 
             if(postData.pin) {
 
@@ -103,11 +123,16 @@ HTTP.methods({
         }
     },
 
-    //Api for stationRanking (station 2 and 3)
+// *******************************************************************
+//
+//            Api for stationRanking - Station2,3,4
+//            Ranks Players for Station X, including anonymous - Results in One Entry per Pin (including -1)
+//
+// *******************************************************************
     '/api/station': {
         post: function (data) {
             var postData = JSON.parse(data);
-            console.log("data", postData)
+            console.log("API: station - Data", postData)
             if(!postData.stationId)
                 return "Error: no stationId provided"
 
@@ -141,7 +166,6 @@ HTTP.methods({
                 ]
             )
 
-            console.log("XXXXX", JSON.stringify(result) )
 
 
             var res = []
@@ -165,10 +189,32 @@ HTTP.methods({
             return ("{\"data\":" + JSON.stringify(res) + "}" )
         }
     },
+
+    '/api/station_new': {
+        post: function (data) {
+            var postData = JSON.parse(data);
+            console.log("API: station - Data", postData)
+            if(!postData.stationId)
+                return "Error: no stationId provided"
+
+            var highscores = db.Highscores.find(
+                {stationId:postData.stationId},
+                {fields: {_id:0, userId:0}}).fetch()
+
+
+            return ("{\"data\":" + JSON.stringify(highscores) + "}" )
+        }
+    },
+
+// *******************************************************************
+//
+//            Api for stationRanking - Station2,3,4
+//
+// *******************************************************************
     '/api/user': {
         post: function (data) {
             var postData = JSON.parse(data);
-            console.log("data", postData)
+            console.log("API: user - Data", postData)
             if(!postData.pin || !postData.stationId)
                 return "Error: no pin provided"
 
@@ -264,11 +310,15 @@ HTTP.methods({
         }
     },
 
-    //Api for unregistered Users
+// *******************************************************************
+//
+//            Api for stationRanking - Station2,3,4
+//
+// *******************************************************************
     '/api/ranking': {
         post: function (data) {
             var postData = JSON.parse(data);
-            console.log("data", postData)
+            console.log("API: ranking - Data", postData)
             if(!postData.stationId)
                 return "Error: no stationId provided"
 

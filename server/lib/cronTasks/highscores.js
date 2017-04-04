@@ -1,3 +1,13 @@
+
+
+// *******************************************************************
+//
+//              Team Higscores Cache
+//
+// *******************************************************************
+
+
+
 function getTeamHighscore(call, teamCode, stationId, timeRange) {
     Meteor.call(call, {
         timerange: timeRange,
@@ -23,7 +33,7 @@ function getTeamHighscore(call, teamCode, stationId, timeRange) {
 }
 
 function getTeamHighscores() {
-    console.log("getTeamHighscores")
+    console.log("Cronjob: getTeamHighscores... Starting")
     var teams = db.Team.find({});
     teamCodes = []
     teams.forEach(function(item) {
@@ -40,12 +50,26 @@ function getTeamHighscores() {
         getTeamHighscore("highscore23_team", teamCode, "station4", "all");
         getTeamHighscore("highscore23_team", teamCode, "station4", "week");
     })
+
+    console.log("Cronjob: getTeamHighscores... End")
+
 }
 
 Meteor.setInterval(
     function() {
         getTeamHighscores()
     }, 10*60*1000)
+
+
+
+
+
+
+// *******************************************************************
+//
+//              Higscores Cache
+//
+// *******************************************************************
 
 
 function getHighscore(call, stationId, timeRange) {
@@ -72,7 +96,7 @@ function getHighscore(call, stationId, timeRange) {
 }
 
 function getHighscores() {
-    console.log("getHighscores")
+    console.log("Cronjob: getHighscores... Starting")
     getHighscore("highscore", "station1", "all");
     getHighscore("highscore", "station1", "week");
     getHighscore("highscore23", "station2", "all");
@@ -81,12 +105,14 @@ function getHighscores() {
     getHighscore("highscore23", "station3", "week");
     getHighscore("highscore23", "station4", "all");
     getHighscore("highscore23", "station4", "week");
+    console.log("Cronjob: getHighscores... End")
+
 }
 
 Meteor.setInterval(
     function() {
         getHighscores()
-    }, 12*60*1000)
+    }, 10*60*1000)
 
 
 Meteor.startup(function() {
