@@ -3,25 +3,25 @@
 # 'meteor add' and 'meteor remove' will edit this file for you,
 # but you can also edit it by hand.
 
-accounts-password@1.3.1
-accounts-google@1.0.11
+accounts-password@1.3.4
+accounts-google@1.1.1
 service-configuration@1.0.11
 
 useraccounts:semantic-ui
 zimme:active-route
 meteor-base@1.0.4
 mobile-experience@1.0.4
-mongo@1.1.14
+mongo@1.1.16
 blaze-html-templates@1.0.4
 session@1.1.7
 jquery@1.11.10
-tracker@1.1.1
-logging@1.1.16
+tracker@1.1.2
+logging@1.1.17
 reload@1.1.11
 random@1.0.10
 ejson@1.0.13
 spacebars@1.0.12
-check@1.2.4
+check@1.2.5
 useraccounts:flow-routing
 arillo:flow-router-helpers
 kadira:blaze-layout
@@ -40,20 +40,20 @@ dburles:collection-helpers
 cfs:http-methods
 aslagle:reactive-table
 aldeed:tabular
-standard-minifier-css@1.3.2
-standard-minifier-js@1.2.1
+standard-minifier-css@1.3.4
+standard-minifier-js@1.2.3
 cfs:standard-packages
 cfs:filesystem
 utilities:avatar
 meteorhacks:aggregate
-shell-server@0.2.1
+shell-server@0.2.3
 semantic:ui
-less@2.7.6
+less@2.7.9
 alizbeo:flow-db-admin
 aldeed:delete-button
-accounts-facebook@1.0.11
+accounts-facebook@1.1.1
 accounts-ui@1.1.9
-npm-mongo@2.2.11_2
+npm-mongo@2.2.24
 simple:reactive-method
 liberation:shareit
 drewy:datetimepicker
@@ -62,3 +62,5 @@ pascoual:pdfkitx
 semantic:ui-checkbox
 clinical:csv
 semantic:ui-loader
+facebook-config-ui
+google-config-ui
